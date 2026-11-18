@@ -1,0 +1,27 @@
+{
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "title": "Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services",
+  "creators": [
+    {
+      "name": "He, Xiguan",
+      "affiliation": "College of Information, Yunnan University of Chinese Medicine"
+    }
+  ],
+  "description": "<p>Aggregated large language model (LLM) services expose declared model identifiers while abstracting the backend configurations that fulfill client requests. We present <strong>HuePrint</strong>, a lightweight black-box framework that audits brokered endpoint consistency via short structured color elicitation (<code>#RRGGBB</code> and <code>R,G,B</code>) and continuous geometric distribution comparison without requiring model weights or token probabilities.</p><p>Across 34,528 deduplicated live cloud responses spanning 56 endpoints and 12 backends (Datasets A&ndash;E and Studies S1&ndash;S4), HuePrint lowers 30-call-per-side equal error rates from 4.52&ndash;5.23% for a single-word battery to 0.94&ndash;1.00% on the development cohort and from 6.25&ndash;8.04% to 3.49&ndash;5.00% across 20 locked endpoints, reaching 0.00% at moderate depth. Continuous and multi-scale RGB distances halve shallow-census error vs. exact-hex divergence (5.36% vs. 10.71%), cut cross-provider error from 16.67% to 5.93%, retain 0.00% ranking error across three-week and cross-gateway checks where strict equality tests reject up to 42.86% of genuine pairs, and bound numerical perturbations.</p><p>This Zenodo record includes the complete preprint with supplementary material (<code>HuePrint_Preprint.pdf</code>, 28 pages), standalone main and supplementary PDFs, and a self-contained offline replication package (<code>HuePrint_Replication_Package.zip</code>) containing all 12 read-only JSONL response corpora, multilingual prompt batteries, statistical analysis scripts, unit tests, and SHA-256 integrity manifests.</p>",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "version": "1.0.0",
+  "publication_date": "2026-11-18",
+  "keywords": [
+    "Services computing",
+    "Model-as-a-Service (MaaS)",
+    "Large language models",
+    "Service-level monitoring",
+    "API brokerage",
+    "Behavioral consistency auditing",
+    "Energy statistics"
+  ],
+  "notes": "Software and scripts in HuePrint_Replication_Package.zip are dual-licensed under the MIT License; manuscript, figures, and empirical datasets are licensed under CC BY 4.0."
+}

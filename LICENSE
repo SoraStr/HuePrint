@@ -1,0 +1,41 @@
+Dual License Notice for HuePrint
+================================
+
+1. Software and Analysis Scripts (MIT License)
+----------------------------------------------
+All source code and scripts in this repository (`*.py`, `scripts/`, `tests/`)
+are licensed under the MIT License below, except third-party typesetting class
+and font files (`paper/ieee/IEEEtran.cls` under the LPPL 1.3+ and
+`paper/fonts/DejaVuSans.ttf` under the Bitstream Vera / Arev license in
+`paper/fonts/LICENSE_DEJAVU`).
+
+MIT License
+
+Copyright (c) 2026 Xiguan He
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+2. Manuscript, Figures, Documentation, and Empirical Datasets (CC BY 4.0)
+-------------------------------------------------------------------------
+The preprint manuscript, supplementary material, figures (`figs/`, `paper/`),
+documentation (`README.md`, `docs/`, `REFERENCE_AUDIT.md`), configuration
+batteries (`config/`), response logs (`data/`, `extensions/`), and statistical
+tables (`results/`) are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/

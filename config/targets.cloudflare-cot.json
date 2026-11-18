@@ -1,0 +1,131 @@
+{
+  "_comment": "Cloudflare Workers AI - reasoning (CoT) models, post-reasoning answer channel. Budgets are the minimum verified sufficient on this account; all produce a visible color answer.",
+  "targets": [
+    {
+      "id": "cf-gpt-oss-120b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/openai/gpt-oss-120b",
+      "max_tokens": 512,
+      "reasoning_mode": "low"
+    },
+    {
+      "id": "cf-gpt-oss-20b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/openai/gpt-oss-20b",
+      "max_tokens": 512,
+      "reasoning_mode": "low"
+    },
+    {
+      "id": "cf-nemotron-3-120b-a12b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/nvidia/nemotron-3-120b-a12b",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-qwen3.8-27b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-deepseek-v4-flash-0731-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/deepseek-ai/deepseek-v4-flash-0731",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-deepseek-v4-pro-0813-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-deepseek-v4.1-flash-1017-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-deepseek-r1-distill-qwen-32b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-kimi-k2.6-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/moonshotai/kimi-k2.6",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-kimi-k2.7-code-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/moonshotai/kimi-k2.7-code",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-glm-5.2-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/zai-org/glm-5.2",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-glm-5.3-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/zai-org/glm-5.3",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-glm-5.3-flash-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/zai-org/glm-5.3-flash",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-gemma-4-26b-a4b-cot",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "max_tokens": 512,
+      "reasoning_mode": "disabled"
+    }
+  ]
+}

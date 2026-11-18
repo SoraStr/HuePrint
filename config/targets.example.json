@@ -1,0 +1,31 @@
+{
+  "targets": [
+    {
+      "id": "openai-gpt-4o",
+      "protocol": "cc",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY",
+      "model": "gpt-4o",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "anthropic-claude-sonnet",
+      "protocol": "anthropic-messages",
+      "base_url": "https://api.anthropic.com",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model": "claude-sonnet-4-5-20250929",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "claude-code-relay-sonnet",
+      "protocol": "claude-code",
+      "base_url": "https://your-relay-host.example.com",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model": "claude-sonnet-4-5-20250929",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    }
+  ]
+}

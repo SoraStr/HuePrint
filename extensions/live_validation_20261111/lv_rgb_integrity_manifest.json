@@ -1,0 +1,45 @@
+{
+  "analysis_protocol": {
+    "version": "rgb100_v1_20261111",
+    "color_space": "sRGB_encoded",
+    "geometry_transform": "100 * RGB / 255",
+    "geometry_range": [
+      0.0,
+      100.0
+    ],
+    "rgb_scale": 0.39215686274509803,
+    "energy_delta0": 15.0,
+    "w2_covariance_regularization": 0.001,
+    "w2_length_scale": 50.0,
+    "hard_voxel_width_rgb255": 32,
+    "soft_voxel_width_rgb255": 48.0,
+    "parser_version": "3.0"
+  },
+  "total_files": 24,
+  "sha256": {
+    "analyze.py": "ea6fde60f8464e144c5ad3bb9d095c9b6f58ed971c8dfbb87d57af4580cba6e6",
+    "collect.py": "61b2c775172c3b60e770643d58bdd4c4d6140b3e79788b77146f9fe46632f06b",
+    "config/prompts.bruckner_baseline.json": "8bf8071452167d2e3dbef7c7964123cad46513bea5d409b49d6f28886e72275d",
+    "config/prompts.implicit_css.json": "faff026a7ca80f74118f2133d4dc3e97e5739976b68af2c29d569e7410ff5293",
+    "config/prompts.implicit_v5_exact.json": "100fcaacb6cf0a7e0d539a6e166ba32108941ee365a61b9dbe9097e8c3444973",
+    "config/prompts.json": "3dfa51630f2c9fc105c464d4339a9608d02c54572cc194da22229cfc9b5a6dc5",
+    "data/exp_40u15r.jsonl": "8f906747b8cb4175c2cb00a9b6d78c8fe39c185c520f83857743faf46f1b3840",
+    "data/exp_heldout_confirm.jsonl": "8bf42d8f95ded8950268de9fb998c3146ae0353852f96a06b67f27e3df9276dc",
+    "data/reproduce_all_rgb_summary.json": "7f8d723995eae01a984c9f68b960d103e48f85eb2deaf112f1bb593341c164ef",
+    "extensions/live_validation_20261111/configs/targets.s1_cf_t21d.json": "81e505302281819d5eb1c9cf779904a50012fab4a1ee1abfc03eecaf39d475b4",
+    "extensions/live_validation_20261111/configs/targets.s1_or_crossgateway.json": "d7983404b83ec3ac092bf31f167481d540968478b9b63840865de4db56abee67",
+    "extensions/live_validation_20261111/configs/targets.s2_multiprovider.json": "4475cd0869d1a21f6cc456066fbce31918585f0a6adfef4f7eb1a8ab976b16bc",
+    "extensions/live_validation_20261111/configs/targets.s3_20models_locked64.json": "c6a5407212f05c9b15dad84dfffa3c02fa6450578faf085c22c7d6dfa7191633",
+    "extensions/live_validation_20261111/configs/targets.s4_20models_implicit128.json": "d286614a76a55bee3ed2496b87147ee17a1ca084b3eec06f91fad40adcd0a5a1",
+    "extensions/live_validation_20261111/data/s1a_cf_t21d.jsonl": "87016a428bf2ad6529172d96c59c438c84b46eccef70de6a80dd2e11ae5f6fd3",
+    "extensions/live_validation_20261111/data/s1b_or_crossgateway.jsonl": "35c87aec289d7e8863aa28813e40e819ffc819b87ee8cc8334bdc69dbe88a612",
+    "extensions/live_validation_20261111/data/s2_multiprovider.jsonl": "9066758d9236d20c8f7b11d0df9d03a0fc9c443300cfa8bb5b45f6ea73d9195d",
+    "extensions/live_validation_20261111/data/s3a_hueprint_locked64_n30.jsonl": "d3292e02491400dc9c68eda6c361f0652b1de3f3a15c50e50c4b5a268d8edba1",
+    "extensions/live_validation_20261111/data/s3b_bruckner_locked64_n30.jsonl": "cb3dc7bfaf603e4ed43dfd03d74965ddfc4cee4581cdedeefef0b96da4c191be",
+    "extensions/live_validation_20261111/data/s4_implicit_css.jsonl": "46aed28c2f5fba6a795e7d931d767be6ae5b5b908358e3e4a073e011c75ffc2b",
+    "extensions/live_validation_20261111/data/s4b_implicit_v5_exact.jsonl": "3950cd78861669158b557940f987db379f43e4669bdb7c3c46459f8f238b304a",
+    "extensions/live_validation_20261111/lv_analyze.py": "3148af517830a569fa03f8e390baf071a03a7efd86c67ad69515c8e08cff309e",
+    "extensions/live_validation_20261111/lv_rgb_results.json": "eccf32c167c594d3b117e157af8284374417f95ec585b2df578dace7e709920f",
+    "reproduce_all.py": "813b7da486a89b2d6380a3314856f72a9f2ea650658f6d32d2d8e0ac0e6114b5"
+  }
+}

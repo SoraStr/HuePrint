@@ -1,0 +1,71 @@
+{
+  "_comment": "Cloudflare Workers AI catalog entries visible to account ${CF_ACCOUNT_ID} that are not usable for single-token color fingerprinting, with the observed reason. Post-upgrade state (Workers Paid).",
+  "plan": "Workers Paid",
+  "excluded": [
+    {
+      "model": "@cf/meta/llama-3.2-11b-vision-instruct",
+      "http": 403,
+      "reason": "model_agreement_required: must submit prompt 'agree' before use"
+    },
+    {
+      "model": "@cf/swiss-ai/apertus-v1.5-8b",
+      "http": 403,
+      "reason": "account_not_allowlisted for this model"
+    },
+    {
+      "model": "@cf/utter-project/eurollm-9b-it",
+      "http": 400,
+      "reason": "backend_misconfigured: 'AI model does not have config'"
+    },
+    {
+      "model": "@cf/cloudflare/clef",
+      "http": 400,
+      "reason": "non_chat_schema: requires model,state,questions"
+    },
+    {
+      "model": "@cf/cloudflare/clef-flash",
+      "http": 400,
+      "reason": "non_chat_schema: requires model,state,questions"
+    },
+    {
+      "model": "@cf/cloudflare/clef-omni",
+      "http": 400,
+      "reason": "non_chat_schema: requires model,state,questions"
+    },
+    {
+      "model": "@cf/cloudflare/clairic",
+      "http": 400,
+      "reason": "non_chat_schema: requires model,fields"
+    },
+    {
+      "model": "@cf/meta/llama-guard-3-8b",
+      "http": 400,
+      "reason": "safety_classifier: rejects system role, emits verdict labels"
+    },
+    {
+      "model": "@cf/qwen/qwq-32b",
+      "http": 200,
+      "reason": "untagged_reasoning_in_content: emits deliberation before the answer with no <think> delimiter, so first-hex extraction would record a discarded candidate"
+    },
+    {
+      "model": "@cf/google/gemma-2b-it-lora",
+      "http": 200,
+      "reason": "lora_adapter_target: default serving path is the base gemma-2b checkpoint, not a distinct instruction-tuned endpoint"
+    },
+    {
+      "model": "@cf/google/gemma-7b-it-lora",
+      "http": 200,
+      "reason": "lora_adapter_target: emits refusal text 'I do not have...' with no color answer"
+    },
+    {
+      "model": "@cf/meta-llama/llama-2-7b-chat-hf-lora",
+      "http": 200,
+      "reason": "lora_adapter_target: emits unrelated text with no color answer"
+    },
+    {
+      "model": "@cf/mistral/mistral-7b-instruct-v0.2-lora",
+      "http": 200,
+      "reason": "lora_adapter_target: emits refusal text with no color answer"
+    }
+  ]
+}

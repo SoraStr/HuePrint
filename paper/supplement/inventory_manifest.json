@@ -1,0 +1,56 @@
+{
+  "sources": {
+    "data/census_40models.jsonl": "96e2bdd8f49da69436573ba1203684e7347f3d7006f3f84f4c76757569c3b3d4",
+    "config/family_map.json": "9e20473ae8adc2499ff58a1382b6d72ecaa2ea107043c1040c86cf3288a8147e",
+    "config/prompts.json": "3dfa51630f2c9fc105c464d4339a9608d02c54572cc194da22229cfc9b5a6dc5",
+    "config/prompts.implicit_css.json": "faff026a7ca80f74118f2133d4dc3e97e5739976b68af2c29d569e7410ff5293",
+    "config/prompts.implicit_v5_exact.json": "100fcaacb6cf0a7e0d539a6e166ba32108941ee365a61b9dbe9097e8c3444973"
+  },
+  "endpoints": 56,
+  "responses": 2688,
+  "probe_cells": {
+    "D": {
+      "tasks": 10,
+      "cells": 40,
+      "languages": [
+        "en",
+        "zh",
+        "ru",
+        "ar"
+      ]
+    },
+    "E": {
+      "tasks": 8,
+      "cells": 16,
+      "languages": [
+        "en",
+        "zh"
+      ]
+    },
+    "F": {
+      "tasks": 8,
+      "cells": 16,
+      "languages": [
+        "en",
+        "zh"
+      ]
+    }
+  },
+  "published_fields": [
+    "target_id",
+    "claimed_model",
+    "reported_model",
+    "protocol",
+    "vendor",
+    "family",
+    "system_prompts",
+    "tasks"
+  ],
+  "excluded_fields": [
+    "api keys",
+    "headers",
+    "base URLs",
+    "account identifiers",
+    "request/response access URLs"
+  ]
+}

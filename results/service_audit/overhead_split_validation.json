@@ -1,0 +1,10 @@
+{
+  "S4a_enrollment_calls_per_target": 80,
+  "S4a_query_calls_per_target": 80,
+  "S4a_role_token_totals_match_original_logs": true,
+  "complete_call_plan_checked": "{('B20x6', 'enrollment'): 60, ('B20x6', 'query'): 60, ('E20x6', 'enrollment'): 60, ('E20x6', 'query'): 60, ('S1_CF21', 'query'): 120, ('S1_OR21', 'query'): 120, ('S3_color', 'enrollment'): 150, ('S3_color', 'query'): 150, ('S3_word', 'enrollment'): 150, ('S3_word', 'query'): 150, ('S4a', 'enrollment'): 80, ('S4a', 'query'): 80}",
+  "pricing_formula_checks": 188,
+  "routing_unchanged": true,
+  "target_role_records": 188,
+  "timing_unchanged": true
+}

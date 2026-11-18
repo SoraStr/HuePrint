@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+._*
+.env
+.venv/
+venv/
+*.tar.gz
+*.zip
+*.log
+tools/tectonic
+zenodo_release/

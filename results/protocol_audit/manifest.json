@@ -1,0 +1,38 @@
+{
+  "all_protected_unchanged": true,
+  "alpha": 0.05,
+  "live_api_calls": 0,
+  "n_permutations": 999,
+  "output_sha256": {
+    "REPORT.md": "43e109f8a4347038c621b0d5d57a01ff15753b4b28a84d56a951b8e94eab599f",
+    "protocol_hyperparameter_audit.json": "b8e6833d39a9359f6a69f59539b2cd05a668ef20dde868e6547ccb3efc65027b",
+    "routing_permutation.csv": "93e858eb52fe754433f533bfda62ea785e50d5a8c1113f32ea29af81affbb2b1",
+    "routing_permutation.json": "0e9b5a32bb22c2048eb8f545236defc9b600b6ff132854bafb7cadcb972db550",
+    "routing_permutation_seeds.csv": "db33d69349c74576999061bd02ea55ea50462eb2ca51122911bd9332aa125a95",
+    "table5_vs_table7_cells.json": "63c23554bd452df316b2ef4222ba5e1cc14302fd0f62b47028d6ed2b052b3e84"
+  },
+  "protected_file_count": 58,
+  "protocol": "protocol_routing_offline_v1",
+  "seeds": [
+    2026111300,
+    2026111301,
+    2026111302,
+    2026111303,
+    2026111304,
+    2026111305,
+    2026111306,
+    2026111307,
+    2026111308,
+    2026111309,
+    2026111310,
+    2026111311,
+    2026111312,
+    2026111313,
+    2026111314,
+    2026111315,
+    2026111316,
+    2026111317,
+    2026111318,
+    2026111319
+  ]
+}

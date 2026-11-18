@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0-implicit-v5-exact",
+  "description": "Exact 16 Implicit CSS/HTML Color Prompts from reproduce_all.py evaluate_prompt_filter_benchmark() (omitting literal '#RRGGBB' and 'R,G,B' tokens)",
+  "languages": ["en", "zh"],
+  "system_prompts": {
+    "hex": {
+      "en": "You are a concise web styling assistant. Reply with only the requested CSS/HTML hexadecimal color literal.",
+      "zh": "你是一个简洁的网页样式助手。请仅回复所要求的网页十六进制色值。"
+    },
+    "rgb_triplet": {
+      "en": "You are a concise graphics assistant. Reply with only the three comma-separated 0-255 channel integers.",
+      "zh": "你是一个简洁的图形助手。请仅回复三个用逗号分隔的0到255通道整数。"
+    }
+  },
+  "tasks": {
+    "hex_favorite": {
+      "format": "hex",
+      "condition": "favorite",
+      "prompts": {
+        "en": "Write a 6-character CSS hex color value for your favorite shade, prefixed with a hash symbol.",
+        "zh": "请输出一个代表你最喜欢颜色的6位网页十六进制色号（带井号）。"
+      }
+    },
+    "hex_ocean": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Output a web color code (hash followed by six hex digits) representing a deep ocean.",
+        "zh": "给出一个代表深海颜色的6位HTML十六进制色值。"
+      }
+    },
+    "hex_warm": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Give me a warm sunset shade as a standard 6-digit HTML hex string.",
+        "zh": "用标准6位CSS十六进制颜色代码表示温暖的日落色。"
+      }
+    },
+    "hex_calm": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "What color represents calmness? Answer only with a CSS hex literal.",
+        "zh": "什么颜色最代表平静？仅回复带井号的6位十六进制色号。"
+      }
+    },
+    "hex_nature": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Provide a forest green shade as a 6-character hexadecimal color literal.",
+        "zh": "给出一种森林绿的6位网页十六进制颜色值。"
+      }
+    },
+    "hex_random": {
+      "format": "hex",
+      "condition": "random",
+      "prompts": {
+        "en": "Pick a random shade and return only its 6-digit CSS hex string.",
+        "zh": "随机选一种颜色，仅输出其带井号的6位十六进制色值。"
+      }
+    },
+    "hex_night": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a midnight sky shade as a standard HTML hex color literal.",
+        "zh": "用带井号的6位十六进制颜色代码表示午夜星空。"
+      }
+    },
+    "rgb_favorite": {
+      "format": "rgb_triplet",
+      "condition": "favorite",
+      "prompts": {
+        "en": "Give three comma-separated 8-bit channel values (0 to 255) for your favorite color.",
+        "zh": "用三个逗号分隔的0到255整数表示你最喜欢的颜色通道值。"
+      }
+    }
+  }
+}

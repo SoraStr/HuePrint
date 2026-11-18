@@ -1,0 +1,67 @@
+{
+  "baseline": [
+    {
+      "metric": "string_mmd_u",
+      "condition": "clean",
+      "eer_pct": [
+        3.488372093023256,
+        0.0,
+        0.2631578947368421,
+        0.0
+      ]
+    },
+    {
+      "metric": "string_mmd_u",
+      "condition": "jitter8",
+      "eer_pct": [
+        50.01282051282051,
+        49.93478260869565,
+        50.019999999999996,
+        50.0
+      ]
+    },
+    {
+      "metric": "energy_reg",
+      "condition": "clean",
+      "eer_pct": [
+        5.0,
+        0.2631578947368421,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "metric": "energy_reg",
+      "condition": "jitter8",
+      "eer_pct": [
+        5.0,
+        0.5,
+        0.5263157894736842,
+        0.0
+      ]
+    }
+  ],
+  "calibration": [
+    {
+      "variant": "raw",
+      "frr_pct": [
+        30.0,
+        51.0
+      ]
+    },
+    {
+      "variant": "self_Bcv",
+      "frr_pct": [
+        10.0,
+        69.0
+      ]
+    },
+    {
+      "variant": "permutation",
+      "frr_pct": [
+        0.0,
+        18.000000000000004
+      ]
+    }
+  ]
+}

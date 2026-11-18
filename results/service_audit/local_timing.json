@@ -1,0 +1,115 @@
+{
+  "environment": {
+    "OS_family": "Darwin",
+    "architecture": "arm64",
+    "blas_threads_requested": "1",
+    "logical_cpu_count": 15,
+    "numpy": "2.5.5",
+    "python": "3.13.15"
+  },
+  "results": [
+    {
+      "K_planned": 20,
+      "fixtures": 3,
+      "max_ms": 0.296458,
+      "median_ms": 0.1236245,
+      "method": "regularized_energy",
+      "min_ms": 0.105542,
+      "p95_ms": 0.14713749999999998,
+      "query_n": 3,
+      "reference_n": 3,
+      "repeats": 60,
+      "valid_cell_counts": [
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "K_planned": 20,
+      "fixtures": 3,
+      "max_ms": 2.628,
+      "median_ms": 2.392604,
+      "method": "stratified_energy_999_permutations",
+      "min_ms": 2.30075,
+      "p95_ms": 2.5655356,
+      "query_n": 3,
+      "reference_n": 3,
+      "repeats": 30,
+      "valid_cell_counts": [
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "K_planned": 40,
+      "fixtures": 3,
+      "max_ms": 0.494375,
+      "median_ms": 0.31454150000000003,
+      "method": "regularized_energy",
+      "min_ms": 0.272583,
+      "p95_ms": 0.35592499999999994,
+      "query_n": 7,
+      "reference_n": 8,
+      "repeats": 60,
+      "valid_cell_counts": [
+        40,
+        40,
+        40
+      ]
+    },
+    {
+      "K_planned": 40,
+      "fixtures": 3,
+      "max_ms": 11.156708,
+      "median_ms": 10.147208,
+      "method": "stratified_energy_999_permutations",
+      "min_ms": 9.885542,
+      "p95_ms": 10.4060478,
+      "query_n": 7,
+      "reference_n": 8,
+      "repeats": 30,
+      "valid_cell_counts": [
+        40,
+        40,
+        40
+      ]
+    },
+    {
+      "K_planned": 10,
+      "fixtures": 3,
+      "max_ms": 0.100459,
+      "median_ms": 0.0774165,
+      "method": "regularized_energy",
+      "min_ms": 0.063791,
+      "p95_ms": 0.08390865,
+      "query_n": 7,
+      "reference_n": 8,
+      "repeats": 60,
+      "valid_cell_counts": [
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "K_planned": 10,
+      "fixtures": 3,
+      "max_ms": 2.711833,
+      "median_ms": 2.511021,
+      "method": "stratified_energy_999_permutations",
+      "min_ms": 2.394417,
+      "p95_ms": 2.66034215,
+      "query_n": 7,
+      "reference_n": 8,
+      "repeats": 30,
+      "valid_cell_counts": [
+        10,
+        10,
+        10
+      ]
+    }
+  ],
+  "scope": "Measured wall time of already-loaded one-reference/one-query scoring only, warm-up excluded. Includes per-cell distance calculation and, for permutation, 999 null samples and aggregation. Excludes API/network, parsing, disk I/O, enrollment and full all-pairs search; hardware/load-dependent."
+}

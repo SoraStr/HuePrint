@@ -1,0 +1,86 @@
+{
+  "fig3b": {
+    "empirical_curves": [
+      {
+        "source_field": "energy_score_change",
+        "label": "Energy score change",
+        "x": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          12,
+          15
+        ],
+        "y": [
+          0.0,
+          0.006730817531759822,
+          0.011459400197674802,
+          0.02015721582759308,
+          0.036080809074254525,
+          0.05036792607637478,
+          0.06021086818109561
+        ],
+        "linestyle": "-"
+      },
+      {
+        "source_field": "soft_self_jsd",
+        "label": "Soft: query vs. perturbed",
+        "x": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          12,
+          15
+        ],
+        "y": [
+          0.0,
+          0.001191175946547943,
+          0.0025023082278823965,
+          0.005998515057687376,
+          0.017049878071035217,
+          0.03320020702976788,
+          0.04856386841454787
+        ],
+        "linestyle": "-"
+      }
+    ],
+    "xlim": [
+      -0.5,
+      15.5
+    ],
+    "ylim": [
+      -0.025,
+      1.05
+    ],
+    "legend_inside_upper_left": true,
+    "legend_labels_clear_of_curves": true,
+    "legend_bounds_data": [
+      -0.31056344022621474,
+      0.6527533086522128,
+      7.655240670781652,
+      0.3703400359264015
+    ],
+    "checked_legend_labels": [
+      "Energy score change",
+      "Soft: query vs. perturbed",
+      "Energy upper bound",
+      "Soft self upper bound"
+    ],
+    "fig3c_legend_and_inset_clear_of_curves": true,
+    "subplot_title_y_pixels": [
+      401.83007031249997,
+      401.83007031249997
+    ],
+    "subplot_titles_aligned": true,
+    "data_source": "results/corpus_stats/analysis.json:jitter.B",
+    "ordinates_unchanged": true
+  },
+  "fig3_files": {
+    ".pdf": "06a5eb44d266a2524d63f77d1dd683a7c2ea325d19db0e26ab86fb9954fa9a41",
+    ".svg": "cb37a2ab4ce572cc88d70ea319c6c15c79a45392dbd2d3634ba8388c6b6b4df8"
+  }
+}

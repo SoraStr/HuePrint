@@ -1,0 +1,93 @@
+{
+  "version": "1.0.0-bruckner-baseline",
+  "description": "Paired Apple-to-Apple Baseline: Bruckner (2026) 10 single-word tasks (Table I of arXiv:2607.10252v1)",
+  "languages": ["en", "zh"],
+  "system_prompts": {
+    "single_word": {
+      "en": "You are a direct-response assistant. Respond with ONLY a single word or number. No explanation, no punctuation.",
+      "zh": "你是一个直接回答的助手。请仅回复一个词或一个数字。不要包含任何解释或标点符号。"
+    }
+  },
+  "tasks": {
+    "brk_num_100": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random number between 1 and 100. Answer with one number only.",
+        "zh": "随机说出一个1到100之间的整数。仅回答一个数字。"
+      }
+    },
+    "brk_num_10": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random number between 1 and 10. Answer with one number only.",
+        "zh": "随机说出一个1到10之间的整数。仅回答一个数字。"
+      }
+    },
+    "brk_fav_num": {
+      "format": "single_word",
+      "condition": "favorite",
+      "prompts": {
+        "en": "What is your favorite number? Answer with one number only.",
+        "zh": "你最喜欢的数字是什么？仅回答一个数字。"
+      }
+    },
+    "brk_letter": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random letter of the English alphabet. Answer with one letter only.",
+        "zh": "随机说出一个英文字母。仅回答一个字母。"
+      }
+    },
+    "brk_word": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random word. Answer with one word only.",
+        "zh": "随机说出一个词。仅回答一个词。"
+      }
+    },
+    "brk_rand_color": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random color. Answer with one word only.",
+        "zh": "随机说出一种颜色名称。仅回答一个词。"
+      }
+    },
+    "brk_fav_color": {
+      "format": "single_word",
+      "condition": "favorite",
+      "prompts": {
+        "en": "What is your favorite color? Answer with one word only.",
+        "zh": "你最喜欢什么颜色？仅回答一个词。"
+      }
+    },
+    "brk_animal": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random animal. Answer with one word only.",
+        "zh": "随机说出一种动物。仅回答一个词。"
+      }
+    },
+    "brk_city": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Name a random city. Answer with one word only.",
+        "zh": "随机说出一个城市名称。仅回答一个词。"
+      }
+    },
+    "brk_coin": {
+      "format": "single_word",
+      "condition": "random",
+      "prompts": {
+        "en": "Flip a coin: heads or tails? Answer with one word only.",
+        "zh": "抛硬币：正面还是反面？仅回答一个词。"
+      }
+    }
+  }
+}

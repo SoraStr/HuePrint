@@ -1,0 +1,42 @@
+{
+  "source": "../SUPPLEMENT_EN.md",
+  "sha256": "3e0a7f991720c41c911b08da74e723183f77e13cc64e2c136120b030cf4e766f",
+  "main_source_sha256": "6615ef38e38e218c5b7690a2b6eba53f50c449a63a80798a606a1598119769f6",
+  "tables": 9,
+  "references": 11,
+  "reference_numbers": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34
+  ],
+  "table_of_contents": true,
+  "sections": [
+    "A. Color Charts and Sensitivity",
+    "B. Regularization at Fixed Weights",
+    "C. Complete Endpoint Inventory and Label Provenance",
+    "D. Exact Forty-Cell Multilingual Probe Battery",
+    "E. Exact S4a CSS and JSON Canary Probes",
+    "F. Exact S4b Comparison Probes",
+    "G. Stability Proofs and Gaussian Baseline",
+    "H. Detailed Gateway and Bootstrap Results",
+    "I. Paraphrase and Cross-Template Results",
+    "J. Precision-Regime Provider Results",
+    "K. Reproducing the Offline Analyses",
+    "L. Numerical Perturbations and Response-Reuse Analysis"
+  ],
+  "language": "English with verbatim multilingual probes",
+  "source_fonts": [
+    "Latin Modern",
+    "STHeiti Medium",
+    "Arial",
+    "DejaVu Sans"
+  ]
+}

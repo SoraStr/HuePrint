@@ -1,0 +1,68 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm,array,longtable,booktabs,url,needspace,cite}
+\renewcommand{\citepunct}{], [}
+\renewcommand{\citedash}{]--[}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\hypersetup{pdftitle={Supplementary Material for "Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services"},pdfauthor={Xiguan He}}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage{arabic}
+\setmainfont[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]{lmroman10-regular.otf}
+\IfFileExists{/System/Library/Fonts/STHeiti Medium.ttc}{%
+  \newfontfamily\cjkfont[Path=/System/Library/Fonts/]{STHeiti Medium.ttc}%
+}{%
+  \IfFontExistsTF{Noto Sans CJK SC}{\newfontfamily\cjkfont{Noto Sans CJK SC}}{%
+    \IfFontExistsTF{WenQuanYi Zen Hei}{\newfontfamily\cjkfont{WenQuanYi Zen Hei}}{%
+      \newfontfamily\cjkfont{FandolHei-Regular.otf}%
+    }%
+  }%
+}
+\IfFileExists{../fonts/DejaVuSans.ttf}{%
+  \newfontfamily\cyrillicfont[Path=../fonts/]{DejaVuSans.ttf}%
+}{%
+  \IfFileExists{DejaVuSans.ttf}{\newfontfamily\cyrillicfont[Path=./]{DejaVuSans.ttf}}{\newfontfamily\cyrillicfont{DejaVu Sans}}%
+}
+\IfFileExists{/System/Library/Fonts/Supplemental/Arial.ttf}{%
+  \newfontfamily\arabicfont[Path=/System/Library/Fonts/Supplemental/,Script=Arabic]{Arial.ttf}%
+}{%
+  \IfFontExistsTF{Noto Naskh Arabic}{\newfontfamily\arabicfont[Script=Arabic]{Noto Naskh Arabic}}{%
+    \IfFileExists{../fonts/DejaVuSans.ttf}{%
+      \newfontfamily\arabicfont[Path=../fonts/,Script=Arabic]{DejaVuSans.ttf}%
+    }{\newfontfamily\arabicfont[Script=Arabic]{DejaVu Sans}}%
+  }%
+}
+\theoremstyle{definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\emergencystretch=2em
+\raggedbottom
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newcommand{\Dhex}{D_{\mathrm{hex}}}
+\newcommand{\Dvox}{D_{\mathrm{vox}}}
+\newcommand{\Dsvox}{D_{\mathrm{svox}}}
+\newcommand{\Denergy}{\bar D_{\mathrm E}}
+\newcommand{\Dereg}{\tilde D_{\mathrm{E\mbox{-}reg}}}
+\newcommand{\DWtwo}{D_{W_2}}
+\newcommand{\Dside}{D_{\mathrm{side}}}
+\newcommand{\Dhyb}{D_{\mathrm{hyb}}}
+\newcommand{\Dhybreg}{D_{\mathrm{hyb\mbox{-}reg}}}
+\newcommand{\Drm}{D_{\mathrm{RM}}}
+\title{Supplementary Material for ``Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services''}
+\author{Xiguan He}
+\date{}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+\input{body}
+\bigskip
+\Needspace{6\baselineskip}
+\renewcommand{\refname}{References {\normalsize\normalfont([24]--[29] match main manuscript; [30]--[34] supplement-only)}}
+\phantomsection\addcontentsline{toc}{section}{References ([24]--[29] match main manuscript; [30]--[34] supplement-only)}
+\input{references}
+\end{document}

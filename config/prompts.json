@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "description": "Multilingual RGB/Hex LLM Fingerprinting Probe Battery (8 tasks x 4 languages = 32 cells)",
+  "languages": ["en", "zh", "ru", "ar"],
+  "system_prompts": {
+    "hex": {
+      "en": "You are a direct-response assistant. Respond with ONLY a single hex color code in #RRGGBB format. No words, no explanation, no punctuation.",
+      "zh": "你是一个直接回答的助手。请仅回复一个 #RRGGBB 格式的十六进制颜色代码。不要包含任何文字、解释或标点符号。",
+      "ru": "Вы — ассистент, отвечающий напрямую. Ответьте ТОЛЬКО одним шестнадцатеричным кодом цвета в формате #RRGGBB. Без слов, без объяснений, без знаков препинания.",
+      "ar": "أنت مساعد يجيب بشكل مباشر. أجب فقط برمز لون سداسي عشري واحد بتنسيق #RRGGBB. بدون كلمات، بدون شرح، بدون علامات ترقيم."
+    },
+    "rgb_triplet": {
+      "en": "You are a direct-response assistant. Respond with ONLY three integers from 0 to 255 separated by commas in R,G,B format. No words, no explanation, no parentheses.",
+      "zh": "你是一个直接回答的助手。请仅按 R,G,B 格式回复三个用逗号分隔的 0 到 255 之间的整数。不要包含任何文字、解释或括号。",
+      "ru": "Вы — ассистент, отвечающий напрямую. Ответьте ТОЛЬКО тремя целыми числами от 0 до 255 через запятую в формате R,G,B. Без слов, без объяснений, без скобок.",
+      "ar": "أنت مساعد يجيب بشكل مباشر. أجب فقط بثلاثة أعداد صحيحة من 0 إلى 255 مفصولة بفواصل بتنسيق R,G,B. بدون كلمات، بدون شرح، بدون أقواس."
+    }
+  },
+  "tasks": {
+    "hex_random": {
+      "format": "hex",
+      "condition": "random",
+      "prompts": {
+        "en": "Pick a random color. Reply with only its #RRGGBB hex code.",
+        "zh": "随机选一种颜色。仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Выберите случайный цвет. Ответьте только его кодом #RRGGBB.",
+        "ar": "اختر لونًا عشوائيًا. أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "hex_favorite": {
+      "format": "hex",
+      "condition": "favorite",
+      "prompts": {
+        "en": "What is your favorite color? Reply with only its #RRGGBB hex code.",
+        "zh": "你最喜欢什么颜色？仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Какой ваш любимый цвет? Ответьте только его кодом #RRGGBB.",
+        "ar": "ما هو لونك المفضل؟ أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "rgb_random": {
+      "format": "rgb_triplet",
+      "condition": "random",
+      "prompts": {
+        "en": "Pick a random color. Reply with only its R,G,B values (0-255).",
+        "zh": "随机选一种颜色。仅回复它的 R,G,B 数值（0-255）。",
+        "ru": "Выберите случайный цвет. Ответьте только его значениями R,G,B (0-255).",
+        "ar": "اختر لونًا عشوائيًا. أجب فقط بقيم R,G,B الخاصة به (0-255)."
+      }
+    },
+    "rgb_favorite": {
+      "format": "rgb_triplet",
+      "condition": "favorite",
+      "prompts": {
+        "en": "What is your favorite color? Reply with only its R,G,B values (0-255).",
+        "zh": "你最喜欢什么颜色？仅回复它的 R,G,B 数值（0-255）。",
+        "ru": "Какой ваш любимый цвет? Ответьте только его значениями R,G,B (0-255).",
+        "ar": "ما هو لونك المفضل؟ أجب فقط بقيم R,G,B الخاصة به (0-255)."
+      }
+    },
+    "hex_warm": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a warm sunset color. Reply with only its #RRGGBB hex code.",
+        "zh": "给出一种温暖的日落颜色。仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Назовите теплый цвет заката. Ответьте только его кодом #RRGGBB.",
+        "ar": "سمِّ لون غروب دافئ. أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "hex_nature": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a forest green color. Reply with only its #RRGGBB hex code.",
+        "zh": "给出一种森林绿颜色。仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Назовите лесной зеленый цвет. Ответьте только его кодом #RRGGBB.",
+        "ar": "سمِّ لونًا أخضر غابيًا. أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "hex_ocean": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a deep ocean color. Reply with only its #RRGGBB hex code.",
+        "zh": "给出一种深海颜色。仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Назовите цвет глубокого океана. Ответьте только его кодом #RRGGBB.",
+        "ar": "سمِّ لون المحيط العميق. أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "hex_calm": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "What color best represents calmness? Reply with only its #RRGGBB hex code.",
+        "zh": "什么颜色最能代表平静？仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Какой цвет лучше всего олицетворяет спокойствие? Ответьте только его кодом #RRGGBB.",
+        "ar": "ما هو اللون الذي يمثل الهدوء بشكل أفضل؟ أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "hex_night": {
+      "format": "hex",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a midnight sky color. Reply with only its #RRGGBB hex code.",
+        "zh": "给出一种午夜星空的颜色。仅回复它的 #RRGGBB 十六进制代码。",
+        "ru": "Назовите цвет полуночного неба. Ответьте только его кодом #RRGGBB.",
+        "ar": "سمِّ لون سماء منتصف الليل. أجب فقط برمزه #RRGGBB."
+      }
+    },
+    "rgb_warm": {
+      "format": "rgb_triplet",
+      "condition": "semantic_anchor",
+      "prompts": {
+        "en": "Name a warm sunset color. Reply with only its R,G,B values (0-255).",
+        "zh": "给出一种温暖的日落颜色。仅回复它的 R,G,B 数值（0-255）。",
+        "ru": "Назовите теплый цвет заката. Ответьте только его значениями R,G,B (0-255).",
+        "ar": "سمِّ لون غروب دافئ. أجب فقط بقيم R,G,B الخاصة به (0-255)."
+      }
+    }
+  }
+}

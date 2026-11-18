@@ -1,0 +1,25 @@
+{
+  "_comment": "Study S4: Same 20-Model Cohort across 8 Families for 16 Implicit Frontend UI/CSS & JSON Design-Token Probes (uniform max_tokens=128, temperature=1.0).",
+  "targets": [
+    {"id": "s3-gpt-4o", "family": "OpenAI", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "openai/gpt-4o", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-gpt-4o-mini", "family": "OpenAI", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "openai/gpt-4o-mini", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-gpt-4.1", "family": "OpenAI", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "openai/gpt-4.1", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-gpt-4.1-mini", "family": "OpenAI", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "openai/gpt-4.1-mini", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-claude-sonnet-5", "family": "Anthropic", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "anthropic/claude-sonnet-5", "max_tokens": 128, "reasoning_mode": "auto"},
+    {"id": "s3-claude-haiku-5.5", "family": "Anthropic", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "anthropic/claude-haiku-5.5", "max_tokens": 128, "reasoning_mode": "auto"},
+    {"id": "s3-claude-sonnet-4.6", "family": "Anthropic", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "anthropic/claude-sonnet-4.6", "max_tokens": 128, "reasoning_mode": "auto"},
+    {"id": "s3-claude-haiku-4.5", "family": "Anthropic", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "anthropic/claude-haiku-4.5", "max_tokens": 128, "reasoning_mode": "auto"},
+    {"id": "s3-gemini-2.5-flash", "family": "Google", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "google/gemini-2.5-flash", "max_tokens": 128, "reasoning_mode": "auto", "extra_body": {"reasoning": {"max_tokens": 0}}},
+    {"id": "s3-gemini-2.5-flash-lite", "family": "Google", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "google/gemini-2.5-flash-lite", "max_tokens": 128, "reasoning_mode": "auto", "extra_body": {"reasoning": {"max_tokens": 0}}},
+    {"id": "s3-llama-3.3-70b", "family": "Meta", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "meta-llama/llama-3.3-70b-instruct", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-llama-3.1-8b", "family": "Meta", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "meta-llama/llama-3.1-8b-instruct", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-llama-4-scout", "family": "Meta", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "meta-llama/llama-4-scout", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-qwen2.5-coder-32b", "family": "Qwen", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "qwen/qwen-2.5-coder-32b-instruct", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-qwen3-30b-a3b", "family": "Qwen", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "qwen/qwen3-30b-a3b-instruct-2507", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-mistral-small-3.2", "family": "Mistral", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "mistralai/mistral-small-3.2-24b-instruct", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-mistral-large-2512", "family": "Mistral", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "mistralai/mistral-large-2512", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-deepseek-v3.2", "family": "DeepSeek", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "deepseek/deepseek-v3.2", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-deepseek-chat-v3.1", "family": "DeepSeek", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "deepseek/deepseek-chat-v3.1", "max_tokens": 128, "reasoning_mode": "disabled"},
+    {"id": "s3-nemotron-3.5-light", "family": "NVIDIA", "protocol": "cc", "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY", "model": "nvidia/nemotron-3.5-lightning", "max_tokens": 128, "reasoning_mode": "disabled"}
+  ]
+}

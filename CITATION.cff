@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use HuePrint, its probe batteries, or its empirical cloud response datasets, please cite this work."
+title: "Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services"
+type: article
+version: "1.0.0"
+date-released: "2026-11-18"
+license: CC-BY-4.0
+authors:
+  - family-names: He
+    given-names: Xiguan
+    affiliation: "College of Information, Yunnan University of Chinese Medicine, Kunming 650500, China"
+    email: kirarin@kirarin.dev
+keywords:
+  - large language models
+  - model-as-a-service
+  - service-level monitoring
+  - API brokerage
+  - behavioral consistency
+  - energy statistics
+abstract: >-
+  Aggregated large language model services expose declared model identifiers while abstracting the backend
+  configurations that fulfill client requests. We present HuePrint, a lightweight framework that audits brokered
+  endpoint consistency via short structured color elicitation and continuous geometric distribution comparison without
+  model weights or token probabilities. Across 34,528 cloud responses spanning 56 endpoints and 12 backends, HuePrint
+  lowers 30-call-per-side equal error rates from 4.52-5.23 to 0.94-1.00 percent on the development cohort and from
+  6.25-8.04 to 3.49-5.00 percent across 20 locked endpoints, reaching zero at moderate depth. Continuous and
+  multi-scale RGB distances halve shallow-census error vs. exact-hex divergence (5.36 vs. 10.71 percent), cut
+  cross-provider error from 16.67 to 5.93 percent, retain zero ranking error across three-week and cross-gateway checks
+  where equality tests reject up to 42.86 percent of genuine pairs, and bound numerical perturbations.

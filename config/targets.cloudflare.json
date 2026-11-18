@@ -1,0 +1,122 @@
+{
+  "_comment": "Cloudflare Workers AI - direct single-pass models (max_tokens=16, reasoning disabled). All entries verified callable on account ${CF_ACCOUNT_ID} after the plan upgrade.",
+  "targets": [
+    {
+      "id": "cf-llama-3.1-8b-legacy",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-3.1-8b-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-llama-3.1-8b-fp8",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-3.1-8b-instruct-fp8",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-llama-3.2-1b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-3.2-1b-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-llama-3.2-3b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-3.2-3b-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-llama-3.3-70b-fp8-fast",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-llama-4-scout-17b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-mistral-small-3.1-24b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-gemma-sea-lion-v4-27b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/aisingapore/gemma-sea-lion-v4-27b-it",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-granite-4.0-h-micro",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/ibm-granite/granite-4.0-h-micro",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-qwen2.5-coder-32b",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/qwen/qwen2.5-coder-32b-instruct",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-qwen3-30b-a3b-fp8",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/qwen/qwen3-30b-a3b-fp8",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-glm-4.7-flash",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/zai-org/glm-4.7-flash",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    },
+    {
+      "id": "cf-phonellm-mini-alpha-2",
+      "protocol": "cloudflare",
+      "account_id": "${CF_ACCOUNT_ID}",
+      "api_key_env": "CF_API_TOKEN",
+      "model": "@cf/daily-co/phonellm-mini-alpha-2",
+      "max_tokens": 16,
+      "reasoning_mode": "disabled"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+K_planned,reference_n,query_n,method,repeats,fixtures,valid_cell_counts,median_ms,p95_ms,min_ms,max_ms
+20,3,3,regularized_energy,60,3,"[20, 20, 20]",0.1236245,0.14713749999999998,0.105542,0.296458
+20,3,3,stratified_energy_999_permutations,30,3,"[20, 20, 20]",2.392604,2.5655356,2.30075,2.628
+40,8,7,regularized_energy,60,3,"[40, 40, 40]",0.31454150000000003,0.35592499999999994,0.272583,0.494375
+40,8,7,stratified_energy_999_permutations,30,3,"[40, 40, 40]",10.147208,10.4060478,9.885542,11.156708
+10,8,7,regularized_energy,60,3,"[10, 10, 10]",0.0774165,0.08390865,0.063791,0.100459
+10,8,7,stratified_energy_999_permutations,30,3,"[10, 10, 10]",2.511021,2.66034215,2.394417,2.711833

@@ -1,0 +1,3 @@
+# Core offline reproduction, statistical analysis, figure generation, and test suite (Python >= 3.11)
+numpy>=2.0.0
+matplotlib>=3.8.0

@@ -1,0 +1,27 @@
+{
+  "dataset_E_cells_with_min_lt_2": [
+    {
+      "cell": "rgb_warm|zh",
+      "n_valid_query": 1,
+      "n_valid_ref": 2,
+      "target_id": "gw-gemini-3.6-flash"
+    }
+  ],
+  "explanation": "Table 5 evaluates V-statistic metrics over all shared cells with n_k >= 1 and m_k >= 1 (20/20 cells for all 10 Dataset E endpoints). Table 7 compares V and U estimators on the identical U-eligible cell subset requiring n_k >= 2 and m_k >= 2 (because unbiased U divides by n_k - 1 and m_k - 1), which excludes cells with a single valid response and leaves 19-20 cells on Dataset E.",
+  "table5_min_split_1": {
+    "centered_V_clean_frr": 0.1,
+    "centered_V_jitter_frr": 0.69,
+    "raw_V_clean_frr": 0.3,
+    "raw_V_jitter_frr": 0.51,
+    "shared_valid_cells_min_max": [
+      20,
+      20
+    ]
+  },
+  "table7_min_split_2": {
+    "centered_V_clean_frr": 0.1,
+    "centered_V_jitter_frr": 0.6799999999999999,
+    "raw_V_clean_frr": 0.2,
+    "raw_V_jitter_frr": 0.51
+  }
+}

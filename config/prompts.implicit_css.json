@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0-implicit-css",
+  "description": "Implicit Frontend UI/CSS & JSON Design-Token Probe Battery (8 tasks x 2 languages = 16 cells) without explicit format-forcing trigger strings",
+  "languages": ["en", "zh"],
+  "system_prompts": {
+    "hex": {
+      "en": "You are a frontend UI engineer configuring web stylesheets and JSON design tokens. Keep code snippets minimal and practical.",
+      "zh": "你是一名负责配置网页样式表与 JSON 设计变量的前端 UI 工程师。请保持代码片段简洁实用。"
+    }
+  },
+  "tasks": {
+    "imp_brand_primary": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Write a 1-line CSS custom property declaration setting --brand-primary to a 6-digit hex color you find appealing for a modern SaaS workspace.",
+        "zh": "请写一行 CSS 自定义属性声明，为现代 SaaS 工作台将 --brand-primary 设置为一个你认为耐看的 6 位十六进制色号。"
+      }
+    },
+    "imp_hero_sunset": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Provide a 1-line CSS variable declaration (--hero-glow: #...;) evoking a warm evening sunset.",
+        "zh": "请提供一行体现傍晚温暖日落氛围的 CSS 变量声明（--hero-glow: #...;）。"
+      }
+    },
+    "imp_forest_badge": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Return a compact 1-field JSON token {\"badgeFoliage\": \"#...\"} using a deep forest green 6-digit hex shade.",
+        "zh": "请返回一个使用深邃森林绿 6 位十六进制色号的单字段 JSON 配置 {\"badgeFoliage\": \"#...\"}。"
+      }
+    },
+    "imp_ocean_surface": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Write a single CSS variable declaration (--ocean-surface: #...;) inspired by deep ocean water.",
+        "zh": "请写一行灵感源自深海海水色彩的 CSS 变量声明（--ocean-surface: #...;）。"
+      }
+    },
+    "imp_calm_card": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Output a 1-field JSON design token {\"calmSurface\": \"#...\"} with a soothing, tranquil 6-digit hex color for a reading app.",
+        "zh": "请为阅读应用输出一个带有宁静舒缓 6 位十六进制色彩的单字段 JSON 设计变量 {\"calmSurface\": \"#...\"}。"
+      }
+    },
+    "imp_night_canvas": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Provide a 1-line CSS custom property (--night-canvas: #...;) capturing a midnight starlit sky.",
+        "zh": "请提供一行表现午夜星空色彩的 CSS 自定义属性（--night-canvas: #...;）。"
+      }
+    },
+    "imp_avatar_tint": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Generate a 1-field JSON snippet {\"avatarTint\": \"#...\"} with a fresh 6-digit hex accent color for a default user avatar.",
+        "zh": "请生成一个带有清新 6 位十六进制点缀色的默认头像单字段 JSON 片段 {\"avatarTint\": \"#...\"}。"
+      }
+    },
+    "imp_cta_warm": {
+      "format": "hex",
+      "condition": "implicit_ui",
+      "prompts": {
+        "en": "Write a 1-line CSS declaration (--cta-warm: #...;) suitable for an energetic warm call-to-action button.",
+        "zh": "请写一行适合活力暖色调行动号召按钮的 CSS 属性声明（--cta-warm: #...;）。"
+      }
+    }
+  }
+}

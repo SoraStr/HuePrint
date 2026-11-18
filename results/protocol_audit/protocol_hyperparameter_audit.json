@@ -1,0 +1,1666 @@
+{
+  "cohorts": [
+    {
+      "cohort": "A",
+      "dedup_records": 2688,
+      "file": "data/census_40models.jsonl",
+      "max_tokens": {
+        "None": 2688
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 56,
+      "protocols": {
+        "cloudflare": 768,
+        "cloudflare-gateway": 1920
+      },
+      "raw_records": 2688,
+      "temperature_configured": {
+        "1.0": 2688
+      },
+      "temperature_sent": {
+        "None": 2688
+      }
+    },
+    {
+      "cohort": "B",
+      "dedup_records": 6000,
+      "file": "data/exp_40u15r.jsonl",
+      "max_tokens": {
+        "None": 6000
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 10,
+      "protocols": {
+        "cloudflare": 600,
+        "cloudflare-gateway": 5400
+      },
+      "raw_records": 6000,
+      "temperature_configured": {
+        "1.0": 6000
+      },
+      "temperature_sent": {
+        "None": 6000
+      }
+    },
+    {
+      "cohort": "C",
+      "dedup_records": 1280,
+      "file": "data/exp_paraphrase.jsonl",
+      "max_tokens": {
+        "None": 1280
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 10,
+      "protocols": {
+        "cloudflare": 128,
+        "cloudflare-gateway": 1152
+      },
+      "raw_records": 1280,
+      "temperature_configured": {
+        "1.0": 1280
+      },
+      "temperature_sent": {
+        "None": 1280
+      }
+    },
+    {
+      "cohort": "D",
+      "dedup_records": 1200,
+      "file": "data/exp_bruckner_baseline.jsonl",
+      "max_tokens": {
+        "None": 1200
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 10,
+      "protocols": {
+        "cloudflare": 120,
+        "cloudflare-gateway": 1080
+      },
+      "raw_records": 1200,
+      "temperature_configured": {
+        "1.0": 1200
+      },
+      "temperature_sent": {
+        "1.0": 120,
+        "None": 1080
+      }
+    },
+    {
+      "cohort": "E",
+      "dedup_records": 1200,
+      "file": "data/exp_heldout_confirm.jsonl",
+      "max_tokens": {
+        "None": 1200
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 10,
+      "protocols": {
+        "cloudflare": 120,
+        "cloudflare-gateway": 1080
+      },
+      "raw_records": 1200,
+      "temperature_configured": {
+        "1.0": 1200
+      },
+      "temperature_sent": {
+        "1.0": 120,
+        "None": 1080
+      }
+    },
+    {
+      "cohort": "S1_CF21",
+      "dedup_records": 1680,
+      "file": "extensions/live_validation_20261111/data/s1a_cf_t21d.jsonl",
+      "max_tokens": {
+        "None": 1680
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 14,
+      "protocols": {
+        "cloudflare": 240,
+        "cloudflare-gateway": 1440
+      },
+      "raw_records": 1680,
+      "temperature_configured": {
+        "1.0": 1680
+      },
+      "temperature_sent": {
+        "1.0": 240,
+        "None": 1440
+      }
+    },
+    {
+      "cohort": "S1_OR21",
+      "dedup_records": 1680,
+      "file": "extensions/live_validation_20261111/data/s1b_or_crossgateway.jsonl",
+      "max_tokens": {
+        "None": 1680
+      },
+      "multi_provider_target_count": 5,
+      "multi_provider_targets": {
+        "or-gemini-3.8-flash": {
+          "Google": 116,
+          "Google AI Studio": 4
+        },
+        "or-gemini-4-argon": {
+          "Google": 106,
+          "Google AI Studio": 14
+        },
+        "or-gpt-6-astra": {
+          "Amazon Bedrock": 1,
+          "OpenAI": 119
+        },
+        "or-gpt-6-luna": {
+          "Amazon Bedrock": 1,
+          "OpenAI": 119
+        },
+        "or-llama-3.3-70b": {
+          "AkashML": 19,
+          "CoreWeave": 52,
+          "Parasail": 49
+        }
+      },
+      "n_targets": 14,
+      "protocols": {
+        "cc": 1680
+      },
+      "raw_records": 1680,
+      "temperature_configured": {
+        "1.0": 1680
+      },
+      "temperature_sent": {
+        "1.0": 1680
+      }
+    },
+    {
+      "cohort": "S2",
+      "dedup_records": 2160,
+      "file": "extensions/live_validation_20261111/data/s2_multiprovider.jsonl",
+      "max_tokens": {
+        "None": 2160
+      },
+      "multi_provider_target_count": 0,
+      "multi_provider_targets": {},
+      "n_targets": 18,
+      "protocols": {
+        "cc": 2160
+      },
+      "raw_records": 2160,
+      "temperature_configured": {
+        "1.0": 2160
+      },
+      "temperature_sent": {
+        "1.0": 2160
+      }
+    },
+    {
+      "cohort": "S3_color",
+      "dedup_records": 6000,
+      "file": "extensions/live_validation_20261111/data/s3a_hueprint_locked64_n30.jsonl",
+      "max_tokens": {
+        "None": 6000
+      },
+      "multi_provider_target_count": 7,
+      "multi_provider_targets": {
+        "s3-deepseek-chat-v3.1": {
+          "CoreWeave": 159,
+          "DeepInfra": 138,
+          "SiliconFlow": 3
+        },
+        "s3-deepseek-v3.2": {
+          "AtlasCloud": 4,
+          "DeepInfra": 137,
+          "DigitalOcean": 1,
+          "GMICloud": 158
+        },
+        "s3-llama-3.1-8b": {
+          "Cloudflare": 2,
+          "DeepInfra": 298
+        },
+        "s3-llama-3.3-70b": {
+          "AkashML": 2,
+          "CoreWeave": 160,
+          "DeepInfra": 1,
+          "Parasail": 116,
+          "SambaNova": 21
+        },
+        "s3-mistral-small-3.2": {
+          "DeepInfra": 156,
+          "Mistral": 124,
+          "Venice": 20
+        },
+        "s3-nemotron-3.5-light": {
+          "CoreWeave": 106,
+          "Darkbloom": 2,
+          "DeepInfra": 188,
+          "Fireworks": 4
+        },
+        "s3-qwen3-30b-a3b": {
+          "DekaLLM": 2,
+          "Nebius": 297,
+          "SiliconFlow": 1
+        }
+      },
+      "n_targets": 20,
+      "protocols": {
+        "cc": 6000
+      },
+      "raw_records": 6000,
+      "temperature_configured": {
+        "1.0": 6000
+      },
+      "temperature_sent": {
+        "1.0": 6000
+      }
+    },
+    {
+      "cohort": "S3_word",
+      "dedup_records": 6000,
+      "file": "extensions/live_validation_20261111/data/s3b_bruckner_locked64_n30.jsonl",
+      "max_tokens": {
+        "None": 6000
+      },
+      "multi_provider_target_count": 7,
+      "multi_provider_targets": {
+        "s3-deepseek-chat-v3.1": {
+          "CoreWeave": 174,
+          "DeepInfra": 120,
+          "SiliconFlow": 6
+        },
+        "s3-deepseek-v3.2": {
+          "DeepInfra": 148,
+          "GMICloud": 152
+        },
+        "s3-llama-3.1-8b": {
+          "Cloudflare": 9,
+          "CoreWeave": 2,
+          "DeepInfra": 289
+        },
+        "s3-llama-3.3-70b": {
+          "CoreWeave": 192,
+          "Parasail": 101,
+          "SambaNova": 7
+        },
+        "s3-mistral-small-3.2": {
+          "DeepInfra": 156,
+          "Mistral": 119,
+          "Venice": 25
+        },
+        "s3-nemotron-3.5-light": {
+          "CoreWeave": 115,
+          "Darkbloom": 6,
+          "DeepInfra": 175,
+          "Fireworks": 4
+        },
+        "s3-qwen3-30b-a3b": {
+          "Nebius": 288,
+          "SiliconFlow": 12
+        }
+      },
+      "n_targets": 20,
+      "protocols": {
+        "cc": 6000
+      },
+      "raw_records": 6000,
+      "temperature_configured": {
+        "1.0": 6000
+      },
+      "temperature_sent": {
+        "1.0": 6000
+      }
+    },
+    {
+      "cohort": "S4a",
+      "dedup_records": 3200,
+      "file": "extensions/live_validation_20261111/data/s4_implicit_css.jsonl",
+      "max_tokens": {
+        "None": 3200
+      },
+      "multi_provider_target_count": 6,
+      "multi_provider_targets": {
+        "s3-deepseek-chat-v3.1": {
+          "CoreWeave": 93,
+          "DeepInfra": 67
+        },
+        "s3-deepseek-v3.2": {
+          "DeepInfra": 57,
+          "DigitalOcean": 1,
+          "GMICloud": 102
+        },
+        "s3-llama-3.1-8b": {
+          "Cloudflare": 4,
+          "DeepInfra": 156
+        },
+        "s3-llama-3.3-70b": {
+          "AkashML": 9,
+          "CoreWeave": 94,
+          "Parasail": 48,
+          "SambaNova": 9
+        },
+        "s3-mistral-small-3.2": {
+          "DeepInfra": 97,
+          "Mistral": 49,
+          "Venice": 14
+        },
+        "s3-nemotron-3.5-light": {
+          "CoreWeave": 62,
+          "Darkbloom": 3,
+          "DeepInfra": 94,
+          "Fireworks": 1
+        }
+      },
+      "n_targets": 20,
+      "protocols": {
+        "cc": 3200
+      },
+      "raw_records": 3200,
+      "temperature_configured": {
+        "1.0": 3200
+      },
+      "temperature_sent": {
+        "1.0": 3200
+      }
+    },
+    {
+      "cohort": "S4b",
+      "dedup_records": 1920,
+      "file": "extensions/live_validation_20261111/data/s4b_implicit_v5_exact.jsonl",
+      "max_tokens": {
+        "None": 1920
+      },
+      "multi_provider_target_count": 5,
+      "multi_provider_targets": {
+        "s3-deepseek-chat-v3.1": {
+          "CoreWeave": 40,
+          "DeepInfra": 56
+        },
+        "s3-deepseek-v3.2": {
+          "DeepInfra": 41,
+          "GMICloud": 55
+        },
+        "s3-llama-3.3-70b": {
+          "Cloudflare": 1,
+          "CoreWeave": 62,
+          "Parasail": 30,
+          "SambaNova": 3
+        },
+        "s3-mistral-small-3.2": {
+          "DeepInfra": 53,
+          "Mistral": 42,
+          "Venice": 1
+        },
+        "s3-nemotron-3.5-light": {
+          "CoreWeave": 50,
+          "DeepInfra": 46
+        }
+      },
+      "n_targets": 20,
+      "protocols": {
+        "cc": 1920
+      },
+      "raw_records": 1920,
+      "temperature_configured": {
+        "1.0": 1920
+      },
+      "temperature_sent": {
+        "1.0": 1920
+      }
+    }
+  ],
+  "s1_stratified": {
+    "CF0_CF21": {
+      "all_14": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.02197802197802198,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.005494505494505495,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-4.1",
+          "gw-gpt-4o",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 14,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.07142857142857142,
+        "perm_same_model_rejections": 1
+      },
+      "per_model": [
+        {
+          "cf_id": "cf-llama-3.3-70b-fp8-fast",
+          "cf_model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.01970965233445955,
+          "genuine_hybrid": 0.030311196547054515,
+          "or_id": "or-llama-3.3-70b",
+          "or_model": "meta-llama/llama-3.3-70b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.985,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "cf-qwen2.5-coder-32b",
+          "cf_model": "@cf/qwen/qwen2.5-coder-32b-instruct",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.08793227797066502,
+          "genuine_hybrid": 0.2313934273047006,
+          "or_id": "or-qwen2.5-coder-32b",
+          "or_model": "qwen/qwen-2.5-coder-32b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.47,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-haiku-5.5",
+          "cf_model": "anthropic/claude-haiku-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.0425265661084142,
+          "genuine_hybrid": 0.12977272371984722,
+          "or_id": "or-claude-haiku-5.5",
+          "or_model": "anthropic/claude-haiku-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.174,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5",
+          "cf_model": "anthropic/claude-opus-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.07215304171084316,
+          "genuine_hybrid": 0.20739794004867718,
+          "or_id": "or-claude-opus-5",
+          "or_model": "anthropic/claude-opus-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.028,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5.5",
+          "cf_model": "anthropic/claude-opus-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.03833056143940449,
+          "genuine_hybrid": 0.12591896506814326,
+          "or_id": "or-claude-opus-5.5",
+          "or_model": "anthropic/claude-opus-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.602,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-4.6",
+          "cf_model": "anthropic/claude-sonnet-4.6",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.049528653170963305,
+          "genuine_hybrid": 0.10443911985645112,
+          "or_id": "or-claude-sonnet-4.6",
+          "or_model": "anthropic/claude-sonnet-4.6",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.256,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-5",
+          "cf_model": "anthropic/claude-sonnet-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.04005207444675987,
+          "genuine_hybrid": 0.12061402226274265,
+          "or_id": "or-claude-sonnet-5",
+          "or_model": "anthropic/claude-sonnet-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.762,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-3.8-flash",
+          "cf_model": "google/gemini-3.8-flash",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.08110970221197814,
+          "genuine_hybrid": 0.2249585078815152,
+          "or_id": "or-gemini-3.8-flash",
+          "or_model": "google/gemini-3.8-flash",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.612,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-4-argon",
+          "cf_model": "google/gemini-4-argon",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.03754716634895966,
+          "genuine_hybrid": 0.14515418007820732,
+          "or_id": "or-gemini-4-argon",
+          "or_model": "google/gemini-4-argon",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.881,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4.1",
+          "cf_model": "openai/gpt-4.1",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.05961995701270496,
+          "genuine_hybrid": 0.25047209097388395,
+          "or_id": "or-gpt-4.1",
+          "or_model": "openai/gpt-4.1",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.783,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4o",
+          "cf_model": "openai/gpt-4o",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.05827281346636689,
+          "genuine_hybrid": 0.2380218156759796,
+          "or_id": "or-gpt-4o",
+          "or_model": "openai/gpt-4o",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.684,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-5.5",
+          "cf_model": "openai/gpt-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.03650332117331708,
+          "genuine_hybrid": 0.13699868222792627,
+          "or_id": "or-gpt-5.5",
+          "or_model": "openai/gpt-5.5",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.627,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-astra",
+          "cf_model": "openai/gpt-6-astra",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.030473324691529285,
+          "genuine_hybrid": 0.11697983425791667,
+          "or_id": "or-gpt-6-astra",
+          "or_model": "openai/gpt-6-astra",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.302,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-luna",
+          "cf_model": "openai/gpt-6-luna",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.061359983610391,
+          "genuine_hybrid": 0.17765417894274002,
+          "or_id": "or-gpt-6-luna",
+          "or_model": "openai/gpt-6-luna",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.419,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        }
+      ],
+      "reasoning_5_effort_low_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.15,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.05,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 5,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.0,
+        "perm_same_model_rejections": 0
+      },
+      "standard_9_no_reasoning_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.013888888888888888,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gpt-4.1",
+          "gw-gpt-4o"
+        ],
+        "n_models": 9,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.1111111111111111,
+        "perm_same_model_rejections": 1
+      }
+    },
+    "CF0_OR21": {
+      "all_14": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.0,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-4.1",
+          "gw-gpt-4o",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 14,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.42857142857142855,
+        "perm_same_model_rejections": 6
+      },
+      "per_model": [
+        {
+          "cf_id": "cf-llama-3.3-70b-fp8-fast",
+          "cf_model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.0551052231988536,
+          "genuine_hybrid": 0.07219943100921418,
+          "or_id": "or-llama-3.3-70b",
+          "or_model": "meta-llama/llama-3.3-70b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.235,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "cf-qwen2.5-coder-32b",
+          "cf_model": "@cf/qwen/qwen2.5-coder-32b-instruct",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.11426359008577092,
+          "genuine_hybrid": 0.23837658038766135,
+          "or_id": "or-qwen2.5-coder-32b",
+          "or_model": "qwen/qwen-2.5-coder-32b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.127,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-haiku-5.5",
+          "cf_model": "anthropic/claude-haiku-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.06485156375892538,
+          "genuine_hybrid": 0.1706412424359555,
+          "or_id": "or-claude-haiku-5.5",
+          "or_model": "anthropic/claude-haiku-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.024,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5",
+          "cf_model": "anthropic/claude-opus-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.08063680854797714,
+          "genuine_hybrid": 0.22021706031446486,
+          "or_id": "or-claude-opus-5",
+          "or_model": "anthropic/claude-opus-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.002,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5.5",
+          "cf_model": "anthropic/claude-opus-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.059003047095012265,
+          "genuine_hybrid": 0.19551648505715416,
+          "or_id": "or-claude-opus-5.5",
+          "or_model": "anthropic/claude-opus-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.228,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-4.6",
+          "cf_model": "anthropic/claude-sonnet-4.6",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.06837900411367592,
+          "genuine_hybrid": 0.13564606963373657,
+          "or_id": "or-claude-sonnet-4.6",
+          "or_model": "anthropic/claude-sonnet-4.6",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.01,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-5",
+          "cf_model": "anthropic/claude-sonnet-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.09112565521021918,
+          "genuine_hybrid": 0.1924283026831036,
+          "or_id": "or-claude-sonnet-5",
+          "or_model": "anthropic/claude-sonnet-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.001,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-3.8-flash",
+          "cf_model": "google/gemini-3.8-flash",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.07736110512266707,
+          "genuine_hybrid": 0.26935054651505663,
+          "or_id": "or-gemini-3.8-flash",
+          "or_model": "google/gemini-3.8-flash",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.202,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-4-argon",
+          "cf_model": "google/gemini-4-argon",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.045949706548930394,
+          "genuine_hybrid": 0.1786324957098787,
+          "or_id": "or-gemini-4-argon",
+          "or_model": "google/gemini-4-argon",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.901,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4.1",
+          "cf_model": "openai/gpt-4.1",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.05638994112703989,
+          "genuine_hybrid": 0.21384222786433565,
+          "or_id": "or-gpt-4.1",
+          "or_model": "openai/gpt-4.1",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.715,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4o",
+          "cf_model": "openai/gpt-4o",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.07284985613802823,
+          "genuine_hybrid": 0.2700574491667322,
+          "or_id": "or-gpt-4o",
+          "or_model": "openai/gpt-4o",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.154,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-5.5",
+          "cf_model": "openai/gpt-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.04977399570750014,
+          "genuine_hybrid": 0.1831121807897665,
+          "or_id": "or-gpt-5.5",
+          "or_model": "openai/gpt-5.5",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.169,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-astra",
+          "cf_model": "openai/gpt-6-astra",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.04815946982178366,
+          "genuine_hybrid": 0.13752728127403047,
+          "or_id": "or-gpt-6-astra",
+          "or_model": "openai/gpt-6-astra",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.038,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-luna",
+          "cf_model": "openai/gpt-6-luna",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.0922968751187443,
+          "genuine_hybrid": 0.2665857487852808,
+          "or_id": "or-gpt-6-luna",
+          "or_model": "openai/gpt-6-luna",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.008,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        }
+      ],
+      "reasoning_5_effort_low_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.0,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 5,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.4,
+        "perm_same_model_rejections": 2
+      },
+      "standard_9_no_reasoning_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.0,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gpt-4.1",
+          "gw-gpt-4o"
+        ],
+        "n_models": 9,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.4444444444444444,
+        "perm_same_model_rejections": 4
+      }
+    },
+    "CF21_OR21": {
+      "all_14": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.005494505494505495,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-4.1",
+          "gw-gpt-4o",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 14,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.2857142857142857,
+        "perm_same_model_rejections": 4
+      },
+      "per_model": [
+        {
+          "cf_id": "cf-llama-3.3-70b-fp8-fast",
+          "cf_model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.05279358903669257,
+          "genuine_hybrid": 0.06496686711791819,
+          "or_id": "or-llama-3.3-70b",
+          "or_model": "meta-llama/llama-3.3-70b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.352,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "cf-qwen2.5-coder-32b",
+          "cf_model": "@cf/qwen/qwen2.5-coder-32b-instruct",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.09280025935296639,
+          "genuine_hybrid": 0.23243369792066315,
+          "or_id": "or-qwen2.5-coder-32b",
+          "or_model": "qwen/qwen-2.5-coder-32b-instruct",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.534,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-haiku-5.5",
+          "cf_model": "anthropic/claude-haiku-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.03706933302057762,
+          "genuine_hybrid": 0.12036613364921978,
+          "or_id": "or-claude-haiku-5.5",
+          "or_model": "anthropic/claude-haiku-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.513,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5",
+          "cf_model": "anthropic/claude-opus-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.06651011237146384,
+          "genuine_hybrid": 0.18819254053164286,
+          "or_id": "or-claude-opus-5",
+          "or_model": "anthropic/claude-opus-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.009,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-opus-5.5",
+          "cf_model": "anthropic/claude-opus-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.049926036153667266,
+          "genuine_hybrid": 0.17680732787024078,
+          "or_id": "or-claude-opus-5.5",
+          "or_model": "anthropic/claude-opus-5.5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.226,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-4.6",
+          "cf_model": "anthropic/claude-sonnet-4.6",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.03653328650908946,
+          "genuine_hybrid": 0.1092834234998177,
+          "or_id": "or-claude-sonnet-4.6",
+          "or_model": "anthropic/claude-sonnet-4.6",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.365,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-claude-sonnet-5",
+          "cf_model": "anthropic/claude-sonnet-5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.08412058798900353,
+          "genuine_hybrid": 0.17606651123839737,
+          "or_id": "or-claude-sonnet-5",
+          "or_model": "anthropic/claude-sonnet-5",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.002,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-3.8-flash",
+          "cf_model": "google/gemini-3.8-flash",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.12481933843399065,
+          "genuine_hybrid": 0.32142850413390206,
+          "or_id": "or-gemini-3.8-flash",
+          "or_model": "google/gemini-3.8-flash",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.022,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gemini-4-argon",
+          "cf_model": "google/gemini-4-argon",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.04682978222924729,
+          "genuine_hybrid": 0.16215224319949953,
+          "or_id": "or-gemini-4-argon",
+          "or_model": "google/gemini-4-argon",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.88,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4.1",
+          "cf_model": "openai/gpt-4.1",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.06791083598424916,
+          "genuine_hybrid": 0.24728921150177846,
+          "or_id": "or-gpt-4.1",
+          "or_model": "openai/gpt-4.1",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.536,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-4o",
+          "cf_model": "openai/gpt-4o",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.055893182363113234,
+          "genuine_hybrid": 0.2416841994917979,
+          "or_id": "or-gpt-4o",
+          "or_model": "openai/gpt-4o",
+          "or_reasoning_effort": null,
+          "or_send_temperature": true,
+          "perm_pvalue": 0.886,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-5.5",
+          "cf_model": "openai/gpt-5.5",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.034635687374807995,
+          "genuine_hybrid": 0.15977326200513384,
+          "or_id": "or-gpt-5.5",
+          "or_model": "openai/gpt-5.5",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.779,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-astra",
+          "cf_model": "openai/gpt-6-astra",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.020807813876007213,
+          "genuine_hybrid": 0.08647570067092017,
+          "or_id": "or-gpt-6-astra",
+          "or_model": "openai/gpt-6-astra",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.602,
+          "perm_rejected_at_005": false,
+          "speculative_decode_mismatch": false
+        },
+        {
+          "cf_id": "gw-gpt-6-luna",
+          "cf_model": "openai/gpt-6-luna",
+          "cf_send_temperature": false,
+          "genuine_energy_reg": 0.09628955629233911,
+          "genuine_hybrid": 0.2803944971949873,
+          "or_id": "or-gpt-6-luna",
+          "or_model": "openai/gpt-6-luna",
+          "or_reasoning_effort": "low",
+          "or_send_temperature": true,
+          "perm_pvalue": 0.003,
+          "perm_rejected_at_005": true,
+          "speculative_decode_mismatch": false
+        }
+      ],
+      "reasoning_5_effort_low_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.05,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "gw-gemini-3.8-flash",
+          "gw-gemini-4-argon",
+          "gw-gpt-5.5",
+          "gw-gpt-6-astra",
+          "gw-gpt-6-luna"
+        ],
+        "n_models": 5,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.4,
+        "perm_same_model_rejections": 2
+      },
+      "standard_9_no_reasoning_override": {
+        "energy_reg_eer": 0.0,
+        "energy_reg_far_at_B_tau": 0.0,
+        "energy_reg_frr_at_B_tau": 0.0,
+        "hybrid_eer": 0.0,
+        "hybrid_far_at_B_tau": 0.0,
+        "hybrid_frr_at_B_tau": 0.0,
+        "ids": [
+          "cf-llama-3.3-70b-fp8-fast",
+          "cf-qwen2.5-coder-32b",
+          "gw-claude-haiku-5.5",
+          "gw-claude-opus-5",
+          "gw-claude-opus-5.5",
+          "gw-claude-sonnet-4.6",
+          "gw-claude-sonnet-5",
+          "gw-gpt-4.1",
+          "gw-gpt-4o"
+        ],
+        "n_models": 9,
+        "perm_diff_model_rejection_rate": 1.0,
+        "perm_same_model_rejection_rate": 0.2222222222222222,
+        "perm_same_model_rejections": 2
+      }
+    }
+  },
+  "s3_provider_and_cost_audit": {
+    "deepseek_v32_provider_token_breakdown": {
+      "AtlasCloud": {
+        "calls": 4,
+        "gt_64_calls": 0,
+        "max_out_tokens": 6,
+        "median_out_tokens": 6.0,
+        "min_out_tokens": 4
+      },
+      "DeepInfra": {
+        "calls": 137,
+        "gt_64_calls": 0,
+        "max_out_tokens": 8,
+        "median_out_tokens": 6.0,
+        "min_out_tokens": 3
+      },
+      "DigitalOcean": {
+        "calls": 1,
+        "gt_64_calls": 0,
+        "max_out_tokens": 7,
+        "median_out_tokens": 7.0,
+        "min_out_tokens": 7
+      },
+      "GMICloud": {
+        "calls": 158,
+        "gt_64_calls": 137,
+        "max_out_tokens": 907,
+        "median_out_tokens": 132.0,
+        "min_out_tokens": 40
+      }
+    },
+    "multi_provider_count": 7,
+    "multi_provider_max_tv_odd_vs_even": 0.11999999999999995,
+    "multi_provider_mean_tv_odd_vs_even": 0.04190476190476188,
+    "per_target": [
+      {
+        "enrollment_output_tokens_max_per_call": 10,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Amazon Bedrock": 150
+        },
+        "providers_odd": {
+          "Amazon Bedrock": 150
+        },
+        "query_input_tokens": 9945,
+        "query_output_tokens": 1259,
+        "query_output_tokens_max_per_call": 10,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.0374525,
+        "scenario_L_query_usd": 0.00795484,
+        "target_id": "s3-claude-haiku-4.5"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 9,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Claude Platform on AWS": 150
+        },
+        "providers_odd": {
+          "Claude Platform on AWS": 150
+        },
+        "query_input_tokens": 12915,
+        "query_output_tokens": 1091,
+        "query_output_tokens_max_per_call": 9,
+        "query_output_tokens_median_per_call": 7.0,
+        "scenario_G_query_usd": 0.04319750000000001,
+        "scenario_L_query_usd": 0.00994426,
+        "target_id": "s3-claude-haiku-5.5"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 10,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Claude Platform on AWS": 150
+        },
+        "providers_odd": {
+          "Claude Platform on AWS": 150
+        },
+        "query_input_tokens": 10095,
+        "query_output_tokens": 1203,
+        "query_output_tokens_max_per_call": 10,
+        "query_output_tokens_median_per_call": 9.0,
+        "scenario_G_query_usd": 0.0372675,
+        "scenario_L_query_usd": 0.00802158,
+        "target_id": "s3-claude-sonnet-4.6"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 9,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Claude Platform on AWS": 150
+        },
+        "providers_odd": {
+          "Claude Platform on AWS": 150
+        },
+        "query_input_tokens": 12615,
+        "query_output_tokens": 1060,
+        "query_output_tokens_max_per_call": 9,
+        "query_output_tokens_median_per_call": 7.0,
+        "scenario_G_query_usd": 0.0421375,
+        "scenario_L_query_usd": 0.009709249999999999,
+        "target_id": "s3-claude-sonnet-5"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 8,
+        "n_providers": 3,
+        "odd_even_provider_tv_distance": 0.07999999999999999,
+        "providers_even": {
+          "CoreWeave": 85,
+          "DeepInfra": 63,
+          "SiliconFlow": 2
+        },
+        "providers_odd": {
+          "CoreWeave": 74,
+          "DeepInfra": 75,
+          "SiliconFlow": 1
+        },
+        "query_input_tokens": 8316,
+        "query_output_tokens": 838,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 6.0,
+        "scenario_G_query_usd": 0.02917,
+        "scenario_L_query_usd": 0.00649934,
+        "target_id": "s3-deepseek-chat-v3.1"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 907,
+        "n_providers": 4,
+        "odd_even_provider_tv_distance": 0.026666666666666675,
+        "providers_even": {
+          "DeepInfra": 69,
+          "DigitalOcean": 1,
+          "GMICloud": 80
+        },
+        "providers_odd": {
+          "AtlasCloud": 4,
+          "DeepInfra": 68,
+          "GMICloud": 78
+        },
+        "query_input_tokens": 12314,
+        "query_output_tokens": 24036,
+        "query_output_tokens_max_per_call": 874,
+        "query_output_tokens_median_per_call": 54.5,
+        "scenario_G_query_usd": 0.271145,
+        "scenario_L_query_usd": 0.025808499999999998,
+        "target_id": "s3-deepseek-v3.2"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 11,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Google AI Studio": 150
+        },
+        "providers_odd": {
+          "Google AI Studio": 150
+        },
+        "query_input_tokens": 8505,
+        "query_output_tokens": 1092,
+        "query_output_tokens_max_per_call": 11,
+        "query_output_tokens_median_per_call": 7.0,
+        "scenario_G_query_usd": 0.0321825,
+        "scenario_L_query_usd": 0.00681387,
+        "target_id": "s3-gemini-2.5-flash"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 11,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Google AI Studio": 150
+        },
+        "providers_odd": {
+          "Google AI Studio": 150
+        },
+        "query_input_tokens": 8505,
+        "query_output_tokens": 1103,
+        "query_output_tokens_max_per_call": 11,
+        "query_output_tokens_median_per_call": 7.0,
+        "scenario_G_query_usd": 0.0322925,
+        "scenario_L_query_usd": 0.00682168,
+        "target_id": "s3-gemini-2.5-flash-lite"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 8,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "OpenAI": 150
+        },
+        "providers_odd": {
+          "OpenAI": 150
+        },
+        "query_input_tokens": 9360,
+        "query_output_tokens": 846,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 6.0,
+        "scenario_G_query_usd": 0.03186,
+        "scenario_L_query_usd": 0.00724626,
+        "target_id": "s3-gpt-4.1"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 8,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "OpenAI": 150
+        },
+        "providers_odd": {
+          "OpenAI": 150
+        },
+        "query_input_tokens": 9360,
+        "query_output_tokens": 845,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 6.0,
+        "scenario_G_query_usd": 0.03185,
+        "scenario_L_query_usd": 0.00724555,
+        "target_id": "s3-gpt-4.1-mini"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 7,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "OpenAI": 150
+        },
+        "providers_odd": {
+          "OpenAI": 150
+        },
+        "query_input_tokens": 9360,
+        "query_output_tokens": 693,
+        "query_output_tokens_max_per_call": 7,
+        "query_output_tokens_median_per_call": 5.0,
+        "scenario_G_query_usd": 0.030330000000000003,
+        "scenario_L_query_usd": 0.00713763,
+        "target_id": "s3-gpt-4o"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 7,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "OpenAI": 150
+        },
+        "providers_odd": {
+          "OpenAI": 150
+        },
+        "query_input_tokens": 9360,
+        "query_output_tokens": 781,
+        "query_output_tokens_max_per_call": 7,
+        "query_output_tokens_median_per_call": 5.0,
+        "scenario_G_query_usd": 0.03121,
+        "scenario_L_query_usd": 0.00720011,
+        "target_id": "s3-gpt-4o-mini"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 8,
+        "n_providers": 2,
+        "odd_even_provider_tv_distance": 0.013333333333333322,
+        "providers_even": {
+          "Cloudflare": 2,
+          "DeepInfra": 148
+        },
+        "providers_odd": {
+          "DeepInfra": 150
+        },
+        "query_input_tokens": 9962,
+        "query_output_tokens": 843,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 6.0,
+        "scenario_G_query_usd": 0.033335000000000004,
+        "scenario_L_query_usd": 0.00767155,
+        "target_id": "s3-llama-3.1-8b"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 7,
+        "n_providers": 5,
+        "odd_even_provider_tv_distance": 0.026666666666666644,
+        "providers_even": {
+          "AkashML": 1,
+          "CoreWeave": 82,
+          "Parasail": 58,
+          "SambaNova": 9
+        },
+        "providers_odd": {
+          "AkashML": 1,
+          "CoreWeave": 78,
+          "DeepInfra": 1,
+          "Parasail": 58,
+          "SambaNova": 12
+        },
+        "query_input_tokens": 10038,
+        "query_output_tokens": 814,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 5.0,
+        "scenario_G_query_usd": 0.033235,
+        "scenario_L_query_usd": 0.00770492,
+        "target_id": "s3-llama-3.3-70b"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 8,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "DeepInfra": 150
+        },
+        "providers_odd": {
+          "DeepInfra": 150
+        },
+        "query_input_tokens": 9960,
+        "query_output_tokens": 852,
+        "query_output_tokens_max_per_call": 8,
+        "query_output_tokens_median_per_call": 6.0,
+        "scenario_G_query_usd": 0.033420000000000005,
+        "scenario_L_query_usd": 0.00767652,
+        "target_id": "s3-llama-4-scout"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 14,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Mistral": 150
+        },
+        "providers_odd": {
+          "Mistral": 150
+        },
+        "query_input_tokens": 8790,
+        "query_output_tokens": 1359,
+        "query_output_tokens_max_per_call": 14,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.035565,
+        "scenario_L_query_usd": 0.00720579,
+        "target_id": "s3-mistral-large-2512"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 13,
+        "n_providers": 3,
+        "odd_even_provider_tv_distance": 0.11999999999999995,
+        "providers_even": {
+          "DeepInfra": 69,
+          "Mistral": 68,
+          "Venice": 13
+        },
+        "providers_odd": {
+          "DeepInfra": 87,
+          "Mistral": 56,
+          "Venice": 7
+        },
+        "query_input_tokens": 9606,
+        "query_output_tokens": 1259,
+        "query_output_tokens_max_per_call": 14,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.036605,
+        "scenario_L_query_usd": 0.0077141499999999995,
+        "target_id": "s3-mistral-small-3.2"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 64,
+        "n_providers": 4,
+        "odd_even_provider_tv_distance": 0.013333333333333308,
+        "providers_even": {
+          "CoreWeave": 54,
+          "Darkbloom": 1,
+          "DeepInfra": 93,
+          "Fireworks": 2
+        },
+        "providers_odd": {
+          "CoreWeave": 52,
+          "Darkbloom": 1,
+          "DeepInfra": 95,
+          "Fireworks": 2
+        },
+        "query_input_tokens": 10440,
+        "query_output_tokens": 1323,
+        "query_output_tokens_max_per_call": 64,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.039330000000000004,
+        "scenario_L_query_usd": 0.00835173,
+        "target_id": "s3-nemotron-3.5-light"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 12,
+        "n_providers": 1,
+        "odd_even_provider_tv_distance": 0.0,
+        "providers_even": {
+          "Cloudflare": 150
+        },
+        "providers_odd": {
+          "Cloudflare": 150
+        },
+        "query_input_tokens": 9840,
+        "query_output_tokens": 1231,
+        "query_output_tokens_max_per_call": 12,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.03691,
+        "scenario_L_query_usd": 0.00786041,
+        "target_id": "s3-qwen2.5-coder-32b"
+      },
+      {
+        "enrollment_output_tokens_max_per_call": 28,
+        "n_providers": 3,
+        "odd_even_provider_tv_distance": 0.0133333333333333,
+        "providers_even": {
+          "Nebius": 149,
+          "SiliconFlow": 1
+        },
+        "providers_odd": {
+          "DekaLLM": 2,
+          "Nebius": 148
+        },
+        "query_input_tokens": 9840,
+        "query_output_tokens": 1236,
+        "query_output_tokens_max_per_call": 12,
+        "query_output_tokens_median_per_call": 8.0,
+        "scenario_G_query_usd": 0.03696,
+        "scenario_L_query_usd": 0.00786396,
+        "target_id": "s3-qwen3-30b-a3b"
+      }
+    ],
+    "scenario_G_query_usd_quantiles": {
+      "max_19_of_20_excluding_deepseek_v32": 0.04319750000000001,
+      "max_all_20": 0.271145,
+      "median": 0.0344925,
+      "min": 0.02917,
+      "p90": 0.0422435
+    },
+    "scenario_L_query_usd_quantiles": {
+      "max": 0.025808499999999998,
+      "median": 0.00769072,
+      "min": 0.00649934,
+      "p90": 0.009732751
+    }
+  }
+}

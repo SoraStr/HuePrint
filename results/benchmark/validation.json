@@ -1,0 +1,51 @@
+{
+  "all_hashes_unchanged": true,
+  "budget_coverage_verified": true,
+  "heldout_E_id_disjoint_from_B_calibration": true,
+  "hybrid_reg_component_identity_verified": true,
+  "legacy_B3v3_thresholds_reproduced": true,
+  "legacy_B_48_budget_cells_reproduced": true,
+  "legacy_E_clean_and_jitter_FRR_reproduced": true,
+  "legacy_metric_fields_reproduced": 48,
+  "legacy_redteam_thresholds_jitter15_and_routing_reproduced": true,
+  "live_api_calls": 0,
+  "manuscript_prose_unchanged": true,
+  "network_guard": "Python audit hook blocks socket connect/DNS/sendto and subprocesses",
+  "numerical": {
+    "all_256_channel_levels_identical_to_rounded_IEC": true,
+    "certified_lab_bounds": {
+      "L_max": 101.8996211004513,
+      "L_min": 0.003319043894130012
+    },
+    "continuous_seam_residual": 1.3010426069826053e-18,
+    "exact_categorical_null_type1_rates_by_composition": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "gray_jacobian_singular_values_native_Lab": [
+      2.3147582115021743,
+      1.1396234190197392,
+      0.5639806073211416
+    ],
+    "gray_local_anisotropy": 4.104322349835879,
+    "hsv_hue_gap_at_rgb_separation_sqrt2_e_minus6": 0.3333333333333333,
+    "jsd_and_support_escape_relabeling_checks": true,
+    "max_observed_over_certified_bound": 0.002242145869904427,
+    "mmd_and_energy_independent_formula_checks": true,
+    "random_pair_count": 10000,
+    "rounded_IEC_seam_jump": 2.32950731317641e-09,
+    "sampled_length_ratio_min_max": [
+      0.22363871563666954,
+      1.9225259283175296
+    ],
+    "scope": "finite numerical fixtures corroborate the separate analytic proof; they do not prove a continuum-wide bound",
+    "stability_cloud_fixtures": 500
+  },
+  "protected_files": 206,
+  "raw_logs": 25
+}

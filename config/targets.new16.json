@@ -1,0 +1,21 @@
+{
+  "_comment": "16 Next-Gen Frontier Models on Cloudflare AI Gateway (GPT-6 / GPT-5.6 / Claude 5 & Fable 5 / Gemini 3.5-3.8 Flash & Gemini 4 Argon).",
+  "targets": [
+    {"id": "gw-gpt-6-astra", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-6-astra", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-6.1-sol", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-6.1-sol", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-6-sol", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-6-sol", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-6-luna", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-6-luna", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-5.6-sol", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-5.6-sol", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-5.6-terra", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-5.6-terra", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gpt-5.6-luna", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "openai/gpt-5.6-luna", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-claude-haiku-5.5", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "anthropic/claude-haiku-5.5", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-claude-opus-5", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "anthropic/claude-opus-5", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-claude-fable-5.1", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "anthropic/claude-fable-5.1", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-claude-fable-5", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "anthropic/claude-fable-5", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gemini-3.8-flash", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "google/gemini-3.8-flash", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gemini-3.7-flash", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "google/gemini-3.7-flash", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gemini-3.6-flash", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "google/gemini-3.6-flash", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gemini-3.5-flash", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "google/gemini-3.5-flash", "max_tokens": 256, "send_temperature": false},
+    {"id": "gw-gemini-4-argon", "protocol": "cloudflare-gateway", "account_id": "${CF_ACCOUNT_ID}", "api_key_env": "CF_API_TOKEN", "model": "google/gemini-4-argon", "max_tokens": 256, "send_temperature": false}
+  ]
+}

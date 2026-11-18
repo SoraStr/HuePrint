@@ -1,0 +1,47 @@
+{
+  "S3a": {
+    "counts": {
+      "input_bypass": 0,
+      "output_bypass": 44,
+      "total": 6000,
+      "valid_and_unflagged": 0,
+      "valid_output_unflagged": 42
+    },
+    "rates": {
+      "input_bypass": 0.0,
+      "output_bypass": 0.007333333333333333,
+      "valid_and_unflagged": 0.0,
+      "valid_output_unflagged": 0.007
+    }
+  },
+  "S4a": {
+    "counts": {
+      "input_bypass": 3200,
+      "output_bypass": 3199,
+      "total": 3200,
+      "valid_and_unflagged": 3192,
+      "valid_output_unflagged": 3192
+    },
+    "rates": {
+      "input_bypass": 1.0,
+      "output_bypass": 0.9996875,
+      "valid_and_unflagged": 0.9975,
+      "valid_output_unflagged": 0.9975
+    }
+  },
+  "S4b": {
+    "counts": {
+      "input_bypass": 0,
+      "output_bypass": 48,
+      "total": 1920,
+      "valid_and_unflagged": 0,
+      "valid_output_unflagged": 22
+    },
+    "rates": {
+      "input_bypass": 0.0,
+      "output_bypass": 0.025,
+      "valid_and_unflagged": 0.0,
+      "valid_output_unflagged": 0.011458333333333333
+    }
+  }
+}
