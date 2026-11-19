@@ -21,8 +21,8 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 
 ### [4] Model equality testing: Which model is this API serving?
 - **Authors**: I. Gao, P. Liang, and C. Guestrin
-- **Venue**: in *Proc. 13th Int. Conf. Learning Representations (ICLR)*, 2025
-- **Status**: Verified ICLR 2025 proceedings; cited for black-box output-distribution equality testing and adapted one-hot string MMD / $L_1$ baselines (`Section 1`, `Section 2.1`, `Section 3.6`).
+- **Venue**: in *Proc. 13th Int. Conf. Learning Representations (ICLR)*, 2025, pp. 86369–86382
+- **Status**: Verified ICLR 2025 proceedings (`pp. 86369–86382`); cited for black-box output-distribution equality testing and adapted one-hot string MMD / $L_1$ baselines (`Section 1`, `Section 2.1`, `Section 3.6`).
 
 ### [5] Are you getting what you pay for? Auditing model substitution in LLM APIs
 - **Authors**: W. Cai, T. Shi, X. Zhao, and D. Song
@@ -136,7 +136,7 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 
 ### [27] Testing for equal distributions in high dimension
 - **Authors**: G. J. Székely and M. L. Rizzo
-- **Venue**: *InterStat*, vol. 5, pp. 1–16, Nov. 2004
+- **Venue**: *InterStat*, no. 5, pp. 1–16, Nov. 2004
 - **Status**: Verified InterStat publication; cited in main manuscript (`Section 3.3`, `Section 3.5`) and supplement (`Supplement G`, `Supplement K`).
 
 ### [28] On the Bures–Wasserstein distance between positive definite matrices

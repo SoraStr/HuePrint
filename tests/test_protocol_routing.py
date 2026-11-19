@@ -158,7 +158,7 @@ class ProtocolRoutingTests(unittest.TestCase):
                 ):
                     self.assertIn(req, names)
                 for info in zf.infolist():
-                    self.assertEqual(info.date_time, (2026, 11, 18, 0, 0, 0))
+                    self.assertEqual(info.date_time, (2026, 11, 19, 0, 0, 0))
                     self.assertEqual(info.extra, b"")
                     self.assertNotIn(".git/", info.filename)
                     self.assertNotEqual(info.filename, "HuePrint/tools/tectonic")

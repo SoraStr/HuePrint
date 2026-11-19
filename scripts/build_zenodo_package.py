@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "zenodo_release"
 ARCHIVE_PREFIX = "HuePrint"
-NORMALIZED_ZIP_TIME = (2026, 11, 18, 0, 0, 0)
+NORMALIZED_ZIP_TIME = (2026, 11, 19, 0, 0, 0)
 
 EXCLUDED_TOP_DIRS = {".git", ".venv", "venv", "zenodo_release", "artifacts", "__pycache__"}
 EXCLUDED_FILE_NAMES = {".DS_Store", "tectonic"}
@@ -129,16 +129,24 @@ def build_replication_zip(zip_path: Path, rel_files: list[Path]) -> dict[str, st
 
 def write_upload_guide(out_dir: Path, manifest: dict) -> None:
     meta = json.loads((ROOT / ".zenodo.json").read_text(encoding="utf-8"))
-    guide = f"""# Zenodo 预印本与复现包上传指南（Ready-to-Upload）
+    version = meta["version"]
+    is_new_version = not version.startswith("1.")
+    upload_entry = (
+        f"在已有 Zenodo v1 记录页右侧点击 **New version**（保留原 Concept DOI 并生成 v{version} 版本 DOI），"
+        "删除草稿中的旧版文件后拖入以下 4 个新版文件"
+        if is_new_version
+        else "在 `https://zenodo.org/uploads/new` 直接拖入以下 4 个文件"
+    )
+    guide = f"""# Zenodo 预印本与复现包上传指南（v{version} Ready-to-Upload）
 
-本目录包含已全部完成脱敏校验、页面排版核验与确定性元数据清理的 Zenodo 提交文件。
+本目录包含已全部完成脱敏校验、页面排版核验与确定性元数据清理的 Zenodo **v{version}** 提交文件。
 
-## 一、上传文件清单（在 `https://zenodo.org/uploads/new` 直接拖入以下 4 个文件）
+## 一、上传文件清单（{upload_entry}）
 
 | 序号 | 文件名 | 页数 / 规模 | 用途说明 |
 | :---: | :--- | :---: | :--- |
 | 1 | `HuePrint_Preprint.pdf` | 28 页 | **主稿（12 页）+ 补充材料（16 页）完整合订本**——上传后请在文件列表勾选 **Set as default preview**，使读者打开页面即可直接通读全文、定理证明与附表 |
-| 2 | `HuePrint_Main_Manuscript.pdf` | 12 页 | 独立英文主稿 PDF |
+| 2 | `HuePrint_Main_Manuscript.pdf` | 12 页 | 独立英文主稿 PDF（IEEEtran 12 页，0 溢行/溢页） |
 | 3 | `HuePrint_Supplementary_Material.pdf` | 16 页 | 独立补充材料 PDF（含中/英/俄/阿四语原始探针与完整证明） |
 | 4 | `HuePrint_Replication_Package.zip` | {manifest['replication_zip_files']} 个文件 | 自包含离线复现代码与 12 份只读云端响应语料包（已剔除 `.git`、平台二进制、构建日志、macOS 扩展属性与本地路径） |
 
@@ -152,11 +160,12 @@ def write_upload_guide(out_dir: Path, manifest: dict) -> None:
   - Family name: `He` / Given names: `Xiguan`
   - Affiliation: `College of Information, Yunnan University of Chinese Medicine`
 - **Publication date**: `{meta['publication_date']}`
-- **Version**: `{meta['version']}`
+- **Version**: `{version}`
 - **Language**: `English`
 - **License**: `Creative Commons Attribution 4.0 International (CC-BY-4.0)`（在 Notes 中已注明代码部分同时遵循 MIT License）
 - **Keywords**: `{", ".join(meta['keywords'])}`
-- **Visibility**: `Public`（如需先获取保留 DOI 写入其他平台，可在上传页顶部先点 **Get a DOI now!** 预约 DOI）
+- **Description**: 可直接复制根目录 `.zenodo.json` 中的 `description` 字段内容（已包含 v{version} 更新摘要）
+- **Visibility**: `Public`
 
 ## 三、SHA-256 校验摘要
 
@@ -208,7 +217,10 @@ def build_package(out_dir: Path) -> dict:
     if xattr_bin:
         subprocess.run([xattr_bin, "-cr", str(out_dir)], check=False)
 
+    meta = json.loads((ROOT / ".zenodo.json").read_text(encoding="utf-8"))
     manifest = {
+        "version": meta["version"],
+        "publication_date": meta["publication_date"],
         "bundle_dir": out_dir.relative_to(ROOT).as_posix() if out_dir.is_relative_to(ROOT) else str(out_dir),
         "tex_logs_checked_and_cleaned": logs_checked,
         "pages": {
