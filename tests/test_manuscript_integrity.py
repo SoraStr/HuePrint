@@ -193,6 +193,10 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertIn("Siqi~Li", author_tex)
         self.assertIn("lisiqi-vicky@foxmail.com", author_tex)
         self.assertIn("0009-0000-9194-7563", author_tex)
+        zenodo_meta = json.loads((ROOT / ".zenodo.json").read_text(encoding="utf-8"))
+        self.assertEqual(zenodo_meta["creators"][0]["orcid"], "0009-0006-9188-9061")
+        author_meta = json.loads((ROOT / "paper" / "direct_replacements" / "author_metadata.json").read_text(encoding="utf-8"))
+        self.assertEqual(author_meta["authors"][0]["orcid"], "0009-0006-9188-9061")
 
     def test_propositions_and_clean_supplement(self):
         en_ms = (ROOT / "paper" / "MANUSCRIPT_EN.md").read_text(encoding="utf-8")

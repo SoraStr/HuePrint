@@ -157,7 +157,7 @@ def write_upload_guide(out_dir: Path, manifest: dict) -> None:
 - **Resource type**: `Publication` → `Preprint`
 - **Title**: `{meta['title']}`
 - **Creators**:
-  - Family name: `He` / Given names: `Xiguan` — Affiliation: `College of Information, Yunnan University of Chinese Medicine`
+  - Family name: `He` / Given names: `Xiguan` — Affiliation: `College of Information, Yunnan University of Chinese Medicine` — ORCID: `0009-0006-9188-9061`
   - Family name: `Li` / Given names: `Siqi` (Corresponding author) — Affiliation: `College of Information, Yunnan University of Chinese Medicine` — ORCID: `0009-0000-9194-7563`
 - **Publication date**: `{meta['publication_date']}`
 - **Version**: `{version}`
