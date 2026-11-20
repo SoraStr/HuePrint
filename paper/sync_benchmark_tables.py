@@ -99,10 +99,26 @@ def legacy_tables(zh=False):
     side_loo_str=f"{side_loo['correct']}/{side_loo['n']} ({100*side_loo['correct']/side_loo['n']:.2f}%)"
     result[2]=result[2].replace('| — | — | 16/50 (32.00%) |',
                               '| '+' | '.join(side_eer)+f' | {side_loo_str} |')
+    diag=json.loads((ROOT/'results/diagnostics/operational_diagnostics.json').read_text())
+    da_mmd=diag['dataset_a_color_mmd_u']['raw_string_mmd_u']
+    mmd_row=f"| Color MMD-U | {da_mmd['auc']:.4f} | {da_mmd['eer_discrete_pct']:.2f}% / {da_mmd['eer_linear_pct']:.2f}% | {da_mmd['cross_sublineage_eer_pct']:.2f}% | {da_mmd['cross_family_eer_pct']:.2f}% | {da_mmd['loo_family_hits']} ({da_mmd['loo_family_pct']:.2f}%) |"
+    t2_lines=[]
+    for ln in result[2].splitlines():
+        if ln.startswith(f'| {RM} |'):
+            continue
+        t2_lines.append(ln)
+        if ln.startswith(f'| {E} |'):
+            t2_lines.append(mmd_row)
+    result[2]='\n'.join(t2_lines)
     s1=json.loads((ROOT/'extensions/live_validation_20261111/lv_rgb_results.json').read_text())['S1_longitudinal_t21d_and_cross_gateway']
+    s1_diag=diag['study_s1_discrete_and_mmd_scores']
     s1_extra=[]
+    for dkey,label in [('CF0_to_CF21','CF0 → CF21'),('CF21_to_OR21','CF21 → OR21'),('CF0_to_OR21','CF0 → OR21')]:
+        hx=s1_diag[dkey]['hex_jsd_all14']
+        s1_extra.append([label,sym['hex_jsd'],hx['top1_hits'],f"{hx['auc']:.4f}",f"{hx['eer_pct']:.2f}%",f"{hx['genuine_mean']:.4f} / {hx['impostor_mean']:.4f}",hx['frozen_b3v3_frr_far_pct']])
+        mx=s1_diag[dkey]['color_mmd_u_raw_all14']
+        s1_extra.append([label,'Color MMD-U',mx['top1_hits'],f"{mx['auc']:.4f}",f"{mx['eer_pct']:.2f}%",f"{mx['genuine_mean']:.4f} / {mx['impostor_mean']:.4f}",mx['frozen_b3v3_frr_far_pct']])
     for key,label,metric in [
-        ('longitudinal_t0_to_t21d_cf_6v6_all14','CF0 → CF21','hex_jsd'),
         ('longitudinal_t0_to_t21d_cf_6v6_heldout4','CF0 → CF21 (heldout4)','robust_manifold'),
         ('cross_gateway_and_t21d_cf0_to_or21_6v6_all14','CF0 → OR21','side_jsd'),
     ]:

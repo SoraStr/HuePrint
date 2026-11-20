@@ -1,6 +1,6 @@
 # Reference Metadata Audit (34-Reference Inventory)
 
-Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main manuscript; `[24]`–`[29]` and `[30]`–`[34]` in the Supplementary Material, where `[30]`–`[34]` are supplement-only). Sequential first-appearance order `[1]`–`[29]` is enforced in `paper/ieee/body.tex`, and structured BibTeX entries `ref1`–`ref34` are maintained in `paper/references.bib`.
+Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main manuscript; `[4]`, `[16]`, `[24]`–`[29]`, and `[30]`–`[34]` in the Supplementary Material, where `[30]`–`[34]` are supplement-only). Sequential first-appearance order `[1]`–`[29]` is enforced in `paper/ieee/body.tex`, and structured BibTeX entries `ref1`–`ref34` are maintained in `paper/references.bib`.
 
 ## Main Manuscript References (`[1]`–`[29]`)
 
@@ -22,12 +22,12 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 ### [4] Model equality testing: Which model is this API serving?
 - **Authors**: I. Gao, P. Liang, and C. Guestrin
 - **Venue**: in *Proc. 13th Int. Conf. Learning Representations (ICLR)*, 2025, pp. 86369–86382
-- **Status**: Verified ICLR 2025 proceedings (`pp. 86369–86382`); cited for black-box output-distribution equality testing and adapted one-hot string MMD / $L_1$ baselines (`Section 1`, `Section 2.1`, `Section 3.6`).
+- **Status**: Verified ICLR 2025 proceedings (`pp. 86369–86382`); cited for black-box output-distribution equality testing, adapted one-hot string MMD / $L_1$ baselines, and Study S5b native long-form continuation MMD benchmark (`Section 1`, `Section 2.1`, `Section 3.5`, `Section 5.2`, `Supplement M`).
 
 ### [5] Are you getting what you pay for? Auditing model substitution in LLM APIs
 - **Authors**: W. Cai, T. Shi, X. Zhao, and D. Song
-- **Venue**: *arXiv preprint arXiv:2504.04715*, Apr. 2025
-- **Status**: Verified arXiv preprint; cited for auditing model substitution vs. benign serving nondeterminism (`Section 1`).
+- **Venue**: *arXiv preprint arXiv:2504.04715*, Sep. 2025
+- **Status**: Verified arXiv v2 preprint (`Sep. 2025`); cited for auditing model substitution vs. benign serving nondeterminism, adaptive routing evasion, and TEE hardware attestation (`Section 1`, `Section 2.1`, `Section 7.1`).
 
 ### [6] Auditing black-box LLM APIs with a rank-based uniformity test
 - **Authors**: X. Zhu, Y. Ye, T. Qiu, H. Zhu, S. Tan, A. Mannan, J. Michala, R. A. Popa, and W. Neiswanger
@@ -82,7 +82,7 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 ### [16] LLMmap: Fingerprinting for large language models
 - **Authors**: D. Pasquini, E. M. Kornaropoulos, and G. Ateniese
 - **Venue**: in *Proc. 34th USENIX Security Symp. (USENIX Security 25)*, 2025, pp. 299–318
-- **Status**: Verified USENIX Security 2025 proceedings pagination `pp. 299–318` (`Section 2.1`, `Section 6.4`).
+- **Status**: Verified USENIX Security 2025 proceedings pagination `pp. 299–318`; cited for active black-box LLM fingerprinting and Study S5a open-set parity benchmark (`Section 1`, `Section 2.1`, `Section 5.2`, `Section 6.4`, `Supplement M`).
 
 ### [17] TRAP: Targeted random adversarial prompt honeypot for black-box identification
 - **Authors**: M. Gubri, D. Ulmer, H. Lee, S. Yun, and S. J. Oh
@@ -146,8 +146,8 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 
 ### [29] Models API: Public model catalog and pricing
 - **Authors**: OpenRouter
-- **Venue**: `https://openrouter.ai/api/v1/models`, accessed Nov. 13, 2026 (catalog snapshot archived with the offline analysis)
-- **Status**: Verified archived pricing snapshot; cited in main manuscript (`Section 6.4`) and supplement (`Supplement K`).
+- **Venue**: `https://openrouter.ai/api/v1/models`, accessed Nov. 13 and Nov. 20, 2026 (catalog snapshots archived with the offline analysis)
+- **Status**: Verified archived pricing snapshots; cited in main manuscript (`Section 5.2`, `Section 6.4`) and supplement (`Supplement K`, `Supplement M`).
 
 ## Supplement-Only References (`[30]`–`[34]`)
 

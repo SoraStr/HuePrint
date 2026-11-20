@@ -1,7 +1,28 @@
 {
-  "name": "Xiguan He",
-  "name_tex": "Xiguan~He",
+  "name": "Xiguan He and Siqi Li",
+  "name_tex": "Xiguan~He and Siqi~Li",
   "affiliation": "College of Information, Yunnan University of Chinese Medicine",
   "address": "Kunming 650500, China",
-  "email": "kirarin@kirarin.dev"
+  "email": "kirarin@kirarin.dev; lisiqi-vicky@foxmail.com",
+  "corresponding_author": {
+    "name": "Siqi Li",
+    "email": "lisiqi-vicky@foxmail.com",
+    "orcid": "0009-0000-9194-7563"
+  },
+  "authors": [
+    {
+      "name": "Xiguan He",
+      "affiliation": "College of Information, Yunnan University of Chinese Medicine",
+      "address": "Kunming 650500, China",
+      "email": "kirarin@kirarin.dev"
+    },
+    {
+      "name": "Siqi Li",
+      "affiliation": "College of Information, Yunnan University of Chinese Medicine",
+      "address": "Kunming 650500, China",
+      "email": "lisiqi-vicky@foxmail.com",
+      "orcid": "0009-0000-9194-7563",
+      "corresponding": true
+    }
+  ]
 }

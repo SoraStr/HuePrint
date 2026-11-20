@@ -108,7 +108,11 @@ def inline(s):
 
 def fmt_table(lines,caption):
     appendix_table=state=="appendix"
-    single_column=any(s in caption for s in ['Frozen Regularized-Energy Transfer', 'Matched V/U Comparison', 'All-Pairs versus Within-Family', 'Median Per-Endpoint Query Overhead'])
+    single_column=any(s in caption for s in [
+        'S3 Compact Matched-Budget',
+        'Frozen Regularized-Energy Transfer',
+        'All-Pairs versus Within-Family',
+    ])
     rows=[]
     for line in lines:
         cols=[x.strip() for x in line.strip()[1:-1].split('|')]
@@ -121,12 +125,20 @@ def fmt_table(lines,caption):
     weights=[min(w,42) for w in weights];total=sum(weights)
     # parbox column widths sum to textwidth less intercolumn padding (3pt per side).
     widths=[f'{w/total:.6f}' for w in weights]
+    if 'Comparison of Black-Box LLM Auditing' in caption and count==6:
+        widths=['.12','.17','.19','.17','.16','.19']
+    if 'Dataset A (56 Models' in caption and count==6:
+        widths=['.14','.10','.20','.19','.18','.19']
+    if 'S3 Compact Matched-Budget' in caption and count==6:
+        widths=['.07','.31','.15','.15','.15','.17']
+    if 'Study S5 Head-to-Head' in caption and count==7:
+        widths=['.22','.06','.08','.13','.14','.11','.26']
+    if 'Frozen Regularized-Energy Transfer' in caption and count==4:
+        widths=['.27','.19','.27','.27']
     if 'Gateway Input/Output' in caption:
         widths=['.17','.10','.10','.15','.24','.24']
     if 'All-Pairs versus Within-Family' in caption and count==6:
         widths=['.15','.13','.18','.18','.18','.18']
-    if 'Median Per-Endpoint Query Overhead' in caption and count==6:
-        widths=['.17','.10','.22','.23','.14','.14']
     spec=''.join('>{\\raggedright\\arraybackslash}p{\\dimexpr '+v+'\\textwidth-6pt\\relax}' for v in widths)
     cap=re.sub(r'^TABLE\s+(?:[IVX]+|\d+):\s*','',caption)
     out=[r'\begin{table*}[t]',r'\centering',r'\caption{'+inline(cap)+'}',r'\label{tab:source-'+str(len(TABLES)+1)+'}',r'\footnotesize',r'\setlength{\tabcolsep}{3pt}',r'\renewcommand{\arraystretch}{1.08}',r'\begin{tabular}{@{}'+spec+'@{}}',r'\toprule']
@@ -136,7 +148,8 @@ def fmt_table(lines,caption):
     out += [r'\bottomrule',r'\end{tabular}',r'\end{table*}']
     rendered='\n'.join(out)
     if single_column:
-        rendered=rendered.replace(r'\begin{table*}[t]',r'\begin{table}[t]').replace(r'\end{table*}',r'\end{table}').replace(r'\textwidth',r'\columnwidth')
+        pos = '[b]' if 'Frozen Regularized-Energy Transfer' in caption else '[t]'
+        rendered=rendered.replace(r'\begin{table*}[t]',r'\begin{table}'+pos).replace(r'\end{table*}',r'\end{table}').replace(r'\textwidth',r'\columnwidth')
     if appendix_table:
         rendered=rendered.replace(r'\begin{table*}[t]',r'\par\noindent\begin{minipage}{\columnwidth}\makeatletter\def\@captype{table}\makeatother').replace(r'\end{table*}',r'\end{minipage}\par\vspace{6pt}').replace(r'\textwidth',r'\columnwidth')
     return rendered
@@ -153,6 +166,9 @@ def break_display_math(math, number):
             left, right = math.split(r',\qquad P_{\mathrm{soft}}', 1)
             return (r'\begin{aligned}' + left.replace('=', '&=', 1) + r',\\' + '\n'
                     + r'P_{\mathrm{soft}}' + right.replace('=', '&=', 1) + r'\end{aligned}')
+        if r'D_{\mathrm{hyb}}=0.35D_{\mathrm{vox}}+0.25D_{\mathrm{hex}}+0.25\bar D_{\mathrm E}+0.15D_{\mathrm{side}}' in math and r'\begin{aligned}' not in math:
+            suffix = '.' if math.rstrip().endswith('.') else ''
+            return (r'\begin{aligned}D_{\mathrm{hyb}}&=0.35D_{\mathrm{vox}}+0.25D_{\mathrm{hex}}\\&\quad+0.25\bar D_{\mathrm E}+0.15D_{\mathrm{side}}' + suffix + r'\end{aligned}')
         if r'D_{\mathrm{hyb-reg}}&=0.35D_{\mathrm{vox}}+0.25D_{\mathrm{hex}}+0.25\tilde D_{\mathrm{E-reg}}+0.15D_{\mathrm{side}},' in math:
             math = math.replace(
                 r'D_{\mathrm{hyb}}&=0.35D_{\mathrm{vox}}+0.25D_{\mathrm{hex}}+0.25\bar D_{\mathrm E}+0.15D_{\mathrm{side}},',
@@ -190,6 +206,7 @@ def is_numbered_definition(raw_math):
         r'W_i(\mathbf c)=',
         r'\bar D_{\mathrm E}=',
         r'D_{\mathrm{hyb}}&=',
+        r'D_{\mathrm{hyb}}=',
     ))
 
 
@@ -210,8 +227,8 @@ while i<len(lines):
         TABLES.extend([line]*len(re.findall(r'\\begin\{table\*?\}',raw)))
         if state=='biography':
             biography.append(line);biography_raw=True
-            name=re.search(r'\\begin\{IEEEbiographynophoto\}\{([^}]+)\}',raw)
-            if name:biography_name=name[1]
+            names=re.findall(r'\\begin\{IEEEbiographynophoto\}\{([^}]+)\}',raw)
+            if names:biography_name=', '.join(names)
         else:target.append(line)
         continue
     if state=='biography':
@@ -350,6 +367,7 @@ common=r'''\ifdefined\XeTeXversion\else
 \newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\unskip\nobreak\hfill$\blacksquare$\par}
 \usepackage{url}
 \emergencystretch=2em
+\setlength{\parskip}{0ex plus 2.2ex minus 0.12ex}
 \DeclareFontShape{OMS}{cmsy}{m}{n}{<-7>cmsy5<7-9>cmsy7<9->cmsy10}{}
 \DeclareFontShape{OML}{cmm}{m}{it}{<-7>cmmi5<7-9>cmmi7<9->cmmi10}{}
 '''
@@ -437,7 +455,12 @@ author = r'\author{[Author Name]\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem
 author_source=HERE/'direct_replacements/author.tex'
 if author_source.exists():
     author=author_source.read_text().rstrip('\n')
-titlepart=('\\title{'+inline(title)+'}\n'+author+'\n\\begin{document}\n'
+author_meta_path=HERE/'direct_replacements/author_metadata.json'
+pdf_author=json.loads(author_meta_path.read_text())['name'] if author_meta_path.exists() else '[Author Name]'
+pdf_title=title.replace('\\',r'\\').replace('(',r'\(').replace(')',r'\)')
+pdf_author_esc=pdf_author.replace('\\',r'\\').replace('(',r'\(').replace(')',r'\)')
+docinfo=(r'\ifdefined\XeTeXversion\special{pdf:docinfo << /Title ('+pdf_title+r') /Author ('+pdf_author_esc+r') >>}\else\pdfinfo{/Title ('+pdf_title+r') /Author ('+pdf_author_esc+r')}\fi'+'\n')
+titlepart=('\\title{'+inline(title)+'}\n'+author+'\n\\begin{document}\n'+docinfo+
            '\\IEEEtitleabstractindextext{\n\\begin{abstract}\n'+inline(abstract)+
            '\n\\end{abstract}\n\\begin{IEEEkeywords}\n'+inline(keywords)+
            '\n\\end{IEEEkeywords}\n}\n\\maketitle\n\\IEEEdisplaynontitleabstractindextext\n')

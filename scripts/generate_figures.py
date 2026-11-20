@@ -22,9 +22,9 @@ def save(fig,name):
 # Matched response rows. A fixed endpoint per family is selected by id order.
 h=load_jsonl_clean('extensions/live_validation_20261111/data/s3a_hueprint_locked64_n30.jsonl')[0];b=load_jsonl_clean('extensions/live_validation_20261111/data/s3b_bruckner_locked64_n30.jsonl')[0]
 ids=sorted(set(x['target_id'] for x in h));selected=[next(t for t in ids if sub in t) for sub in ['claude','gpt','gemini','llama','qwen']]
-fig, axes = plt.subplots(1, 3, figsize=(7.16, 3.2),
+fig, axes = plt.subplots(1, 3, figsize=(7.16, 2.85),
                          gridspec_kw={'width_ratios': [1, 1, 1.35]})
-fig.subplots_adjust(left=.09, right=.925, bottom=.33, top=.78, wspace=.58)
+fig.subplots_adjust(left=.09, right=.925, bottom=.30, top=.79, wspace=.58)
 a, blue, c = axes
 worddata = {}; rgbdata = {}
 families = ['Anthropic', 'OpenAI', 'Google', 'Meta', 'Qwen']
@@ -49,7 +49,8 @@ handles, labels = a.get_legend_handles_labels()
 legend = fig.legend(handles, labels, ncol=5, loc='upper center',
                     bbox_to_anchor=(.5, 1.0), fontsize=8, frameon=False,
                     handletextpad=.4, columnspacing=1.2)
-words = sorted(set(w for d in worddata.values() for w in d))
+words = sorted(set(w for d in worddata.values() for w in d),
+               key=lambda w: (-sum(worddata[t].get(w, 0) for t in selected), w))
 arr = np.array([[worddata[t].get(w, 0) for w in words] for t in selected])
 im = c.pcolormesh(np.arange(arr.shape[1]+1)-.5,
                   np.arange(arr.shape[0]+1)-.5, arr,
@@ -72,54 +73,52 @@ data['fig2'] = {'selected': selected, 'rgb_probe': 'hex_random',
                 'projections': [['R', 'G'], ['B', 'G']],
                 'family_legend_outside_scatter': True}
 save(fig, 'fig2_rgb_geometry_vs_words')
-fig=plt.figure(figsize=(7.16,4.2),layout='constrained');gs=fig.add_gridspec(2,2);axs=[fig.add_subplot(gs[0,0]),fig.add_subplot(gs[0,1]),fig.add_subplot(gs[1,:])];x=[v['a'] for v in R['jitter']['B']]
+fig=plt.figure(figsize=(7.16,4.20),layout='constrained');gs=fig.add_gridspec(2,2);axs=[fig.add_subplot(gs[0,0]),fig.add_subplot(gs[0,1]),fig.add_subplot(gs[1,:])];x=[v['a'] for v in R['jitter']['B']]
 for cohort,style,co in [('B','-',colors[0]),('E','--',colors[1])]:
  j=R['jitter'][cohort];axs[0].plot(x,[v['mean']['hex_genuine_mean'] for v in j],style+'o',color=co,ms=2,label=cohort+' empirical');axs[0].plot(x,[v['expected_hex_lower'] for v in j],style,color=co,alpha=.5,label=cohort+' lower bound')
 j=R['jitter']['B']
 empirical=[]
-for field,marker,co,label in [('energy_score_change','o',colors[0],'Energy score change'),
-                             ('soft_self_jsd','s',colors[2],'Soft: query vs. perturbed')]:
-    values=np.asarray([v['mean'][field] for v in j])
+for cohort,style,marker,co,label in [
+    ('B','-','o',colors[0],'Energy change (B)'),
+    ('E','--','s',colors[1],'Energy change (E)'),
+]:
+    jc=R['jitter'][cohort]
+    values=np.asarray([v['mean']['energy_score_change'] for v in jc])
     assert len(x)==len(values) and x[0]==0 and x[-1]==15 and np.isfinite(values).all()
-    line,=axs[1].plot(x,values,'-'+marker,lw=1.7,ms=3.5,mfc='white',mew=.8,
+    line,=axs[1].plot(x,values,style+marker,lw=1.7,ms=3.5,mfc='white',mew=.8,
                      zorder=5,color=co,label=label)
-    empirical.append({'source_field':field,'label':label,'x':line.get_xdata().tolist(),
-                      'y':line.get_ydata().tolist(),'linestyle':line.get_linestyle()})
-axs[1].plot(x,[v['energy_bound'] for v in j],'--',lw=1.1,color=colors[0],label='Energy upper bound')
-axs[1].plot(x,[v['soft_self_bound'] for v in j],'--',lw=1.1,color=colors[2],label='Soft self upper bound')
+    empirical.append({'cohort':cohort,'source_field':'energy_score_change','label':label,
+                      'x':line.get_xdata().tolist(),'y':line.get_ydata().tolist(),
+                      'linestyle':line.get_linestyle()})
+axs[1].plot(x,[v['energy_bound'] for v in j],':',lw=1.5,color='#333333',label='Prop. 2 upper bound')
 curve_styles = []
-for m, co, label in [('hex_jsd', colors[1], 'Exact'),
-                      ('energy_reg', colors[0], 'Energy'),
-                      ('robust_manifold', colors[2], r'$D_{\mathrm{RM}}$')]:
+for m, co, label in [('hex_jsd', colors[1], 'Exact hex'),
+                      ('energy_reg', colors[0], 'Regularized energy')]:
     for cohort in ['B', 'E']:
-        # Keep the measured ordinates unchanged. Thin, offset dashes and
-        # alternating open markers expose coincident curves without jittering y.
         if m == 'hex_jsd':
-            style = dict(lw=1.5, ls='-' if cohort=='B' else '--')
-        elif m == 'energy_reg':
-            style = dict(lw=2.8, ls='-' if cohort=='B' else (0, (6, 3)),
-                         marker='o' if cohort=='B' else 's', ms=4,
+            style = dict(lw=1.6, ls='-' if cohort=='B' else '--',
+                         marker='^' if cohort=='B' else 'v', ms=3.5,
                          markevery=[0, 2, 4, 6], mfc='white', mew=.8)
         else:
-            style = dict(lw=1.3, ls=(1, (3, 3)) if cohort=='B' else (3, (2, 4)),
-                         marker='^' if cohort=='B' else 'x', ms=4,
-                         markevery=[1, 3, 5], mfc='white', mew=.8)
+            style = dict(lw=2.0, ls='-' if cohort=='B' else '--',
+                         marker='o' if cohort=='B' else 's', ms=3.8,
+                         markevery=[0, 2, 4, 6], mfc='white', mew=.8)
         axs[2].plot(x, [100*v['metrics'][m]['eer'] for v in R['jitter'][cohort]],
-                    color=co, label=label+' '+cohort, **style)
+                    color=co, label=label+' ('+cohort+')', **style)
         curve_styles.append({'metric': m, 'cohort': cohort, 'style': style})
 for ax, title, ylabel in zip(axs,
-        ['(a) Support escape', '(b) Perturbation bounds', '(c) Linear EER'],
-        ['Mean exact JSD', 'Mean change / bound', 'EER (%)']):
+        ['(a) Support escape (Prop. 1)', '(b) Energy perturbation bound (Prop. 2)', '(c) Linear EER under RGB jitter'],
+        ['Mean exact JSD', 'Mean score change / bound', 'EER (%)']):
     ax.set(xlabel='Channel jitter radius a', ylabel=ylabel, title=title,
            xticks=[0, 4, 8, 12, 15])
     ax.grid(alpha=.15)
     if ax == axs[2]:
-        ax.legend(fontsize=7.5, frameon=False, loc='upper center', ncol=6,
-                  handlelength=1.8, columnspacing=0.9, handletextpad=0.35, borderaxespad=0.25)
+        ax.legend(fontsize=7.5, frameon=False, loc='upper center', ncol=4,
+                  handlelength=1.8, columnspacing=1.0, handletextpad=0.35, borderaxespad=0.25)
     else:
-        ax.legend(fontsize=8, frameon=True, framealpha=.95, edgecolor='none',
+        ax.legend(fontsize=7.5, frameon=True, framealpha=.95, edgecolor='none',
                   loc='upper left' if ax == axs[1] else 'lower right', ncol=1)
-axs[1].legend(loc='upper left', ncol=1, fontsize=6.5, labelspacing=.2,
+axs[1].legend(loc='upper left', ncol=1, fontsize=7.5, labelspacing=.25,
               frameon=False, handlelength=1.8, borderaxespad=.4, borderpad=.2)
 axs[1].set_xlim(-.5,15.5)
 axs[1].set_ylim(-.025,1.05)
@@ -169,10 +168,10 @@ validation['fig3b']={'empirical_curves':empirical,'xlim':list(axs[1].get_xlim())
                     'checked_legend_labels':label_clearances,
                     'fig3c_legend_and_inset_clear_of_curves':True,
                     'subplot_title_y_pixels':title_y,'subplot_titles_aligned':True,
-                    'data_source':'results/corpus_stats/analysis.json:jitter.B',
+                    'data_source':'results/corpus_stats/analysis.json:jitter.{B,E}',
                     'ordinates_unchanged':True}
 save(fig, 'fig3_stability_bounds')
-fig,axes=plt.subplots(1,2,figsize=(7.16,3.2),layout='constrained');grid=M['dataset_B_40u15r']['grid_2d_n_by_k']['grid_hybrid'];ns=list(grid);ks=list(grid[ns[0]]);vals=np.array([[grid[n][k]['tie_stable_12dp_linear_eer_pct'] for k in ks] for n in ns]);im=axes[0].pcolormesh(np.arange(vals.shape[1]+1)-.5,np.arange(vals.shape[0]+1)-.5,vals,cmap='viridis_r',rasterized=False);axes[0].set_ylim(vals.shape[0]-.5,-.5);axes[0].set(xticks=range(len(ks)),xticklabels=ks,yticks=range(len(ns)),yticklabels=ns,xlabel='Probe cells k',ylabel='Repeats n',title=r'(a) $D_{\mathrm{hyb}}$ linear EER (%)');cb=fig.colorbar(im,ax=axes[0],shrink=.8);cb.solids.set_rasterized(False)
+fig,axes=plt.subplots(1,2,figsize=(7.16,3.15),layout='constrained');grid=M['dataset_B_40u15r']['grid_2d_n_by_k']['grid_hybrid'];ns=list(grid);ks=list(grid[ns[0]]);vals=np.array([[grid[n][k]['tie_stable_12dp_linear_eer_pct'] for k in ks] for n in ns]);im=axes[0].pcolormesh(np.arange(vals.shape[1]+1)-.5,np.arange(vals.shape[0]+1)-.5,vals,cmap='viridis_r',rasterized=False);axes[0].set_ylim(vals.shape[0]-.5,-.5);axes[0].set(xticks=range(len(ks)),xticklabels=ks,yticks=range(len(ns)),yticklabels=ns,xlabel='Probe cells k',ylabel='Repeats n',title=r'(a) $D_{\mathrm{hyb}}$ linear EER (%)');cb=fig.colorbar(im,ax=axes[0],shrink=.8);cb.solids.set_rasterized(False)
 for i in range(len(ns)):
  for j in range(len(ks)):axes[0].text(j,i,f'{vals[i,j]:.1f}',ha='center',va='center',fontsize=8,color='white' if vals[i,j]>12 else '#222')
 C_COMP=json.load(open(ROOT/'results/benchmark/comparisons.json'))

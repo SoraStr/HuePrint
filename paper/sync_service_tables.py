@@ -46,20 +46,25 @@ def tables(zh=False):
 def digits(rows):return [re.findall(r'\d+(?:,\d{3})*(?:\.\d+)?',r) for r in rows]
 def sync(check=False):
  for lang in ['EN','ZH']:
-  p=ROOT/'paper'/f'MANUSCRIPT_{lang}.md';s=p.read_text()
+  paths=[ROOT/'paper'/f'{stem}_{lang}.md' for stem in ['MANUSCRIPT','SUPPLEMENT']]
+  texts={p:p.read_text() for p in paths if p.exists()}
   for name,body in tables(lang=='ZH').items():
    pattern=rf'<!-- AUDIT_TABLE_{name} -->[\s\S]*?<!-- /AUDIT_TABLE_{name} -->'
-   found=list(re.finditer(pattern,s))
-   if lang=='EN' and name in ('s1_core','family') and not found:
+   owners=[p for p,text in texts.items() if re.search(pattern,text)]
+   if lang=='EN' and name in ('s1_core','family') and not owners:
+    s=texts[ROOT/'paper'/'MANUSCRIPT_EN.md']
     tex_label={'s1_core':'tab:s1_transfer','family':'tab:within_family'}[name]
     m=re.search(rf'\\label\{{{tex_label}\}}[\s\S]*?\\midrule([\s\S]*?)\\bottomrule',s);assert m,(lang,name)
     tex_rows=[r for r in m[1].splitlines() if '&' in r]
     md_rows=body.splitlines()[2:]
     assert digits(tex_rows)==digits(md_rows),(lang,name)
     continue
-   block=f'<!-- AUDIT_TABLE_{name} -->\n{body}\n<!-- /AUDIT_TABLE_{name} -->';assert len(found)==1,(lang,name)
-   if check:assert found[0][0]==block,(lang,name)
-   else:s=re.sub(pattern,lambda _:block,s)
-  if not check:p.write_text(s)
+   assert len(owners)==1,(lang,name,owners)
+   owner=owners[0]
+   block=f'<!-- AUDIT_TABLE_{name} -->\n{body}\n<!-- /AUDIT_TABLE_{name} -->'
+   if check:assert re.search(pattern,texts[owner])[0]==block,(lang,name)
+   else:texts[owner]=re.sub(pattern,lambda _:block,texts[owner])
+  if not check:
+   for p,text in texts.items():p.write_text(text)
  print('Service-audit tables verified.' if check else 'Service-audit tables synchronized.')
 if __name__=='__main__':sync('--check' in sys.argv)

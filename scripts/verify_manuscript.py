@@ -72,12 +72,27 @@ def check_integrity_manifests() -> tuple[int, int]:
         if actual != expected:
             raise AssertionError(f"SHA-256 mismatch for {rel}: {actual} != {expected}")
 
+    s5_manifest_path = ROOT / "extensions" / "competitor_benchmark_20261120" / "s5_integrity_manifest.json"
+    s5_manifest = json.loads(s5_manifest_path.read_text(encoding="utf-8"))
+    s5_files = s5_manifest["files"]
+    if len(s5_files) != 10 or s5_manifest["corpus_jsonl_count"] != 3:
+        raise AssertionError(f"Unexpected S5 manifest counts: {len(s5_files)} files, {s5_manifest['corpus_jsonl_count']} jsonls")
+    for rel, expected in s5_files.items():
+        p = ROOT / rel
+        if not p.is_file():
+            raise FileNotFoundError(f"Missing S5 protected file: {rel}")
+        actual = sha256(p)
+        if actual != expected:
+            raise AssertionError(f"S5 SHA-256 mismatch for {rel}: {actual} != {expected}")
+
     repo_jsonls = sorted(
         str(p.relative_to(ROOT))
         for p in ROOT.rglob("*.jsonl")
         if ".git" not in p.parts
     )
-    manifest_jsonls = sorted(k for k in files if k.endswith(".jsonl"))
+    manifest_jsonls = sorted(
+        [k for k in files if k.endswith(".jsonl")] + [k for k in s5_files if k.endswith(".jsonl")]
+    )
     if repo_jsonls != manifest_jsonls:
         raise AssertionError(f"Repo JSONL inventory {repo_jsonls} != manifest JSONLs {manifest_jsonls}")
 
@@ -104,7 +119,7 @@ def check_sanitization_and_remnants() -> int:
             continue
         if p.name in {"verify_manuscript.py", "build_zenodo_package.py", "tectonic"}:
             continue
-        if p.suffix in {".pdf", ".png", ".ttf", ".ttc", ".zip", ".log"}:
+        if p.suffix in {".pdf", ".png", ".ttf", ".ttc", ".zip", ".log", ".pyc", ".pyo"}:
             continue
         text = p.read_text(encoding="utf-8", errors="ignore")
         scanned += 1
@@ -124,6 +139,7 @@ def check_sync_scripts() -> None:
         [sys.executable, "-B", "paper/sync_supplement_inventory.py", "--check"],
         [sys.executable, "-B", "paper/sync_benchmark_tables.py", "--check"],
         [sys.executable, "-B", "paper/sync_service_tables.py", "--check"],
+        [sys.executable, "-B", "paper/sync_s5_tables.py", "--check"],
         [sys.executable, "-B", "paper/build_latex.py", "--check"],
     ):
         subprocess.run(cmd, cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -131,7 +147,7 @@ def check_sync_scripts() -> None:
 
 def check_pdfs_and_zenodo_bundle() -> dict[str, int]:
     pages = {}
-    for target, expected_pages in (("ieee", 12), ("supplement", 16)):
+    for target, expected_pages in (("ieee", 12), ("supplement", 20)):
         pdf = ROOT / "paper" / target / "main.pdf"
         if not pdf.is_file():
             raise FileNotFoundError(f"Missing build output paper/{target}/main.pdf")
@@ -176,8 +192,8 @@ def check_pdfs_and_zenodo_bundle() -> dict[str, int]:
             raise FileNotFoundError(f"Missing Zenodo release file: {req_file.relative_to(ROOT)}")
 
     combined_pages = pdf_page_count(combined_pdf)
-    if combined_pages != 28:
-        raise AssertionError(f"Expected 28 pages in HuePrint_Preprint.pdf, got {combined_pages}")
+    if combined_pages != 32:
+        raise AssertionError(f"Expected 32 pages in HuePrint_Preprint.pdf, got {combined_pages}")
     pages["zenodo_combined"] = combined_pages
 
     z_manifest = json.loads(z_manifest_path.read_text(encoding="utf-8"))
@@ -195,6 +211,8 @@ def check_pdfs_and_zenodo_bundle() -> dict[str, int]:
             "HuePrint/README.md",
             "HuePrint/README-ZH.md",
             "HuePrint/results/integrity_manifest.json",
+            "HuePrint/extensions/competitor_benchmark_20261120/s5_integrity_manifest.json",
+            "HuePrint/scripts/operational_diagnostics.py",
             "HuePrint/paper/ieee/main.tex",
             "HuePrint/paper/ieee/body.tex",
             "HuePrint/paper/ieee/references.tex",
@@ -229,9 +247,10 @@ def main() -> None:
         json.dumps(
             {
                 "status": "ok",
-                "corpus_jsonl_files": 12,
+                "corpus_jsonl_files": 15,
                 "integrity_manifest_verified": n_main,
                 "lv_rgb_manifest_verified": n_lv,
+                "s5_manifest_verified": 10,
                 "text_files_scanned_clean": n_scanned,
                 "table_and_latex_sync": "verified",
                 "pdf_pages": pages,

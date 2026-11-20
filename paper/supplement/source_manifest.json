@@ -1,10 +1,12 @@
 {
   "source": "../SUPPLEMENT_EN.md",
-  "sha256": "479b0c10f014009a8bd04da084e37d4dfc1ba2aa530ab855d8d0f100e3d2f31e",
-  "main_source_sha256": "1bbbd99e932b5651f42ee3a66d3dcb2fe5d8347881b641ed0c340a945ef11a17",
-  "tables": 9,
-  "references": 11,
+  "sha256": "66c34a16d0876cecfb3e787f0f8b1296fccc97a6289601467fc798f9359ec2de",
+  "main_source_sha256": "d3be983b731411cbe0d6adba5da66206a1296d575db28da49ac755b421ca1bff",
+  "tables": 16,
+  "references": 13,
   "reference_numbers": [
+    4,
+    16,
     24,
     25,
     26,
@@ -25,12 +27,13 @@
     "D. Exact Forty-Cell Multilingual Probe Battery",
     "E. Exact S4a CSS and JSON Canary Probes",
     "F. Exact S4b Comparison Probes",
-    "G. Stability Proofs and Gaussian Baseline",
+    "G. Stability Proofs, Soft-Voxel Baseline, and Gaussian Control",
     "H. Detailed Gateway and Bootstrap Results",
     "I. Paraphrase and Cross-Template Results",
     "J. Precision-Regime Provider Results",
     "K. Reproducing the Offline Analyses",
-    "L. Numerical Perturbations and Response-Reuse Analysis"
+    "L. Numerical Perturbations and Response-Reuse Analysis",
+    "M. Study S5 Competitor Benchmark Protocol and Detailed Results"
   ],
   "language": "English with verbatim multilingual probes",
   "source_fonts": [

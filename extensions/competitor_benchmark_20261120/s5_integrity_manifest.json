@@ -1,0 +1,17 @@
+{
+  "study": "S5: Head-to-Head Competitor Benchmark (LLMmap, Gao et al., Same-Day HuePrint Anchor)",
+  "date_utc": "2026-11-20",
+  "corpus_jsonl_count": 3,
+  "files": {
+    "extensions/competitor_benchmark_20261120/configs/openrouter_pricing_20261120.json": "fdf392f586f30eca7af365ca260ca9a73e8e6e4a5c53be075a94a569fad0ea99",
+    "extensions/competitor_benchmark_20261120/configs/prompts_s5_competitors.json": "1c297aa914e044facf8977ded5a8089ac13c2f78634be2ee1a0e8d9db702f580",
+    "extensions/competitor_benchmark_20261120/data/s5a_llmmap.jsonl": "39d1a8423c8f980195b7e6e762dea6784c900adb4a233157a3337d9e5b2cbe61",
+    "extensions/competitor_benchmark_20261120/data/s5b_gao_longform.jsonl": "9c75c5e1ab257af3ec3a69be22b7f7d8b31a5e6d5bd13ea8bc45abd95f6dd506",
+    "extensions/competitor_benchmark_20261120/data/s5c_hueprint_anchor.jsonl": "00cabba82d4d943d2b586f4b018518206db3fd3b5ed381377e82ce58b13bfc02",
+    "extensions/competitor_benchmark_20261120/extract_llmmap_embeddings.py": "5741e4ce457810c285efdcab8c2dfa639897adcb803ae1b78c519ec48a8c4a89",
+    "extensions/competitor_benchmark_20261120/results/s5_results.json": "f1860d202fa50f15b27f589edf973460efb94d47813d14af8d43fc9737e8eee3",
+    "extensions/competitor_benchmark_20261120/results/s5a_llmmap_inference.json": "cd01f3557d9ecc673312ad089e0403687d119c3f6e49701c59b28ef25f5f53e9",
+    "extensions/competitor_benchmark_20261120/s5_analyze.py": "6e44f9171618ffeda5c57fc174194dd4a2b5170fe23ac3673f728b35a683bd57",
+    "extensions/competitor_benchmark_20261120/s5_collect.py": "5715ba9c375115fb6601dc547751925f3b2a2792b211b53d592d8c6e04da90fb"
+  }
+}

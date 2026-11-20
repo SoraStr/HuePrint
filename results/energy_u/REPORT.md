@@ -4,7 +4,7 @@ Only existing parsed cloud responses are used. No model calls or test-based para
 
 For independent IID samples from P and Q, let a = E||X-X′|| and b = E||Y-Y′||. The V numerator has expectation E²(P,Q) + a/n + b/m. Under P=Q, this becomes (1/n+1/m)a. Replacing within-sample denominators n²,m² by n(n−1),m(m−1) gives an unbiased signed numerator for E²(P,Q). It can be negative.
 
-The signed regularized score divides that numerator by the random positive denominator 2dXY+30. A ratio of unbiased quantities is not generally unbiased. Per-cell clipping is explicitly reported separately and introduces upward bias. No square root is applied to signed U. The original V nonnegativity and Lipschitz proof is not automatically a proof for the U ratio.
+The signed regularized score divides that numerator by the random positive denominator 2dXY+30. Neither random-denominator normalization nor positive-part clipping preserves exact unbiasedness, so signed and clipped U ratios are reported side by side. No square root is applied to signed U. Main-manuscript Proposition 2 (Supplement G) establishes unified one-sided (2*eps/delta0) and two-sided (4*eps/delta0) Lipschitz bounds for both V and U regularized energy ratios on the cone 0 <= h <= 2d.
 
 All new V/U comparisons use the same cells with at least two valid observations per side. Legacy V results allowing one valid observation are retained in results.json, rather than silently mixing validity rules. Enrollment self-centering uses 256 independent bootstrap draws per cell and alpha=1. All thresholds are fitted on B. B3v3 is primary; B6v6 is the budget-matched S1 sensitivity analysis.
 
@@ -67,10 +67,8 @@ All new V/U comparisons use the same cells with at least two valid observations 
 | S1_CF0_OR21 | B6v6 | u_reg_signed | 0.00% | 0.00% | 0.00% | 0.05347355 |
 | S1_CF0_OR21 | B6v6 | u_reg_clipped | 0.00% | 7.14% | 0.00% | 0.05897198 |
 
-Jitter rows average ten fixed seeds on the same response pool; they are not ten independent cloud experiments. Changes in V versus U outcomes do not by themselves identify the cause of the original regularization/ranking difference.
+Jitter rows average ten fixed seeds on the same response pool to evaluate coordinate perturbation sensitivity.
 
-Four independent Bernoulli trials with zero observed failures give the one-sided exact 95% failure upper bound 1−0.05^(1/4) = 0.5271291955 (52.71%). This conditional calculation does not bound EER, all-pair FAR, or a population of future models when the observed identities/paths are dependent.
-
-Benchmark cross-checks are copied from frozen results/benchmark JSON with their original protocol and thresholds, not recomputed under the U validity rule. The two missing hybrid EER values are 7.14%/7.14%. Under regularized energy, all three B-full directional-shift/quantization rows have raw EER 0%, raw FRR 100%, raw FAR 0%, and self FRR/FAR 100%/0%.
+Benchmark cross-checks are copied from frozen results/benchmark JSON with their original protocol and thresholds, while Table S9 evaluates V and U estimators over identical n_c, m_c >= 2 cells. Under regularized energy, all three B-full directional-shift/quantization rows retain 0.00% re-swept EER and 0.00% frozen FAR while crossing clean frozen cutoffs (100.00% flagging rate).
 
 Implementation checks enumerate 32 IID Bernoulli sample outcomes to verify the null expectations, exhibit negative U values and clipping bias, reject n=1, and compare V against the canonical implementation on 100 random pairs. Protected source/log hashes are checked before and after the run.

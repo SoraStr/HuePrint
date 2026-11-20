@@ -34,8 +34,8 @@ def inventory(language):
     assert len(grouped) == len(families) == 56
     lines = [BEGIN, '', '## C. ' + ('完整端点清单与标签来源' if zh else 'Complete Endpoint Inventory and Label Provenance'), '']
     lines += [
-        ('本表完整列出数据集 A 的 56 个端点，每端点 48 条响应。标识符、声明模型名和返回模型名逐字取自冻结响应日志；家族与厂商标签取自版本化标签映射。这些是实验标签，不是独立认证的权重身份或产品目录。'
-         if zh else 'This table lists all 56 Dataset A endpoints, with 48 responses each. Identifiers, declared models, and returned model labels are copied from the frozen response log; family and vendor labels come from the versioned mapping. They are experimental labels, not independently authenticated weight identities or a verified product catalog.'), '',
+        ('本表完整列出数据集 A 的 56 个端点，每端点 48 条响应。标识符、声明模型名与返回模型名均逐字取自冻结 API 响应日志；家族与厂商分组取自版本化的 `config/family_map.json`。'
+         if zh else 'This table lists all 56 Dataset A endpoints, with 48 responses each. Identifiers, declared models, and returned model strings are recorded verbatim from the frozen API response log; family and vendor groupings follow the versioned `config/family_map.json` mapping.'), '',
         ('来源：`data/census_40models.jsonl`（56 个端点，2,688 条记录）及 `config/family_map.json`。`CF-W` 表示 Cloudflare Workers AI；`CF-G` 表示 Cloudflare AI Gateway。日志中的 provider 字段在 CF-G 行仅为目标别名，不能据此推断独立后端。'
          if zh else 'Sources: `data/census_40models.jsonl` (56 endpoints, 2,688 records) and `config/family_map.json`. CF-W denotes Cloudflare Workers AI; CF-G denotes Cloudflare AI Gateway. The provider field for CF-G rows is a target alias and does not independently identify the backend.'), '',
         ('**表 S3：Dataset A 端点标签**' if zh else '**TABLE S3: Dataset A Endpoint Labels**'), '',

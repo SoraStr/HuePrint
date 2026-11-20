@@ -2,8 +2,9 @@
   "fig3b": {
     "empirical_curves": [
       {
+        "cohort": "B",
         "source_field": "energy_score_change",
-        "label": "Energy score change",
+        "label": "Energy change (B)",
         "x": [
           0,
           1,
@@ -25,8 +26,9 @@
         "linestyle": "-"
       },
       {
-        "source_field": "soft_self_jsd",
-        "label": "Soft: query vs. perturbed",
+        "cohort": "E",
+        "source_field": "energy_score_change",
+        "label": "Energy change (E)",
         "x": [
           0,
           1,
@@ -38,14 +40,14 @@
         ],
         "y": [
           0.0,
-          0.001191175946547943,
-          0.0025023082278823965,
-          0.005998515057687376,
-          0.017049878071035217,
-          0.03320020702976788,
-          0.04856386841454787
+          0.007686024678545174,
+          0.013267421457825673,
+          0.02330705387187236,
+          0.041761587967019245,
+          0.05833420964033907,
+          0.06979738214120754
         ],
-        "linestyle": "-"
+        "linestyle": "--"
       }
     ],
     "xlim": [
@@ -59,16 +61,15 @@
     "legend_inside_upper_left": true,
     "legend_labels_clear_of_curves": true,
     "legend_bounds_data": [
-      -0.31056344022621474,
-      0.6527533086522128,
-      7.655240670781652,
-      0.3703400359264015
+      -0.2814193541071681,
+      0.7143366438918353,
+      6.758240345198949,
+      0.3046172152373354
     ],
     "checked_legend_labels": [
-      "Energy score change",
-      "Soft: query vs. perturbed",
-      "Energy upper bound",
-      "Soft self upper bound"
+      "Energy change (B)",
+      "Energy change (E)",
+      "Prop. 2 upper bound"
     ],
     "fig3c_legend_and_inset_clear_of_curves": true,
     "subplot_title_y_pixels": [
@@ -76,11 +77,11 @@
       401.83007031249997
     ],
     "subplot_titles_aligned": true,
-    "data_source": "results/corpus_stats/analysis.json:jitter.B",
+    "data_source": "results/corpus_stats/analysis.json:jitter.{B,E}",
     "ordinates_unchanged": true
   },
   "fig3_files": {
-    ".pdf": "06a5eb44d266a2524d63f77d1dd683a7c2ea325d19db0e26ab86fb9954fa9a41",
-    ".svg": "cb37a2ab4ce572cc88d70ea319c6c15c79a45392dbd2d3634ba8388c6b6b4df8"
+    ".pdf": "c58748550f82f270a85b3c959892ccabfae9f28439dfb05f7ce5e20cebf64b7f",
+    ".svg": "98050ed30ce15f2d01a2f35308445773fb6ec762bf8d4c4b000ace138abe2c2e"
   }
 }

@@ -1,6 +1,6 @@
 {
   "source": "../MANUSCRIPT_EN.md",
-  "sha256": "1bbbd99e932b5651f42ee3a66d3dcb2fe5d8347881b641ed0c340a945ef11a17",
+  "sha256": "d3be983b731411cbe0d6adba5da66206a1296d575db28da49ac755b421ca1bff",
   "tables": 9,
   "references": 29,
   "main_reference_numbers": [
@@ -35,8 +35,10 @@
     29
   ],
   "shared_reference_pool": 34,
-  "supplement_references": 11,
+  "supplement_references": 13,
   "supplement_reference_numbers": [
+    4,
+    16,
     24,
     25,
     26,
@@ -50,12 +52,12 @@
     34
   ],
   "author_biography_present": true,
-  "author_biography_name": "Xiguan He",
+  "author_biography_name": "Xiguan He, Siqi Li",
   "raw_latex_blocks": [
     {
       "token": "HUEUSERLATEXBLOCK0000END",
       "name": "introduction",
-      "sha256": "d89ffb5aaa14dc7b9ef653eaa0bd3d1114464688ef52314c48adc28c704196e3",
+      "sha256": "615ad0c612a6db517e4945e26f64a8abddf7db089e0d0f1ff8049ea7d6d3ee09",
       "tables": 0
     },
     {
@@ -67,19 +69,19 @@
     {
       "token": "HUEUSERLATEXBLOCK0002END",
       "name": "service_model",
-      "sha256": "7a657ec575b3afcb99adb85b5b564ad0d9b3fdbbc9e3efd263566b41dc3996a9",
+      "sha256": "e33b26d44211fe1e6ff576b61477c1a598aeace9ce1136ae87bb0bbc95d23e95",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0003END",
       "name": "support_escape",
-      "sha256": "a44487f0adb26e86d886de3d5cf3f02a173849877caa82c6d11b0333e53171eb",
+      "sha256": "aff2f84ce64dd8ab7091fc4d90a62e941483b38810e2d69ea2376504489ecfe6",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0004END",
       "name": "energy_corollary",
-      "sha256": "6fd2aa6beafad237167ea11d6a473c04b4aa8f15ca0341d40a36c568f9f10213",
+      "sha256": "1d4a12c9b5e4be6726ed6162f24f1d185ac8b31b088cc207e3d369b60b70730f",
       "tables": 0
     },
     {
@@ -90,68 +92,44 @@
     },
     {
       "token": "HUEUSERLATEXBLOCK0006END",
-      "name": "paraphrase",
-      "sha256": "f552ee00236065542fc099bd69eb88a0da5c6698ad48ca8a9a5a18e5be9b39e8",
+      "name": "rgb_modes",
+      "sha256": "4aaafe96d120a290c7d3bc392c2739b866ecf194a12e91a28616d1fa8cb6fc6a",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0007END",
-      "name": "rgb_modes",
-      "sha256": "0ffb073ff57a8bf908b330f5eb3998026317275b7a484fb9c0c62546a9378a67",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0008END",
-      "name": "s1_main",
-      "sha256": "c4f180b0d14c0b8112bdfd72cfdd385965e1ce946e2cc97b886b61ec9c40e89e",
+      "name": "s2_and_family",
+      "sha256": "e9380ec2dbff4e830e8cfdbaf05d0654f88b3322caa0c2f8d410645948e3ca19",
       "tables": 1
     },
     {
+      "token": "HUEUSERLATEXBLOCK0008END",
+      "name": "perturbation_and_reuse",
+      "sha256": "1d2c4ced15d3173f2e8b105f7fb971fd1512de421b3925cba4c33682d6af78da",
+      "tables": 0
+    },
+    {
       "token": "HUEUSERLATEXBLOCK0009END",
-      "name": "s2_intro",
-      "sha256": "7a9e7e851b84fdd199450b337d5437777f9a68d0fa626fe7c0a51d9210bb05d8",
+      "name": "routing",
+      "sha256": "07b3af62022cbfbaf8038fbbef048090acb81421f80298fb19f2be146432497e",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0010END",
-      "name": "uncertainty",
-      "sha256": "ea5676c2782dbc93f566fabbe94a637869f21d6a5523ddc7180207a83437a7b0",
+      "name": "overhead",
+      "sha256": "61f2955d2d69a658763db0fb13f498e189a476415b3c702db37845148900479b",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0011END",
-      "name": "family_and_u",
-      "sha256": "621c73e38a0e11837209cdc270597abf8e47d2559d5e3c5c7f88fee41ef20e13",
+      "name": "ending",
+      "sha256": "06ec66d6b20c57ed1fd03e73d15c0f2fdd1ad47604da95aaa50c6cc9f63d7f42",
       "tables": 1
     },
     {
       "token": "HUEUSERLATEXBLOCK0012END",
-      "name": "perturbation_and_reuse",
-      "sha256": "e6048a1bd5ab48d6c233e31d45bb0db3ee65061f6e2e289a9aa306430be8bf6b",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0013END",
-      "name": "routing",
-      "sha256": "b755fa5ee727ee3da1065db4b09c3699b39b3a813b80f93a9552f206105571df",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0014END",
-      "name": "overhead",
-      "sha256": "6113f1eac60e542dc861042a0bc7d23f775e05c2cb58c515348ea6a37ededb93",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0015END",
-      "name": "ending",
-      "sha256": "0ed27822d311bae281a768dc87de5249fa886e0e082a7c0173f2049f2353d9e3",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0016END",
       "name": "biography",
-      "sha256": "1374e535fe81a7c0f7ce0dfeb81bbfca3e6a819739791309778d589c61ea59bd",
+      "sha256": "b2a6e6ed5973c78409477e749465cda8a0b0dd67fb21c1151f90b8413a0d3810",
       "tables": 0
     }
   ],

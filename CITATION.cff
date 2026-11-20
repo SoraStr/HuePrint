@@ -2,14 +2,19 @@ cff-version: 1.2.0
 message: "If you use HuePrint, its probe batteries, or its empirical cloud response datasets, please cite this work."
 title: "Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services"
 type: article
-version: "2.0.0"
-date-released: "2026-11-19"
+version: "2.1.0"
+date-released: "2026-11-20"
 license: CC-BY-4.0
 authors:
   - family-names: He
     given-names: Xiguan
     affiliation: "College of Information, Yunnan University of Chinese Medicine, Kunming 650500, China"
     email: kirarin@kirarin.dev
+  - family-names: Li
+    given-names: Siqi
+    affiliation: "College of Information, Yunnan University of Chinese Medicine, Kunming 650500, China"
+    email: lisiqi-vicky@foxmail.com
+    orcid: "https://orcid.org/0009-0000-9194-7563"
 keywords:
   - large language models
   - model-as-a-service
@@ -19,15 +24,17 @@ keywords:
   - energy statistics
 abstract: >-
   Aggregated large language model services expose declared model identifiers while hiding the backend
-  configurations that fulfill client requests. We present HuePrint, a lightweight framework that audits brokered
+  configurations fulfilling client requests. We present HuePrint, a black-box framework that audits brokered
   endpoint consistency via structured color elicitation and continuous geometric distribution comparison without
-  model weights or token probabilities. Across 34,528 cloud responses spanning 56 endpoints and 12 backends, HuePrint
-  lowers 30-call-per-side equal error rates over single-word baselines from 4.52-5.23 to 0.94-1.00 percent on the
-  development cohort and from 6.25-8.04 to 3.49-5.00 percent across 20 locked endpoints, reaching zero at 60-150
-  calls/side. Regularized RGB energy halves shallow-census error vs. exact-hex divergence (5.36 vs. 10.71 percent),
-  and a hybrid color metric cuts cross-provider error from 16.67 (string MMD-U and pure energy) to 5.93 percent.
-  Across three-week and cross-gateway checks, score-based color auditing keeps zero ranking error where equality
-  tests reject up to 42.86 percent of genuine pairs, and RGB geometry bounds numerical perturbations. Unified
-  Lipschitz bounds and estimator diagnostics guide calibration: self-centering lowers clean held-out false rejections
-  from 30 to 10 percent, and U-statistic energy ratios eliminate the 256-draw bootstrap. Within-family,
-  mixed-routing, and canary audits below four cents median query cost define cloud assurance guidelines.
+  model weights or token probabilities. Across 38,688 cloud responses spanning 56 endpoints and 12 backends, HuePrint
+  lowers 30-call-per-side equal error rates over single-word baselines from 4.52-5.23% to 0.94-1.00% on our
+  development cohort and from 6.25-8.04% to 3.49-5.00% across 20 locked endpoints, reaching 0.00% at 60-150
+  calls/side. In a 20-model parity benchmark, 30-call/side HuePrint averages 5.18% within-family EER across all
+  ten balanced splits (0.00-7.89%; matched split 0.00%) at $0.0068 query cost, outperforming open-set LLMmap
+  (10.53-34.39% across 1-3 traces) and cost-matched long-form kernels (11.09-19.47%), avoids LLMmap's
+  safety-triggering probes, and scores traces over 15,000 times faster locally. Regularized RGB energy halves
+  shallow-census error relative to exact-hex divergence (5.36% vs. 10.71%), and a multi-scale hybrid cuts
+  cross-provider error from 16.67% to 5.93%. Across 21-day cross-gateway transfers, budget-matched frozen thresholds
+  flag 1/14 raw (0/14 self-centered) same-label pairs vs. 6/14 equality-test rejections while catching 182/182 swaps.
+  In offline replay, two-stage confirmation cuts false alerts from 14 to 1 across 100 same-label windows and flags
+  186/190 within-family substitutions under one cent expected cost.

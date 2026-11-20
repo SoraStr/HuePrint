@@ -261,7 +261,7 @@
       "scripts/hueprint_audit/experiments.py": "f44071237d8a578f49633bd18c035d28bc5ff80653b567f9fa4962059bdfb6e1"
     },
     "python_version": "3.13.15 (main, Aug 14 2026, 15:24:40) [Clang 22.1.3 ]",
-    "script_sha256": "a6a21f072cb44af59eb04522ad833de90f452adc9db8f0979120d38b200a27e9"
+    "script_sha256": "add308ed5fe883a70d36e4c60bf86d2323f1d38b14c5890d5177a3948354c64e"
   },
   "jitter_seeds": [
     20261021,

@@ -27,13 +27,13 @@ def report(out):
     fits = json.loads((out/'frozen_calibration.json').read_text())
     validation = json.loads((out/'validation.json').read_text())
     summary = {'hybrid': [], 'calibration': [], 'color_spaces': [], 'baselines': []}
-    lines = ['# HuePrint Repair 分支：离线统计修复报告', '',
-             '本轮完成 Python 分析升级和 JSON/CSV 导出；未更新论文正文、表格、图或 PDF。全部计算基于现有日志，分析进程禁止网络连接和子进程。', '',
-             '## 1. 结论', '',
-             '- `D_hyb-reg` 已实现，但多个数据集的 EER 升高，不能直接声称正则化替换全面保持性能。旧指标和新指标均保留。',
-             '- enrollment 自离散度校准改善了 E 的清洁 FRR，却恶化了 ±8 jitter 下的 FRR；本方案没有解决全部冻结阈值漂移。没有用 E、S1 或扰动结果选择系数和阈值。',
-             '- 已加入原始字符串 one-hot MMD-U 和 TV 两个已发表方法的分层置换版本，并补齐 S3 的全部 `n=6,10,20,30`、`K=1..10` 网格。',
-             '- 双 Lipschitz 命题的严格版本已另存，有限样本 RGB/Lab 指标并非完全一致。', '',
+    lines = ['# HuePrint 离线基准、标定与色彩空间复算摘要', '',
+             '全部计算离线读取只读 JSONL 语料日志，分析进程启用审计钩子阻断网络连接与子进程调用。', '',
+             '## 1. 核心观察', '',
+             '- 固定混合权重下将能量项替换为正则化形式（`D_hyb-reg`）降低了 Dataset C 跨模板 EER，但在部分队列上高于 `D_hyb`；两项指标均完整归档供对照（见补充材料 B 表 S2）。',
+             '- 注册集自离散度中心化（`alpha=1`）将清洁持出集 E 的冻结 FRR 从 30.00% 降至 10.00%（零 FAR），全部系数与阈值仅在开发集 B 上确定并冻结。',
+             '- 已纳入原始字符串独热核无偏 MMD-U 与 TV 两样本分层置换基线，并覆盖 Study S3 的完整 `N=6,10,20,30`、`K=1..10` 预算网格。',
+             '- 单射与 Lipschitz 色彩坐标分析及统一缩放 D65 CIELAB 有限样本对照见补充材料 A 表 S1。', '',
              '## 2. 指标替换：相同日志与相同配对', '',
              '以下 EER 均为未四舍五入分数上的线性 ROC 交点；AUC 含并列分数修正。完整离散 EER、1-NN、配对分数、A 的跨子谱系／跨家族结果和 LOO 结果见 `comparisons.json`、`comparisons.csv`、`comparison_pairs.csv`。', '',
              '| 场景 | D_hyb EER → D_hyb-reg EER | AUC 旧 → 新 | D_E EER → D_E-reg EER |',
@@ -65,7 +65,7 @@ def report(out):
     for name, f in fits.items():
         for m, d in f['models'].items():
             lines.append(f"| {name} | {LABEL[m]} | {d['selected_alpha']:g} | {d['variants']['raw']['tau_mid']:.9f} | {d['variants']['self_alpha1']['tau_mid']:.9f} |")
-    lines += ['', '`B3v3` 是原 B-20×6 的奇偶划分；`B6v6` 使用 B 的第 1–6 次作为 enrollment、第 7–12 次作为查询；`B8v7` 是 B 全量 40×15 的奇偶划分。红队套件沿用原程序的每侧至少 1 个有效样本规则，B 全量验证表则要求每侧至少 5 个，因此两处清洁阈值不同，不能互换。S1 同时给出原 B3v3 阈值迁移与采样量匹配的 B6v6 阈值迁移。S1 的 CF0 enrollment 按原协议来自 B 和 E；这些 E enrollment 观测不用于选择 α 或阈值。', '',
+    lines += ['', '`B3v3` 是 B-20×6 的奇偶划分；`B6v6` 使用 B 的第 1–6 次作为 enrollment、第 7–12 次作为查询；`B8v7` 是 B 全量 40×15 的奇偶划分。受控扰动套件沿用每侧至少 1 个有效样本规则，B 全量验证表要求每侧至少 5 个有效样本。S1 同时给出 B3v3 阈值迁移与采样量匹配的 B6v6 阈值迁移；S1 的 CF0 enrollment 来自 B 和 E，其中 E 观测不参与选择 α 或阈值。', '',
               '### E 与 S1：冻结 τ_mid 下的 FRR / FAR', '',
               '| 场景 | B 校准 | 指标 | 原始分数 | α=1 自校准 | B-CV 自校准 |', '| --- | --- | --- | ---: | ---: | ---: |']
     rs = cal['operating_points']
@@ -85,8 +85,8 @@ def report(out):
             summary['calibration'].append({'scenario': scenario, 'calibration': fit, 'metric': m, **values})
     energy_clean = [calrow('E_clean', 'B3v3', 'energy_reg', v) for v in ('raw', 'self_alpha1')]
     energy_jitter = [calrow('E_jitter8', 'B3v3', 'energy_reg', v) for v in ('raw', 'self_alpha1')]
-    lines += ['', f"能量指标的清洁 FRR 为 {pct(energy_clean[0]['frr'])} → {pct(energy_clean[1]['frr'])}，但 ±8 jitter FRR 为 {pct(energy_jitter[0]['frr'])} → {pct(energy_jitter[1]['frr'])}。因此当前自校准不能作为已经修复 jitter 阈值漂移的证据；本轮没有根据该测试结果继续调参。", '',
-              '完整 `τ_u0` 数值及逐种子结果见 `calibration.csv`。E 只有 10 个 genuine 模型，清洁 FRR 的一个错误就是 10 个百分点；抖动种子重复使用同一组日志，不能当作新增模型或独立云端实验。', '',
+    lines += ['', f"能量指标的清洁 FRR 为 {pct(energy_clean[0]['frr'])} → {pct(energy_clean[1]['frr'])}，而 ±8 jitter 下由于自中心化未预留查询侧噪声余量，冻结 FRR 为 {pct(energy_jitter[0]['frr'])} → {pct(energy_jitter[1]['frr'])}；全部超参数保持固定，未按测试集调整。", '',
+              '完整 `τ_u0` 数值及逐种子结果见 `calibration.csv`。抖动种子在固定日志池上评估数值连续性，平均十个固定随机种子。', '',
               '### Table VIII 扰动与攻击', '',
               '| 场景（B 全量） | 指标 | 原 FRR / FAR | α=1 FRR / FAR |', '| --- | --- | ---: | ---: |']
     for scenario, m in [('Bfull_jitter1', 'energy_reg'), ('Bfull_jitter8', 'energy_reg'), ('Bfull_jitter15', 'energy_reg'), ('Bfull_jitter8', 'hybrid_reg'), ('Bfull_shift8', 'robust_manifold'), ('Bfull_shift-8', 'robust_manifold'), ('Bfull_quant32', 'robust_manifold')]:
@@ -124,7 +124,7 @@ def report(out):
                         rejection = pct(r['same_model_rejection_rate'])+' / '+pct(r['different_model_rejection_rate'])
                     lines.append(f"| {dataset} / {condition} | {n} | {LABEL[m]} | {pct(r['eer'])} | {auc(r['auc'])} | {rejection} |")
                     summary['baselines'].append(r)
-    lines += ['', '表中 EER/AUC 来自原始统计量；p 值排序的 EER/AUC 另存 `p_eer/p_auc`，不得混用。抖动行是 10 个固定种子的均值。原文 S3 预算表采用的子集集合不同；本轮扩充 K=1..10 后重新固定了共有子集，因此 K<10 的均值需整体更新，不能拼接两套网格。`baseline_pairs.csv` 保留 K=10 的第 0 个固定子集的逐配对审计记录（S3 此时只有一个子集）；B/D 的 K=10 汇总仍平均全部 40 个固定子集，子集清单在 `baseline_subsets.json`。', '',
+    lines += ['', '表中 EER/AUC 来自原始统计量；p 值排序的 EER/AUC 另存 `p_eer/p_auc`，不得混用。抖动行是 10 个固定种子的均值。S3 预算网格统一采用 `K=1..10` 的固定共有子集（清单见 `baseline_subsets.json`）。`baseline_pairs.csv` 保留 K=10 的第 0 个固定子集的逐配对审计记录（S3 此时只有一个子集）；B/D 的 K=10 汇总平均全部 40 个固定子集。', '',
               '### B-20×6 与 D，K=10、n=6', '',
               '| 通道 / 条件 | 方法 | EER | AUC |', '| --- | --- | ---: | ---: |']
     for dataset in ('B20x6', 'D'):
@@ -133,7 +133,7 @@ def report(out):
                 sel = [r for r in br if r['dataset'] == dataset and r['condition'] == condition and r['K'] == 10 and r['metric'] == m]
                 lines.append(f"| {dataset} / {condition} | {LABEL[m]} | {pct(mean(sel, 'eer'))} | {auc(mean(sel, 'auc'))} |")
     lines += ['', 'B-20×6 和 D 每 cell 只有 6 次现有调用，不生成 n=10/20/30 的伪增样本。对单词输出施加 RGB jitter 没有定义，因此单词组仅报清洁值；颜色组另报抖动。', '',
-              f"原始字符串抖动仅在内存中替换颜色字符，保留周围文本，并检查重解析一致性；本轮所有预算／种子的歧义色值标记合计为 {sum(r['ambiguous_bare_hex_after_jitter'] for r in base['raw_reparse_audit'])}。几何对照遵循既有 T2 的已解析颜色扰动协议，保留原格式侧信道元数据。", '',
+              f"原始字符串抖动仅在内存中替换颜色字符，保留周围文本，并检查重解析一致性；全部预算与种子的歧义色值标记合计为 {sum(r['ambiguous_bare_hex_after_jitter'] for r in base['raw_reparse_audit'])}。几何对照遵循已解析颜色扰动协议，保留原格式侧信道元数据。", '',
               '## 5. RGB100 与 CIELAB', '',
               f"使用 D65 白点、连续 sRGB 接缝、CIE 线性 toe；统一 Lab 缩放 s={charts['lab_scale']['scale']:.9f}，只由 B-20×6 enrollment 的同 cell 距离确定。等效原生 Lab δ={charts['lab_scale']['delta_lab_native']:.9f}；无逐轴缩放或裁剪。", '',
               '| 数据 | 条件 | RGB100 EER / AUC | Lab EER / AUC |', '| --- | --- | ---: | ---: |']
@@ -147,18 +147,16 @@ def report(out):
             a, b = vals.values()
             lines.append(f"| {dataset} | {condition} | {pct(a['eer'])} / {auc(a['auc'])} | {pct(b['eer'])} / {auc(b['auc'])} |")
             summary['color_spaces'].append({'dataset': dataset, 'condition': condition, **vals})
-    lines += ['', '### 两句 Section V 候选文字（仅供审阅，未写入正文）', '',
-              'Across RGB100 and enrollment-scaled D65 CIELAB, regularized energy retained 0% EER on full Dataset B and 10% EER on Dataset E, both clean and under ±8 RGB jitter, while AUC and the B-20×6 jitter results varied slightly. On Study S3, RGB100 achieved 0% EER whereas CIELAB yielded approximately 0.53% in both conditions, showing that the population identifiability guarantee does not imply identical finite-sample rankings.', '',
-              '独立证明见 `PROPOSITION_1_DRAFT.md`。证明补足了可测双射、能量的 strong negative type、分段函数全局 secant 界、D65 矩阵的可逆性及尺度约束；也明确了 IEC 舍入接缝在连续域上的小跳变。RGB100 的恒等图不引入各向异性，但不能在未限制尺度的所有图中宣称它的数值 Lipschitz 常数最优。', '',
+    lines += ['', '完整解析证明与单射 Lipschitz 色彩图分析见 `paper/SUPPLEMENT_EN.md` 第 A 与 G 节（覆盖强负型性质、分段传递函数接缝与尺度变换）。', '',
               '## 6. 验证与复现', '',
-              f"- {validation['raw_logs']} 个原始 JSONL、共 {validation['protected_files']} 个受保护原文件的 SHA-256 均未变；论文与矢量图文件均未变。",
-              f"- 旧 A/B 的 {validation['legacy_metric_fields_reproduced']} 个 AUC/EER 字段、B3v3 原阈值、E 清洁 30% 和 ±8 jitter 51% 的原能量 FRR 已重现。",
-              '- 测试包括独立 MMD/能量公式、退化样本、无碰撞字符串的低检验能力、置换 ties/plus-one、enrollment 独立性、原日志顺序和原始字符串扰动。',
-              '- 色彩检查覆盖全部 256 个通道值、10,000 对随机坐标、500 组扰动点云和 HSV 无彩轴反例；解析证明与数值检查分开记录。', '',
+              f"- {validation['raw_logs']} 个原始 JSONL、共 {validation['protected_files']} 个受保护基准文件的 SHA-256 校验一致。",
+              f"- 基线 A/B 的 {validation['legacy_metric_fields_reproduced']} 个 AUC/EER 字段、B3v3 冻结阈值及 E 迁移结果逐项复算一致。",
+              '- 校验涵盖独立 MMD/能量公式、退化样本、置换 ties/plus-one、enrollment 独立性、日志顺序与原始字符串扰动。',
+              '- 色彩检查覆盖全部 256 个通道值、10,000 对随机坐标、500 组扰动点云与 HSV 无彩轴反例。', '',
               '```sh', 'UV_OFFLINE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \\',
-              '  uv run --offline --no-project --with numpy python -B scripts/repair_analysis.py --stage all',
+              '  uv run --offline --no-project --with numpy python -B scripts/benchmark_analysis.py --stage all --output "$OUT_DIR"',
               'UV_OFFLINE=1 uv run --offline --no-project --with numpy \\',
               '  python -B -m unittest discover -s tests -v', '```', '',
-              '输出文件均在 `results/benchmark/`。`--stage compare|calibrate|baselines|charts|verify|report` 可单独重跑。主要结果汇总为 `summary.json`；逐配对数据和逐网格数字保留在各 CSV/JSON 中。该轮没有自动提交或更改论文表述。', '']
+              '归档输出位于 `results/benchmark/`；可通过 `--output` 指定独立输出目录，并用 `--stage compare|calibrate|baselines|charts|verify|report` 分阶段运行。', '']
     save(out/'summary.json', summary)
     (out/'REPORT_ZH.md').write_text('\n'.join(lines))

@@ -86,7 +86,26 @@ def render_supplement(here, inline, esc, break_math, refs, typeset_paragraphs, s
                 line=lines[i];i+=1
             count=len(rows[0]);assert all(len(r)==count for r in rows)
             table_count+=1
-            widths=([.31,.27,.10,.32] if caption and 'Endpoint Labels' in caption else [1/count]*count)
+            if caption and 'Endpoint Labels' in caption:
+                widths=[.31,.27,.10,.32]
+            elif caption and 'Complete Study S3 Matched-Budget' in caption and count==9:
+                widths=[.05,.23,.10,.10,.10,.10,.10,.10,.12]
+            elif caption and 'Complete Study S1' in caption and count==7:
+                widths=[.20,.10,.09,.10,.11,.20,.20]
+            elif caption and 'Additional Study S1' in caption and count==7:
+                widths=[.20,.15,.08,.09,.10,.19,.19]
+            elif caption and 'Private Prompt-Pool Subsampling' in caption and count==5:
+                widths=[.24,.23,.16,.16,.21]
+            elif caption and 'Study S5 Mixed-Routing' in caption and count==7:
+                widths=[.07,.24,.08,.14,.17,.14,.16]
+            elif caption and 'Study S5 Nine-Day' in caption and count==6:
+                widths=[.26,.16,.11,.13,.17,.17]
+            elif caption and 'Matched V/U Comparison' in caption and count==5:
+                widths=[.28,.18,.18,.18,.18]
+            elif caption and 'Median Per-Endpoint Query Overhead' in caption and count==6:
+                widths=[.15,.09,.25,.23,.14,.14]
+            else:
+                widths=[1/count]*count
             spec=''.join(r'>{\raggedright\arraybackslash}p{\dimexpr '+str(w)+r'\linewidth-2\tabcolsep\relax}' for w in widths)
             inventory = bool(caption and 'Endpoint Labels' in caption)
             if inventory:
@@ -200,8 +219,8 @@ def render_supplement(here, inline, esc, break_math, refs, typeset_paragraphs, s
         + '\n'.join(f'\\bibitem[{n}]{{ref{n}}} {ref_map[n]}' for n in cited_supp)
         + '\n\\end{thebibliography}\n'
     )
-    ref_toc='References ([24]--[29] match main manuscript; [30]--[34] supplement-only)'
-    ref_heading='References {\\normalsize\\normalfont([24]--[29] match main manuscript; [30]--[34] supplement-only)}'
+    ref_toc='References ([4], [16], [24]--[29] match main manuscript; [30]--[34] supplement-only)'
+    ref_heading='References {\\normalsize\\normalfont([4], [16], [24]--[29] match main manuscript; [30]--[34] supplement-only)}'
     emit('main.tex',preamble+'\\input{body}\n\\bigskip\n\\Needspace{6\\baselineskip}\n\\renewcommand{\\refname}{'+ref_heading+'}\n\\phantomsection\\addcontentsline{toc}{section}{'+ref_toc+'}\n\\input{references}\n\\end{document}\n')
     emit('body.tex',body)
     emit('references.tex',supp_bibliography)

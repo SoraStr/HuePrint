@@ -58,41 +58,66 @@ def write_figure(fig, name):
 
 
 def service_figure():
-    fig = plt.figure(figsize=(7.16, 2.2))
+    fig = plt.figure(figsize=(7.16, 2.38))
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set(xlim=(0, 1), ylim=(0, 1))
     ax.axis('off')
     boxes = {}
     texts = []
-    def box(key, x, y, w, h, label, color='#edf4f8', edge='#0072B2'):
+    # Subtle lane containers separating online monitoring from offline enrollment.
+    ax.add_patch(FancyBboxPatch((.008, .545), .984, .420, boxstyle='round,pad=0.004,rounding_size=0.015',
+                                facecolor='#f9fbfd', edgecolor='#d0dce5', linewidth=.8, linestyle='--'))
+    ax.text(.020, .930, 'Online canary audit (black-box text only)', ha='left', va='center',
+            fontsize=8, weight='bold', color='#1f4e79')
+    ax.add_patch(FancyBboxPatch((.008, .155), .515, .345, boxstyle='round,pad=0.004,rounding_size=0.015',
+                                facecolor='#f4f8fb', edgecolor='#b7d0e2', linewidth=.8, linestyle='--'))
+    ax.text(.020, .465, 'Offline enrollment & contract', ha='left', va='center',
+            fontsize=8, weight='bold', color='#005a8d')
+
+    def box(key, x, y, w, h, label, color='#edf4f8', edge='#0072B2', lw=.9):
         patch = FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.008,rounding_size=0.012',
-                              facecolor=color, edgecolor=edge, linewidth=.9)
+                              facecolor=color, edgecolor=edge, linewidth=lw)
         ax.add_patch(patch)
         text = ax.text(x+w/2, y+h/2, label, ha='center', va='center', fontsize=8)
         boxes[key] = (x, y, w, h)
         texts.append((patch, text))
-    def arrow(start, end, **kw):
+
+    def arrow(start, end, color='#4C5966', **kw):
         ax.add_patch(FancyArrowPatch(start, end, arrowstyle='-|>', mutation_scale=9,
-                                    color='#4C5966', linewidth=.9, **kw))
-    box('reference', .026, .62, .212, .255, 'Trusted reference\nAllowed configuration')
-    box('parser', .290, .62, .191, .255, 'Short RGB output\nParse and scale')
-    box('score', .533, .62, .191, .255, 'Behavior score\nFrozen threshold')
-    box('decision', .776, .62, .198, .255, 'Accept / investigate\nRecord audit result', '#eef5ec', '#35774C')
-    for start, end in [((.246, .748), (.281, .748)), ((.489, .748), (.524, .748)), ((.732, .748), (.767, .748))]:
+                                    color=color, linewidth=.95, **kw))
+
+    # Top row: online canary path -> parsing -> geometric score -> decision.
+    box('monitor',   .020, .605, .158, .250, 'Caller monitor\nRGB / CSS probes', '#f4f5f6', '#617183')
+    box('broker',    .206, .605, .156, .250, 'Cloud broker\nRouting / caching', '#f4f5f6', '#617183')
+    box('parser',    .390, .605, .168, .250, 'Parse & scale\n#RRGGBB → RGB', '#edf7f4', '#009E73')
+    box('score',     .588, .605, .182, .250, 'Distribution score\nEnergy / hybrid vs. τ', '#e6f0f8', '#0072B2', lw=1.2)
+    box('decision',  .800, .605, .180, .250, 'Accept / investigate\n2-stage check & log', '#eef5ec', '#35774C')
+    for start, end in [((.186, .730), (.198, .730)), ((.370, .730), (.382, .730)),
+                       ((.566, .730), (.580, .730)), ((.778, .730), (.792, .730))]:
         arrow(start, end)
-    box('monitor', .026, .29, .191, .20, 'Caller monitor\nCanary requests', '#f4f5f6', '#617183')
-    box('broker', .290, .29, .191, .20, 'Cloud service broker\nRouting / caching', '#f4f5f6', '#617183')
-    box('providers', .533, .29, .191, .20, 'Declared providers\nModel / precision', '#f4f5f6', '#617183')
-    for start, end in [((.225, .39), (.281, .39)), ((.489, .39), (.524, .39))]:
-        arrow(start, end)
-    ax.plot([.630, .630, .386], [.50, .55, .55], color='#4C5966', linewidth=.9)
-    arrow((.386, .55), (.386, .61))
-    ax.text(.510, .580, 'responses', fontsize=8, ha='center', va='center', color='#4C5966')
-    box('refresh', .776, .29, .198, .20, 'Allowed change?\nRefresh reference', '#fff8e8', '#A97B27')
-    arrow((.875, .61), (.875, .50), linestyle='--')
-    ax.text(.50, .118, 'Lifecycle: authorize configuration changes  →  refresh reference  →  resume monitoring',
-            ha='center', va='center', fontsize=8, color='#4C5966')
-    ax.text(.026, .96, 'Enrollment and verification', ha='left', va='center', fontsize=8, weight='bold')
+    # Tiny RGB color dots inside parser box corner as a visual anchor for HuePrint.
+    for dx, rgb_c in [(.016, '#E63946'), (.030, '#2A9D8F'), (.044, '#3A86FF')]:
+        ax.plot(.390 + dx, .825, 'o', markersize=3.2, color=rgb_c, markeredgecolor='none')
+
+    # Bottom row: offline reference enrollment -> converges up into score; authorized refresh closes loop.
+    box('reference', .020, .200, .205, .210, 'Trusted reference\nPinned checkpoint M*', '#edf4f8', '#0072B2')
+    box('profile',   .272, .200, .235, .210, 'Enrolled profile\nRGB clouds & frozen τ', '#edf4f8', '#0072B2')
+    arrow((.233, .305), (.264, .305))
+    # Reference branch feeds upward into distribution comparison.
+    ax.plot([.515, .679], [.305, .305], color='#0072B2', linewidth=.95)
+    arrow((.679, .305), (.679, .596), color='#0072B2')
+    ax.text(.612, .352, 'reference', fontsize=8, ha='center', va='center', color='#005a8d')
+
+    # Authorized change & closed-loop refresh path.
+    box('refresh',   .790, .200, .190, .210, 'Authorized change?\nRefresh reference', '#fff8e8', '#A97B27')
+    arrow((.890, .596), (.890, .418), color='#A97B27', linestyle='--')
+    ax.text(.934, .505, 'crossing', fontsize=8, ha='center', va='center', color='#8a641c')
+    # Closed-loop return line along the bottom back to Trusted reference.
+    ax.plot([.885, .885, .122], [.192, .072, .072], color='#A97B27', linewidth=.95, linestyle='--')
+    arrow((.122, .072), (.122, .192), color='#A97B27', linestyle='--')
+    ax.text(.505, .105, 'Refresh loop: authorize update  →  re-enroll reference  →  resume audit',
+            ha='center', va='center', fontsize=8, color='#8a641c')
+
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     for patch, text in texts:
@@ -101,6 +126,7 @@ def service_figure():
         assert pb.contains(tb.x0, tb.y0) and pb.contains(tb.x1, tb.y1), text.get_text()
     result = write_figure(fig, 'fig1_service_audit')
     result.update({'architecture_boxes': boxes, 'box_text_containment': True,
+                   'dual_branch_convergence': True, 'closed_refresh_loop': True,
                    'removed_output_perturbation_attack_arrow': True})
     return result
 
@@ -113,15 +139,21 @@ def routing_figure():
              ('B40_q7', '#D55E00', 's', 'B: 40 × 7 (280 calls)', 'B 40×7'),
              ('S3_10_q3', '#009E73', '^', 'S3: 10 × 3 (30 calls)', 'S3 10×3'),
              ('S3_10_q7', '#CC79A7', 'D', 'S3: 10 × 7 (70 calls)', 'S3 10×7')]
-    fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.85), gridspec_kw={'width_ratios': [3.4, 1.45]})
-    fig.subplots_adjust(left=.083, right=.985, top=.74, bottom=.165, wspace=.45)
+    perm_clean_map = {
+        r['protocol']: 100.0 * r['perm_genuine_frr_mean']
+        for r in perm_rows
+        if r['subgroup'] == 'all_distinct_labels' and r['p_honest'] == 1.0
+    }
+    fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.82), gridspec_kw={'width_ratios': [3.35, 1.55]})
+    fig.subplots_adjust(left=.083, right=.985, top=.73, bottom=.165, wspace=.44)
     left, right = axes
     saved = {'curves': [], 'clean_frr': []}
     for index, (protocol, color, marker, legend, short) in enumerate(style):
         subset = sorted([r for r in rows if r['protocol'] == protocol and r['subgroup'] == 'all_distinct_labels'], key=lambda r: r['p_honest'])
         assert [r['p_honest'] for r in subset] == [0., .2, .4, .5, .6, .8, 1.]
-        mixed = subset[:-1]
-        xs = np.array([r['p_honest'] for r in mixed])
+        # Order by ascending fallback rate lambda = 1 - q (0.2 -> 1.0) so detection rises left-to-right.
+        mixed = sorted(subset[:-1], key=lambda r: round(1.0 - r['p_honest'], 6))
+        xs = np.array([round(1.0 - r['p_honest'], 6) for r in mixed])
         ys = 100 * np.array([r['rejection_mean'] for r in mixed])
         lower = 100 * np.array([r['rejection_seed_p05'] for r in mixed])
         upper = 100 * np.array([r['rejection_seed_p95'] for r in mixed])
@@ -129,31 +161,37 @@ def routing_figure():
         left.fill_between(xs, lower, upper, color=color, alpha=.13, linewidth=0)
         np.testing.assert_array_equal(line.get_xdata(), xs)
         np.testing.assert_array_equal(line.get_ydata(), ys)
-        assert np.all(lower <= upper) and xs.max() < 1
-        saved['curves'].append({'protocol': protocol, 'p_honest': xs.tolist(), 'detection_pct': ys.tolist(),
+        assert np.all(lower <= upper) and xs.min() > 0
+        saved['curves'].append({'protocol': protocol, 'fallback_lambda': xs.tolist(), 'detection_pct': ys.tolist(),
                                  'seed_p05_pct': lower.tolist(), 'seed_p95_pct': upper.tolist()})
         clean = subset[-1]
         value = 100 * clean['genuine_frr_mean']
-        right.barh(index, value, height=.58, color=color, edgecolor='white')
-        right.text(value + 1, index, f'{value:.2f}%', ha='left', va='center', fontsize=8)
-        saved['clean_frr'].append({'protocol': protocol, 'frr_pct': value})
-    # Overlay B 40x7 stratified 999-permutation test (p <= 0.05) to visualize null-quantile recovery.
-    p_sub = sorted([r for r in perm_rows if r['protocol'] == 'B40_q7' and r['subgroup'] == 'all_distinct_labels'],
-                   key=lambda r: r['p_honest'])[:-1]
-    px = np.array([r['p_honest'] for r in p_sub])
+        p_val = perm_clean_map[protocol]
+        right.barh(index - .18, value, height=.32, color=color, edgecolor='none')
+        right.barh(index + .18, p_val, height=.32, facecolor='white', edgecolor=color, hatch='///', linewidth=.9)
+        right.text(value + 1.0, index - .18, f'{value:.2f}%', ha='left', va='center', fontsize=8)
+        right.text(p_val + 1.0, index + .18, f'{p_val:.2f}%', ha='left', va='center', fontsize=8, color='#333333')
+        saved['clean_frr'].append({'protocol': protocol, 'frr_pct': value, 'perm_frr_pct': p_val})
+    # Overlay B 40x7 and S3 10x3 stratified 999-permutation tests (p <= 0.05) to visualize null-quantile recovery.
+    p_sub = sorted([r for r in perm_rows if r['protocol'] == 'B40_q7' and r['subgroup'] == 'all_distinct_labels' and r['p_honest'] < 1.0],
+                   key=lambda r: round(1.0 - r['p_honest'], 6))
+    px = np.array([round(1.0 - r['p_honest'], 6) for r in p_sub])
     py = 100 * np.array([r['perm_rejection_mean'] for r in p_sub])
     left.plot(px, py, color='#D55E00', linestyle='--', marker='s', markerfacecolor='white',
               markersize=4, linewidth=1.3, label='B: 40 × 7 (perm., p ≤ 0.05)')
-    saved['curves'].append({'protocol': 'B40_q7_perm005', 'p_honest': px.tolist(), 'detection_pct': py.tolist()})
-    left.set(xlim=(-.025, .825), ylim=(-3, 104), xticks=[0, .2, .4, .6, .8], yticks=[0, 25, 50, 75, 100],
-             xlabel='Declared-route probability, q < 1', ylabel='Mixture detection (%)', title='(a) Offline mixed routing')
+    saved['curves'].append({'protocol': 'B40_q7_perm005', 'fallback_lambda': px.tolist(), 'detection_pct': py.tolist()})
+    left.set(xlim=(.175, 1.025), ylim=(-3, 104), xticks=[.2, .4, .6, .8, 1.0], yticks=[0, 25, 50, 75, 100],
+             xlabel='Fallback rate, λ = 1 − q', ylabel='Mixture detection (%)', title='(a) Offline mixed routing')
     left.grid(alpha=.20)
-    right.set(yticks=range(4), yticklabels=[s[4] for s in style], xlim=(0, 52),
-              xticks=[0, 20, 40], xlabel='Clean FRR (%) at q = 1', title='(b) No fallback')
+    right.set(yticks=range(4), yticklabels=[s[4] for s in style], xlim=(0, 56),
+              xticks=[0, 20, 40], xlabel='Clean FRR (%) at λ = 0', title='(b) No fallback')
     right.invert_yaxis()
     right.grid(axis='x', alpha=.20)
     right.set_axisbelow(True)
     handles, labels = left.get_legend_handles_labels()
+    from matplotlib.patches import Patch
+    handles.append(Patch(facecolor='white', edgecolor='#4C5966', hatch='///', linewidth=.9))
+    labels.append('Hatched (b): perm. (p ≤ 0.05)')
     legend = fig.legend(handles, labels, ncol=3, frameon=False, loc='upper center',
                         bbox_to_anchor=(.50, 1.0), fontsize=8, columnspacing=1.1, handlelength=1.9)
     fig.canvas.draw()

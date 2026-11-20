@@ -17,6 +17,7 @@
 \newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\unskip\nobreak\hfill$\blacksquare$\par}
 \usepackage{url}
 \emergencystretch=2em
+\setlength{\parskip}{0ex plus 2.2ex minus 0.12ex}
 \DeclareFontShape{OMS}{cmsy}{m}{n}{<-7>cmsy5<7-9>cmsy7<9->cmsy10}{}
 \DeclareFontShape{OML}{cmm}{m}{it}{<-7>cmmi5<7-9>cmmi7<9->cmmi10}{}
 \newcommand{\Dhex}{D_{\mathrm{hex}}}
@@ -30,13 +31,14 @@
 \newcommand{\Dhybreg}{D_{\mathrm{hyb\mbox{-}reg}}}
 \newcommand{\Drm}{D_{\mathrm{RM}}}
 \title{Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services}
-\author{Xiguan~He%
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Xiguan~He is with the College of Information, Yunnan University of Chinese Medicine, Kunming 650500, China (e-mail: kirarin@kirarin.dev).}%
+\author{Xiguan~He and Siqi~Li%
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Xiguan~He and Siqi~Li are with the College of Information, Yunnan University of Chinese Medicine, Kunming 650500, China (e-mail: kirarin@kirarin.dev; lisiqi-vicky@foxmail.com). Corresponding author: Siqi~Li (ORCID: 0009-0000-9194-7563).}%
 }
 \begin{document}
+\ifdefined\XeTeXversion\special{pdf:docinfo << /Title (Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services) /Author (Xiguan He and Siqi Li) >>}\else\pdfinfo{/Title (Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services) /Author (Xiguan He and Siqi Li)}\fi
 \IEEEtitleabstractindextext{
 \begin{abstract}
-Aggregated large language model services expose declared model identifiers while hiding the backend configurations that fulfill client requests. We present HuePrint, a lightweight framework that audits brokered endpoint consistency via structured color elicitation and continuous geometric distribution comparison without model weights or token probabilities. Across 34,528 cloud responses spanning 56 endpoints and 12 backends, HuePrint lowers 30-call-per-side equal error rates over single-word baselines from 4.52--5.23 to 0.94--1.00 percent on the development cohort and from 6.25--8.04 to 3.49--5.00 percent across 20 locked endpoints, reaching zero at 60--150 calls/side. Regularized RGB energy halves shallow-census error vs. exact-hex divergence (5.36 vs. 10.71 percent), and a hybrid color metric cuts cross-provider error from 16.67 (string MMD-U and pure energy) to 5.93 percent. Across three-week and cross-gateway checks, score-based color auditing keeps zero ranking error where equality tests reject up to 42.86 percent of genuine pairs, and RGB geometry bounds numerical perturbations. Unified Lipschitz bounds and estimator diagnostics guide calibration: self-centering lowers clean held-out false rejections from 30 to 10 percent, and U-statistic energy ratios eliminate the 256-draw bootstrap. Within-family, mixed-routing, and canary audits below four cents median query cost define cloud assurance guidelines.
+Aggregated large language model (LLM) services expose declared identifiers while hiding backend configurations. We present HuePrint, a black-box framework that audits brokered endpoint consistency via structured color elicitation and geometric comparison without weights or token probabilities. Across 38,688 cloud responses (56 endpoints, 12 backends), HuePrint cuts 30-call/side equal error rates (EERs) over word baselines from 4.52--5.23 to 0.94--1.00 percent on development models and from 6.25--8.04 to 3.49--5.00 percent across 20 locked endpoints, reaching 0.00 percent at 60--150 calls/side. On those 20 endpoints, HuePrint averages 5.18 percent within-family EER across all ten balanced 30-call splits (0.00--7.89 percent), outperforming open-set LLMmap (10.53--34.39 percent, 1--3 traces) and cost-matched long-form kernels (11.09--19.47 percent); relative to LLMmap, it also avoids safety-triggering probes and runs over 15,000 times faster locally. Regularized RGB energy lowers shallow EER (5.36 vs. 10.71 percent exact-hex and 6.42 percent string MMD), while hybrid scoring cuts cross-provider EER from 16.67 to 5.93 percent. In offline replay, two-stage confirmation cuts false alerts from 14 to 1 across 100 same-label windows and flags 186/190 within-family substitutions under one cent expected cost.
 \end{abstract}
 \begin{IEEEkeywords}
 Services computing, model-as-a-service, service-level monitoring, API brokerage, behavioral consistency, energy statistics.
