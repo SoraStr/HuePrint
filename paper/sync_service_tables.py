@@ -17,16 +17,16 @@ def tables(zh=False):
               if zh else ['Cohort','Fam. negatives',r'Energy $\tilde D_{\mathrm{E-reg}}$: all-pairs EER','Energy: within-family EER',r'Hybrid $D_{\mathrm{hyb}}$: all-pairs EER','Hybrid: within-family EER'])
  result['family']=table(fam_headers,rows)
  s1=json.loads((ROOT/'extensions/live_validation_20261111/lv_rgb_results.json').read_text())['S1_longitudinal_t21d_and_cross_gateway'];rows=[]
- symbols={'robust_manifold':r'$D_{\mathrm{RM}}$','energy_reg':r'$\tilde D_{\mathrm{E-reg}}$','hybrid':r'$D_{\mathrm{hyb}}$'}
- plans=[('longitudinal_t0_to_t21d_cf_6v6_all14','CF0 → CF21',('robust_manifold','energy_reg','hybrid')),
+ symbols={'energy_reg':r'$\tilde D_{\mathrm{E-reg}}$','hybrid':r'$D_{\mathrm{hyb}}$'}
+ plans=[('longitudinal_t0_to_t21d_cf_6v6_all14','CF0 → CF21',('energy_reg','hybrid')),
         ('longitudinal_t0_to_t21d_cf_6v6_heldout4','CF0 → CF21 (heldout4)',('energy_reg','hybrid')),
-        ('cross_gateway_same_day_cf21_to_or21_6v6_all14','CF21 → OR21',('robust_manifold','energy_reg','hybrid')),
-        ('cross_gateway_and_t21d_cf0_to_or21_6v6_all14','CF0 → OR21',('robust_manifold','energy_reg','hybrid'))]
+        ('cross_gateway_same_day_cf21_to_or21_6v6_all14','CF21 → OR21',('energy_reg','hybrid')),
+        ('cross_gateway_and_t21d_cf0_to_or21_6v6_all14','CF0 → OR21',('energy_reg','hybrid'))]
  for key,label,metrics in plans:
   for metric in metrics:
    x=s1[key][metric]
    rows.append([label,symbols[metric],f"{x['top1_hits']}/{x['n_models']}",f"{x['auc_raw']:.4f}",f"{x['eer_linear_pct']:.2f}%",f"{x['genuine_mean']:.4f} / {x['impostor_mean']:.4f}",f"{x['frozen_frr_pct']:.2f}% / {x['frozen_far_pct']:.2f}%"])
- assert len(rows)==11
+ assert len(rows)==8
  result['s1_core']=table(['注册 → 查询 (6v6)' if zh else 'Enrollment → query (6v6)','指标' if zh else 'Metric','Top-1','AUC','线性 EER' if zh else 'Linear EER','正例 / 冒充均值' if zh else 'Genuine / impostor mean','冻结 B3v3 FRR / FAR' if zh else 'Frozen B3v3 FRR / FAR'],rows)
  data=load('energy_u/results.json')['operating_points'];rows=[]
  for key,label in [('v_reg','V regularized'),('v_reg_self','V self-centered'),('u_e2','U numerator'),('u_reg_signed','U signed ratio'),('u_reg_clipped','U clipped ratio')]:

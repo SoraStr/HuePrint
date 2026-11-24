@@ -108,7 +108,7 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         )
         self.assertIn("We present HuePrint, a black-box framework that audits brokered endpoint consistency", en_ms)
         self.assertIn(
-            "In this paper, we introduce HuePrint, a lightweight black-box consistency signal for brokered LLM endpoints.",
+            "We introduce HuePrint, a low-budget method for monitoring the\nbehavioral consistency of brokered LLM endpoints.",
             en_ms,
         )
 
@@ -161,7 +161,7 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertNotIn("reviewer_defense", zh_ms)
         self.assertNotIn("reviewer_defense", (ROOT / "paper" / "SUPPLEMENT_ZH.md").read_text(encoding="utf-8"))
         supp_main_tex = (ROOT / "paper" / "supplement" / "main.tex").read_text(encoding="utf-8")
-        self.assertIn("References ([4], [16], [24]--[29] match main manuscript; [30]--[34] supplement-only)", supp_main_tex)
+        self.assertIn("References ([4], [16], [25]--[30] match main manuscript; [31]--[33] supplement-only)", supp_main_tex)
         self.assertNotIn("Zero-truncation", en_ms)
         self.assertNotIn("3663-36 2022", en_ms)
         self.assertNotIn("and and", en_ms)
@@ -172,7 +172,7 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertIn("3.49%–5.00%", zh_ms)
         self.assertIn("受控数值连续性压力测试", zh_ms)
         self.assertIn("3 条触及长度上限", zh_ms)
-        self.assertIn("subset_mmd_diagnostics.json", en_supp)
+        self.assertNotIn("subset_mmd_diagnostics.json", en_supp)
         self.assertIn("finite-cluster resampling", en_supp)
         self.assertNotIn("52.71%", en_supp)
         self.assertNotIn("97.32%", en_supp)
@@ -192,7 +192,6 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         author_tex = (ROOT / "paper" / "direct_replacements" / "author.tex").read_text(encoding="utf-8")
         self.assertIn("Siqi~Li", author_tex)
         self.assertIn("lisiqi-vicky@foxmail.com", author_tex)
-        self.assertIn("0009-0000-9194-7563", author_tex)
         zenodo_meta = json.loads((ROOT / ".zenodo.json").read_text(encoding="utf-8"))
         self.assertEqual(zenodo_meta["creators"][0]["orcid"], "0009-0006-9188-9061")
         author_meta = json.loads((ROOT / "paper" / "direct_replacements" / "author_metadata.json").read_text(encoding="utf-8"))
@@ -208,10 +207,9 @@ class ManuscriptIntegrityTests(unittest.TestCase):
             self.assertIn(f"**命题 {k}", zh_ms)
             self.assertIn(f"*Proof of Proposition {k}.*", en_supp)
             self.assertIn(f"*命题 {k} 的证明。*", zh_supp)
-        self.assertIn("**Lemma 1", en_supp)
-        self.assertIn("**引理 1", zh_supp)
-        self.assertIn("*Proof*. On each interval of width $w$", en_supp)
-        self.assertIn("*引理 1 的证明。*", zh_supp)
+        self.assertNotIn("Lemma 1", en_supp)
+        self.assertNotIn("引理 1", zh_supp)
+        self.assertNotIn(r"D_{\mathrm{RM}}", en_supp)
         self.assertNotIn("**Proposition 3", en_ms)
         self.assertNotIn("**命题 3", zh_ms)
         self.assertNotIn("*Proof of Proposition 3.*", en_supp)
@@ -225,7 +223,7 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertNotIn("定理", zh_ms)
         self.assertNotIn("Theorem", en_supp)
         self.assertNotIn("定理", zh_supp)
-        self.assertIn("regularized multi-scale composite", en_supp)
+        self.assertIn("trilinear tent interpolation", en_supp)
         self.assertNotIn("12-decimal tie stabilization", en_ms)
         self.assertNotIn("0.0404482362771082", en_supp)
         self.assertNotIn("obsolete `8 tasks / 32 cells`", en_supp)
@@ -292,11 +290,11 @@ class ManuscriptIntegrityTests(unittest.TestCase):
                     if name != "main.tex":
                         self.assertNotIn("../", raw)
 
-    def test_reference_audit_updated_to_34_entries(self):
+    def test_reference_audit_updated_to_33_entries(self):
         ref_audit = (ROOT / "REFERENCE_AUDIT.md").read_text(encoding="utf-8")
-        self.assertIn("34-Reference Inventory", ref_audit)
+        self.assertIn("33-Reference Inventory", ref_audit)
         found = [int(n) for n in re.findall(r"^### \[(\d+)\]", ref_audit, re.M)]
-        self.assertEqual(found, list(range(1, 35)))
+        self.assertEqual(found, list(range(1, 34)))
 
     def test_consistency_and_de_remnant_audit(self):
         en_ms = (ROOT / "paper" / "MANUSCRIPT_EN.md").read_text(encoding="utf-8")
@@ -322,20 +320,20 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertIn("20261111 through 20261120", en_supp)
         self.assertIn("s3-mistral-small-3.2", en_supp)
         self.assertIn("s3-mistral-small-3.2", zh_supp)
-        self.assertIn("routing_permutation.csv", en_supp)
-        self.assertIn("routing_permutation.csv", zh_supp)
+        self.assertNotIn("routing_permutation.csv", en_supp)
+        self.assertNotIn("routing_permutation.csv", zh_supp)
 
         # Mathematical, quantization, token-budget, and non-duplication invariants
         self.assertIn("step-32 channel quantization", en_ms)
         self.assertIn("64-call", en_ms)
-        self.assertIn("U-statistic energy ratios", en_ms)
+        self.assertIn("clipped U-statistic energy ratio", en_ms)
         self.assertIn("Quantization (step 32)", en_supp)
         self.assertIn(r"\frac{h+\delta_0}{(d+\delta_0)^2}", en_supp)
         self.assertIn(r"\frac{h+\delta_0}{(d+\delta_0)^2}", zh_supp)
         self.assertIn(r"0\le[F(d,h)]_+\le d/(d+\delta_0)<1", en_supp)
         self.assertIn(r"0\le[F(d,h)]_+\le d/(d+\delta_0)<1", zh_supp)
-        self.assertIn("(n-1)/n", en_ms)
-        self.assertIn("(n-1)/n", zh_ms)
+        self.assertNotIn("(n-1)/n", en_ms)
+        self.assertNotIn("(n-1)/n", zh_ms)
         self.assertNotIn("(n-1)/n", en_supp)
         self.assertNotIn("(n-1)/n", zh_supp)
         self.assertIn("up to 7,719 in $P_1$ and 7,023 in $P_2$", en_supp)
@@ -363,10 +361,10 @@ class ManuscriptIntegrityTests(unittest.TestCase):
             self.assertNotIn(overclaim_zh, zh_ms)
             self.assertNotIn(overclaim_zh, zh_supp)
 
-        # Verify Table S4b contains all 8 non-duplicate additional baseline rows
+        # Verify Table S4b contains all 7 non-duplicate additional baseline rows
         m_s4 = re.search(r"<!-- RGB_TABLE_6 -->\n([\s\S]*?)\n<!-- /RGB_TABLE_6 -->", en_supp)
         self.assertIsNotNone(m_s4)
-        self.assertEqual(len(m_s4.group(1).splitlines()), 10)  # header + separator + 8 data rows
+        self.assertEqual(len(m_s4.group(1).splitlines()), 9)  # header + separator + 7 data rows
 
     def test_sensitivity_checks_and_scope_reconciliations(self):
         self.assertNotIn(r"\textbackslash", (ROOT / "paper" / "ieee" / "body.tex").read_text(encoding="utf-8"))

@@ -132,7 +132,7 @@ def write_upload_guide(out_dir: Path, manifest: dict) -> None:
     version = meta["version"]
     is_new_version = not version.startswith("1.")
     upload_entry = (
-        f"在已有 Zenodo v1 记录页右侧点击 **New version**（保留原 Concept DOI 并生成 v{version} 版本 DOI），"
+        f"在已有 Zenodo 记录页右侧点击 **New version**（保留原 Concept DOI 并生成 v{version} 版本 DOI），"
         "删除草稿中的旧版文件后拖入以下 4 个新版文件"
         if is_new_version
         else "在 `https://zenodo.org/uploads/new` 直接拖入以下 4 个文件"
@@ -146,8 +146,8 @@ def write_upload_guide(out_dir: Path, manifest: dict) -> None:
 | 序号 | 文件名 | 页数 / 规模 | 用途说明 |
 | :---: | :--- | :---: | :--- |
 | 1 | `HuePrint_Preprint.pdf` | 32 页 | **主稿（12 页）+ 补充材料（20 页）完整合订本**；上传后请在文件列表勾选 **Set as default preview**，便于读者直接通读全文、命题证明与附表 |
-| 2 | `HuePrint_Main_Manuscript.pdf` | 12 页 | 独立英文主稿 PDF（IEEEtran 12 页，171 词 IEEE TSC 合规摘要，0 溢行/溢页） |
-| 3 | `HuePrint_Supplementary_Material.pdf` | 20 页 | 独立补充材料 PDF（A–M 共 13 节，含中/英/俄/阿四语原始探针、完整证明、软体素对照、部署级防护与 Study S5 竞品基准详情） |
+| 2 | `HuePrint_Main_Manuscript.pdf` | 12 页 | 独立英文主稿 PDF（IEEEtran 12 页，180 词 IEEE TSC 合规摘要，0 溢行/溢页） |
+| 3 | `HuePrint_Supplementary_Material.pdf` | 20 页 | 独立补充材料 PDF（A–M 共 13 节，含中/英/俄/阿四语原始探针、完整证明、部署级防护与 Study S5 竞品基准详情） |
 | 4 | `HuePrint_Replication_Package.zip` | {manifest['replication_zip_files']} 个文件 | 自包含离线复现代码与 15 份只读云端响应语料包（已剔除 `.git`、平台二进制、构建日志、macOS 扩展属性与本地路径） |
 
 > 若希望页面文件列表更极简，也可**仅上传第 1 项 `HuePrint_Preprint.pdf` 与第 4 项 `HuePrint_Replication_Package.zip`**（两份独立 PDF 已同时收录在压缩包 `HuePrint/paper/` 内）。

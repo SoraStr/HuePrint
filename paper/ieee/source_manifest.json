@@ -1,8 +1,8 @@
 {
   "source": "../MANUSCRIPT_EN.md",
-  "sha256": "d3be983b731411cbe0d6adba5da66206a1296d575db28da49ac755b421ca1bff",
+  "sha256": "78e2000fcf0437ad7378b884bb0dfc25a19ea4031744cc7b6810f42ce2d273c2",
   "tables": 9,
-  "references": 29,
+  "references": 30,
   "main_reference_numbers": [
     1,
     2,
@@ -32,14 +32,14 @@
     26,
     27,
     28,
-    29
+    29,
+    30
   ],
-  "shared_reference_pool": 34,
-  "supplement_references": 13,
+  "shared_reference_pool": 33,
+  "supplement_references": 11,
   "supplement_reference_numbers": [
     4,
     16,
-    24,
     25,
     26,
     27,
@@ -48,8 +48,7 @@
     30,
     31,
     32,
-    33,
-    34
+    33
   ],
   "author_biography_present": true,
   "author_biography_name": "Xiguan He, Siqi Li",
@@ -57,19 +56,19 @@
     {
       "token": "HUEUSERLATEXBLOCK0000END",
       "name": "introduction",
-      "sha256": "615ad0c612a6db517e4945e26f64a8abddf7db089e0d0f1ff8049ea7d6d3ee09",
+      "sha256": "0c6374e801021d8e5cd07519f26d5c79365cdc712053e3b97f55bf54cbb64e72",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0001END",
       "name": "related_work_first_two",
-      "sha256": "7450672bf2e23672efc7c17a9131fb3f033aa21d756d818c0e005bda42bec696",
+      "sha256": "63125a2d5ceb4b1f8779b2a172fbadcd7a6bfcfbc3864acfa6e0186f712cf0cd",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0002END",
       "name": "service_model",
-      "sha256": "e33b26d44211fe1e6ff576b61477c1a598aeace9ce1136ae87bb0bbc95d23e95",
+      "sha256": "98cf33229145d0f6e7f9fdd626764e1c2cfd7de08e0b091fa169b41660adb334",
       "tables": 0
     },
     {
@@ -86,50 +85,38 @@
     },
     {
       "token": "HUEUSERLATEXBLOCK0005END",
-      "name": "u_final",
-      "sha256": "4b203e0710fe62189aeca48eec462e6b655d2b6e6d01e1c11cb24b30c7f6c7c2",
-      "tables": 0
+      "name": "s2_and_family",
+      "sha256": "89a4faea2b689b0d9c3f3dc81e51bfd5203fd8a5a5f98d1c9cdf2c391675a4ad",
+      "tables": 1
     },
     {
       "token": "HUEUSERLATEXBLOCK0006END",
-      "name": "rgb_modes",
-      "sha256": "4aaafe96d120a290c7d3bc392c2739b866ecf194a12e91a28616d1fa8cb6fc6a",
+      "name": "perturbation_and_reuse",
+      "sha256": "77023626c44edc3c22e6be5b24cd6afda89f50b86abbb3adabcc50d4be488046",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0007END",
-      "name": "s2_and_family",
-      "sha256": "e9380ec2dbff4e830e8cfdbaf05d0654f88b3322caa0c2f8d410645948e3ca19",
-      "tables": 1
+      "name": "routing",
+      "sha256": "1db32a49665fe6128a28ac12e7f210c707b8a2602a78a8c3328d91e975b14da7",
+      "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0008END",
-      "name": "perturbation_and_reuse",
-      "sha256": "1d2c4ced15d3173f2e8b105f7fb971fd1512de421b3925cba4c33682d6af78da",
+      "name": "overhead",
+      "sha256": "79e524dffc20f0ae1601148148f7faf4e97e41c60ce2eb70a39dc1cfdc531a22",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0009END",
-      "name": "routing",
-      "sha256": "07b3af62022cbfbaf8038fbbef048090acb81421f80298fb19f2be146432497e",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0010END",
-      "name": "overhead",
-      "sha256": "61f2955d2d69a658763db0fb13f498e189a476415b3c702db37845148900479b",
-      "tables": 0
-    },
-    {
-      "token": "HUEUSERLATEXBLOCK0011END",
       "name": "ending",
-      "sha256": "06ec66d6b20c57ed1fd03e73d15c0f2fdd1ad47604da95aaa50c6cc9f63d7f42",
+      "sha256": "cfd5472d100e1ac67443e94b98730d26324753e71d3718df6223db5b16ae0f45",
       "tables": 1
     },
     {
-      "token": "HUEUSERLATEXBLOCK0012END",
+      "token": "HUEUSERLATEXBLOCK0010END",
       "name": "biography",
-      "sha256": "b2a6e6ed5973c78409477e749465cda8a0b0dd67fb21c1151f90b8413a0d3810",
+      "sha256": "313082e380aba86acab862ee3b103e133af969103d989809c544911ea467ba55",
       "tables": 0
     }
   ],

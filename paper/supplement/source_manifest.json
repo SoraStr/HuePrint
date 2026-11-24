@@ -1,13 +1,12 @@
 {
   "source": "../SUPPLEMENT_EN.md",
-  "sha256": "66c34a16d0876cecfb3e787f0f8b1296fccc97a6289601467fc798f9359ec2de",
-  "main_source_sha256": "d3be983b731411cbe0d6adba5da66206a1296d575db28da49ac755b421ca1bff",
+  "sha256": "888a4d2c22d5cf1f74ff6027b5e2ca7fcc1e6b51d6598b8a848afc68d4578b8c",
+  "main_source_sha256": "78e2000fcf0437ad7378b884bb0dfc25a19ea4031744cc7b6810f42ce2d273c2",
   "tables": 16,
-  "references": 13,
+  "references": 11,
   "reference_numbers": [
     4,
     16,
-    24,
     25,
     26,
     27,
@@ -16,8 +15,7 @@
     30,
     31,
     32,
-    33,
-    34
+    33
   ],
   "table_of_contents": true,
   "sections": [
@@ -27,7 +25,7 @@
     "D. Exact Forty-Cell Multilingual Probe Battery",
     "E. Exact S4a CSS and JSON Canary Probes",
     "F. Exact S4b Comparison Probes",
-    "G. Stability Proofs, Soft-Voxel Baseline, and Gaussian Control",
+    "G. Stability Proofs and Alternative Geometric Controls",
     "H. Detailed Gateway and Bootstrap Results",
     "I. Paraphrase and Cross-Template Results",
     "J. Precision-Regime Provider Results",

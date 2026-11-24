@@ -71,7 +71,7 @@ class ProtocolRoutingTests(unittest.TestCase):
                 num = int(re.fullmatch(r"ref(\d+)", key.strip()).group(1))
                 if num not in seen:
                     seen.append(num)
-        self.assertEqual(seen, list(range(1, 30)), f"Citations out of order: {seen}")
+        self.assertEqual(seen, list(range(1, 31)), f"Citations out of order: {seen}")
 
         self.assertRegex(main_tex, r"\\usepackage\{[^}]*\bcite\b[^}]*\}")
         non_math_body = re.sub(r"\$[^$]*\$|\\begin\{equation\}[\s\S]*?\\end\{equation\}|\\\[[\s\S]*?\\\]", "", body)

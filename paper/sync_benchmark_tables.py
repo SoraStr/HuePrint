@@ -18,7 +18,6 @@ def table(headers, rows):
 E = r'$\tilde D_{\mathrm{E-reg}}$'
 H = r'$D_{\mathrm{hyb}}$'
 HR = r'$D_{\mathrm{hyb-reg}}$'
-RM = r'$D_{\mathrm{RM}}$'
 
 def render_tables(zh=False):
     base = read('baseline_results')['results']
@@ -69,7 +68,7 @@ def render_tables(zh=False):
     rows = []
     for scenario, metric, label in [('Bfull_jitter1', 'energy_reg', 'B jitter ±1'), ('Bfull_jitter8', 'energy_reg', 'B jitter ±8'), ('Bfull_jitter8', 'hybrid_reg', 'B jitter ±8'), ('Bfull_jitter15', 'energy_reg', 'B jitter ±15'), ('Bfull_shift8', 'energy_reg', 'Shift +8'), ('Bfull_shift-8', 'energy_reg', 'Shift -8'), ('Bfull_quant32', 'energy_reg', 'Quantization (step 32)')]:
         a = ops(scenario, 'B8v7', metric, 'raw'); b = ops(scenario, 'B8v7', metric, 'self_Bcv')
-        rows.append([label, {'energy_reg': E, 'hybrid_reg': HR, 'robust_manifold': RM}[metric], pct(mean(a, 'eer')), rates(a), rates(b)])
+        rows.append([label, {'energy_reg': E, 'hybrid_reg': HR}[metric], pct(mean(a, 'eer')), rates(a), rates(b)])
     result['perturbation'] = table(['条件' if zh else 'Condition', '指标' if zh else 'Metric', 'Raw EER', 'Raw FRR / FAR', 'Self FRR / FAR'], rows)
     return result
 
@@ -81,7 +80,7 @@ def legacy_tables(zh=False):
     old=original_tables(zh)
     sym={'energy_norm':r'$\bar D_{\mathrm E}$','energy_reg':E,'hybrid':H,
          'hex_jsd':r'$D_{\mathrm{hex}}$','voxel_jsd':r'$D_{\mathrm{vox}}$',
-         'robust_manifold':RM,'side_jsd':r'$D_{\mathrm{side}}$'}
+         'side_jsd':r'$D_{\mathrm{side}}$'}
     def symbols(text):
         for key,val in sym.items():
             text=text.replace('`'+key+'`',val)
@@ -104,8 +103,6 @@ def legacy_tables(zh=False):
     mmd_row=f"| Color MMD-U | {da_mmd['auc']:.4f} | {da_mmd['eer_discrete_pct']:.2f}% / {da_mmd['eer_linear_pct']:.2f}% | {da_mmd['cross_sublineage_eer_pct']:.2f}% | {da_mmd['cross_family_eer_pct']:.2f}% | {da_mmd['loo_family_hits']} ({da_mmd['loo_family_pct']:.2f}%) |"
     t2_lines=[]
     for ln in result[2].splitlines():
-        if ln.startswith(f'| {RM} |'):
-            continue
         t2_lines.append(ln)
         if ln.startswith(f'| {E} |'):
             t2_lines.append(mmd_row)
@@ -119,7 +116,6 @@ def legacy_tables(zh=False):
         mx=s1_diag[dkey]['color_mmd_u_raw_all14']
         s1_extra.append([label,'Color MMD-U',mx['top1_hits'],f"{mx['auc']:.4f}",f"{mx['eer_pct']:.2f}%",f"{mx['genuine_mean']:.4f} / {mx['impostor_mean']:.4f}",mx['frozen_b3v3_frr_far_pct']])
     for key,label,metric in [
-        ('longitudinal_t0_to_t21d_cf_6v6_heldout4','CF0 → CF21 (heldout4)','robust_manifold'),
         ('cross_gateway_and_t21d_cf0_to_or21_6v6_all14','CF0 → OR21','side_jsd'),
     ]:
         x=s1[key][metric]

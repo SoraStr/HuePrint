@@ -127,7 +127,7 @@ class PerturbationCalibrationTests(unittest.TestCase):
         supp_body = (ROOT / "paper" / "supplement" / "body.tex").read_text(encoding="utf-8")
 
         bibitems = [(int(a), int(b)) for a, b in re.findall(r"\\bibitem\[(\d+)\]\{ref(\d+)\}", supp_refs)]
-        self.assertEqual(bibitems, [(4, 4), (16, 16)] + [(n, n) for n in range(24, 35)])
+        self.assertEqual(bibitems, [(4, 4), (16, 16)] + [(n, n) for n in range(25, 34)])
 
         arabic_lines = [ln for ln in supp_body.splitlines() if r"\textarabic{" in ln]
         self.assertGreaterEqual(len(arabic_lines), 12)

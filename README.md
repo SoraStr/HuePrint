@@ -13,7 +13,7 @@ HuePrint elicits compact multilingual color coordinates (`#RRGGBB` and `R,G,B`) 
 - **Main Manuscript (12 pages, IEEE Computer Society format)**: [paper/MANUSCRIPT_EN.md](paper/MANUSCRIPT_EN.md) · [paper/ieee/main.pdf](paper/ieee/main.pdf) · Chinese sync: [paper/MANUSCRIPT_ZH.md](paper/MANUSCRIPT_ZH.md)
 - **Supplementary Material (20 pages, Sections A–M, Proofs, Inventories & Extended Tables)**: [paper/SUPPLEMENT_EN.md](paper/SUPPLEMENT_EN.md) · [paper/supplement/main.pdf](paper/supplement/main.pdf) · Chinese sync: [paper/SUPPLEMENT_ZH.md](paper/SUPPLEMENT_ZH.md)
 - **RGB100 Protocol & Validation**: [docs/RGB_PROTOCOL.md](docs/RGB_PROTOCOL.md) · [docs/RGB_MIGRATION_VALIDATION.md](docs/RGB_MIGRATION_VALIDATION.md)
-- **LaTeX Build & Packaging Guide**: [paper/LATEX_README.md](paper/LATEX_README.md) · **34-Reference Audit**: [REFERENCE_AUDIT.md](REFERENCE_AUDIT.md)
+- **LaTeX Build & Packaging Guide**: [paper/LATEX_README.md](paper/LATEX_README.md) · **33-Reference Audit**: [REFERENCE_AUDIT.md](REFERENCE_AUDIT.md)
 
 ---
 

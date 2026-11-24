@@ -1,8 +1,8 @@
-# Reference Metadata Audit (34-Reference Inventory)
+# Reference Metadata Audit (33-Reference Inventory)
 
-Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main manuscript; `[4]`, `[16]`, `[24]`–`[29]`, and `[30]`–`[34]` in the Supplementary Material, where `[30]`–`[34]` are supplement-only). Sequential first-appearance order `[1]`–`[29]` is enforced in `paper/ieee/body.tex`, and structured BibTeX entries `ref1`–`ref34` are maintained in `paper/references.bib`.
+Verified inventory of all 33 bibliography entries (`[1]`–`[30]` in the main manuscript; `[4]`, `[16]`, `[25]`–`[30]`, and `[31]`–`[33]` in the Supplementary Material, where `[31]`–`[33]` are supplement-only). Sequential first-appearance order `[1]`–`[30]` is enforced in `paper/ieee/body.tex`, and structured BibTeX entries `ref1`–`ref33` are maintained in `paper/references.bib`.
 
-## Main Manuscript References (`[1]`–`[29]`)
+## Main Manuscript References (`[1]`–`[30]`)
 
 ### [1] FrugalGPT: How to use large language models while reducing cost and improving performance
 - **Authors**: L. Chen, M. Zaharia, and J. Zou
@@ -119,42 +119,42 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 - **Venue**: *Proc. National Academy of Sciences (PNAS)*, vol. 118, no. 22, p. e2018340118, 2021
 - **Status**: Verified PNAS vol. 118 no. 22 article `e2018340118`; cited for algorithmic monoculture across deployments (`Section 2.1`).
 
-### [24] Multimedia Systems and Equipment — Colour Measurement and Management — Part 2-1: Colour Management — Default RGB Colour Space — sRGB
+### [24] Thinking inertia: LLMs keep thinking when told not to
+- **Authors**: D. Lei, K. Q. Lin, P. Lu, P. Torr, and J. Zou
+- **Venue**: in *Advances in Neural Information Processing Systems (NeurIPS)*, 2026 (`arXiv:2610.11765`)
+- **Status**: Verified NeurIPS 2026 accepted paper (`arXiv:2610.11765v2`); cited for visible pre-answer reasoning leakage under disabled thinking and answer-only directives across open answer spaces (`Section 2.1`, `Section 4`).
+
+### [25] Multimedia Systems and Equipment — Colour Measurement and Management — Part 2-1: Colour Management — Default RGB Colour Space — sRGB
 - **Authors**: International Electrotechnical Commission
 - **Venue**: Standard IEC 61966-2-1:1999, 1999
 - **Status**: Verified IEC standard; cited in main manuscript (`Section 3.1`) and supplement (`Supplement A`).
 
-### [25] Divergence measures based on the Shannon entropy
+### [26] Divergence measures based on the Shannon entropy
 - **Authors**: J. Lin
 - **Venue**: *IEEE Trans. Inf. Theory*, vol. 37, no. 1, pp. 145–151, Jan. 1991
 - **Status**: Verified IEEE TIT publication; cited in main manuscript (`Section 3.2`) and supplement (`Supplement G`).
 
-### [26] Energy statistics: A class of statistics based on distances
+### [27] Energy statistics: A class of statistics based on distances
 - **Authors**: G. J. Székely and M. L. Rizzo
 - **Venue**: *J. Stat. Plan. Inference*, vol. 143, no. 8, pp. 1249–1272, 2013
 - **Status**: Verified JSPI publication; cited in main manuscript (`Section 3.3`) and supplement (`Supplement A`, `Supplement G`).
 
-### [27] Testing for equal distributions in high dimension
+### [28] Testing for equal distributions in high dimension
 - **Authors**: G. J. Székely and M. L. Rizzo
 - **Venue**: *InterStat*, no. 5, pp. 1–16, Nov. 2004
 - **Status**: Verified InterStat publication; cited in main manuscript (`Section 3.3`, `Section 3.5`) and supplement (`Supplement G`, `Supplement K`).
 
-### [28] On the Bures–Wasserstein distance between positive definite matrices
+### [29] On the Bures–Wasserstein distance between positive definite matrices
 - **Authors**: R. Bhatia, T. Jain, and Y. Lim
 - **Venue**: *Expositiones Mathematicae*, vol. 37, no. 2, pp. 165–191, 2019
 - **Status**: Verified publication; cited for the positive-definite covariance term in main manuscript (`Section 3.3`) and supplement (`Supplement G`).
 
-### [29] Models API: Public model catalog and pricing
+### [30] Models API: Public model catalog and pricing
 - **Authors**: OpenRouter
-- **Venue**: `https://openrouter.ai/api/v1/models`, accessed Nov. 13 and Nov. 20, 2026 (catalog snapshots archived with the offline analysis)
+- **Venue**: `https://openrouter.ai/api/v1/models`, accessed Nov. 13 and Nov. 20, 2026 (archived offline)
 - **Status**: Verified archived pricing snapshots; cited in main manuscript (`Section 5.2`, `Section 6.4`) and supplement (`Supplement K`, `Supplement M`).
 
-## Supplement-Only References (`[30]`–`[34]`)
-
-### [30] Distance covariance in metric spaces
-- **Authors**: R. Lyons
-- **Venue**: *Annals of Probability*, vol. 41, no. 5, pp. 3284–3305, 2013, doi: `10.1214/12-AOP803`
-- **Status**: Verified Annals of Probability publication; cited in `Supplement A` (bi-Lipschitz color-chart analysis, strong negative type).
+## Supplement-Only References (`[31]`–`[33]`)
 
 ### [31] CSS Color Module Level 4
 - **Authors**: World Wide Web Consortium
@@ -170,8 +170,3 @@ Verified inventory of all 34 bibliography entries (`[1]`–`[29]` in the main ma
 - **Authors**: I. Csiszár
 - **Venue**: *Studia Sci. Math. Hungar.*, vol. 2, pp. 299–318, 1967
 - **Status**: Verified exact plural title (`observations`) and pagination; cited in `Supplement G` (Proposition 1 proof, $f$-divergence data processing inequality).
-
-### [34] A new metric for probability distributions
-- **Authors**: D. M. Endres and J. E. Schindelin
-- **Venue**: *IEEE Trans. Inf. Theory*, vol. 49, no. 7, pp. 1858–1860, Jul. 2003, doi: `10.1109/TIT.2003.813506`
-- **Status**: Verified IEEE TIT publication and DOI; cited in `Supplement G` (Lemma 1 proof, $\sqrt{D_{\mathrm{JSD}}}$ metric triangle inequality).

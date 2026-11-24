@@ -374,28 +374,26 @@ common=r'''\ifdefined\XeTeXversion\else
 
 metric_macros = {
  r'D_{\mathrm{hex}}':r'\Dhex', r'D_{\mathrm{vox}}':r'\Dvox',
- r'D_{\mathrm{svox}}':r'\Dsvox', r'\bar D_{\mathrm E}':r'\Denergy',
+ r'\bar D_{\mathrm E}':r'\Denergy',
  r'\tilde D_{\mathrm{E-reg}}':r'\Dereg', r'D_{W_2}':r'\DWtwo',
  r'D_{\mathrm{side}}':r'\Dside', r'D_{\mathrm{hyb}}':r'\Dhyb',
- r'D_{\mathrm{hyb-reg}}':r'\Dhybreg', r'D_{\mathrm{RM}}':r'\Drm',
+ r'D_{\mathrm{hyb-reg}}':r'\Dhybreg',
  r'\tilde{D}_{\text{energy-reg}}':r'\Dereg',r'D_{\mathrm{energy-reg}}':r'\Dereg',
  r'\tilde{D}_{E\text{-reg}}':r'\Dereg',r'\tilde{D}_{\text{energy}}':r'\Denergy',
  r'\tilde{D}_{W_2}':r'\DWtwo',r'D_{\mathrm{hyb\text{-}reg}}':r'\Dhybreg',
  r'D_{\text{hybrid-reg}}':r'\Dhybreg',r'D_{\text{hex}}':r'\Dhex',
- r'D_{\text{voxel}}':r'\Dvox',r'D_{\text{soft-voxel}}':r'\Dsvox',
- r'D_{\text{hybrid}}':r'\Dhyb',r'D_{\text{robust}}':r'\Drm',r'D_{\text{side}}':r'\Dside'
+ r'D_{\text{voxel}}':r'\Dvox',
+ r'D_{\text{hybrid}}':r'\Dhyb',r'D_{\text{side}}':r'\Dside'
 }
 macro_expansions = [
  (r'\Dhex', r'D_{\mathrm{hex}}'),
  (r'\Dvox', r'D_{\mathrm{vox}}'),
- (r'\Dsvox', r'D_{\mathrm{svox}}'),
  (r'\Denergy', r'\bar D_{\mathrm E}'),
  (r'\Dereg', r'\tilde D_{\mathrm{E\mbox{-}reg}}'),
  (r'\DWtwo', r'D_{W_2}'),
  (r'\Dside', r'D_{\mathrm{side}}'),
  (r'\Dhyb', r'D_{\mathrm{hyb}}'),
  (r'\Dhybreg', r'D_{\mathrm{hyb\mbox{-}reg}}'),
- (r'\Drm', r'D_{\mathrm{RM}}'),
 ]
 macro_defs='\n'.join(r'\newcommand{'+v+'}{'+k+'}' for v,k in macro_expansions)+'\n'
 def standardize(t):

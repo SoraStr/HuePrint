@@ -219,8 +219,8 @@ def render_supplement(here, inline, esc, break_math, refs, typeset_paragraphs, s
         + '\n'.join(f'\\bibitem[{n}]{{ref{n}}} {ref_map[n]}' for n in cited_supp)
         + '\n\\end{thebibliography}\n'
     )
-    ref_toc='References ([4], [16], [24]--[29] match main manuscript; [30]--[34] supplement-only)'
-    ref_heading='References {\\normalsize\\normalfont([4], [16], [24]--[29] match main manuscript; [30]--[34] supplement-only)}'
+    ref_toc='References ([4], [16], [25]--[30] match main manuscript; [31]--[33] supplement-only)'
+    ref_heading='References {\\normalsize\\normalfont([4], [16], [25]--[30] match main manuscript; [31]--[33] supplement-only)}'
     emit('main.tex',preamble+'\\input{body}\n\\bigskip\n\\Needspace{6\\baselineskip}\n\\renewcommand{\\refname}{'+ref_heading+'}\n\\phantomsection\\addcontentsline{toc}{section}{'+ref_toc+'}\n\\input{references}\n\\end{document}\n')
     emit('body.tex',body)
     emit('references.tex',supp_bibliography)

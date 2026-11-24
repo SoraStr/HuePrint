@@ -26,14 +26,14 @@ def tables(zh):
     out={}
     a=M['dataset_A_56models']; legacy=a['with_legacy_reasoning_meta']; fresh=a['fresh_raw_only_no_legacy_meta']
     rows=[]
-    for metric,mode in [('energy_norm',legacy),('energy_reg',legacy),('hybrid',fresh),('hex_jsd',legacy),('robust_manifold',legacy),('voxel_jsd',legacy),('side_jsd',fresh)]:
+    for metric,mode in [('energy_norm',legacy),('energy_reg',legacy),('hybrid',fresh),('hex_jsd',legacy),('voxel_jsd',legacy),('side_jsd',fresh)]:
         r=mode['roc_raw'][metric]
         label=f'`{metric}`'
         rows.append([label,auc(r['auc_raw']),pct(100*r['eer_raw'])+' / '+pct(100*r['eer_linear_raw']),pct(100*mode['roc_cross_sublineage'][metric]['eer_linear_raw']) if 'roc_cross_sublineage' in mode else '—',pct(100*mode['roc_cross_family'][metric]['eer_linear_raw']) if 'roc_cross_family' in mode else '—',family(mode['loo_family'][metric])])
     out[2]=table(['指标' if zh else 'Metric','AUC','离散 / 线性 EER' if zh else 'Discrete / linear EER','跨子谱系线性 EER' if zh else 'Cross-sublineage linear EER','跨家族线性 EER' if zh else 'Cross-family linear EER','LOO 家族归属' if zh else 'LOO family attribution'],rows)
     grid=M['dataset_B_40u15r']['grid_2d_n_by_k']['grid_hybrid']
     out[3]=table(['n / k']+[str(k) for k in [1,2,4,8,16,24,32,40]],[[str(n)]+[pct(grid[str(n)][str(k)]['mean_discrete_eer_pct'])+' / '+pct(grid[str(n)][str(k)]['tie_stable_12dp_linear_eer_pct']) for k in [1,2,4,8,16,24,32,40]] for n in [4,6,8,10,12,15]])
-    metrics=['robust_manifold','energy_reg','hybrid','voxel_jsd','hex_jsd']
+    metrics=['energy_reg','hybrid','voxel_jsd','hex_jsd']
     c=M['dataset_C_paraphrase_matrix'];rows=[]
     for key,label in [('P1_self_odd_even','P1 odd/even'),('P2_self_odd_even','P2 odd/even'),('P1','P0 → P1'),('P2','P0 → P2'),('P1_P2_pooled','P0 → P1+P2')]:
         rows.append([label]+[pct(c[key][m]['eer_linear_pct'])+' / '+auc(c[key][m]['auc'])+(f" ({c[key][m]['top1_checkpoint']})" if 'top1_checkpoint' in c[key][m] else '') for m in metrics])

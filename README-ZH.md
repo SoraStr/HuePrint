@@ -13,7 +13,7 @@ HuePrint 通过多语种结构化短颜色探针（`#RRGGBB` 与 `R,G,B`）采�
 - **英文主稿（12 页，IEEE Computer Society 排版）**：[paper/MANUSCRIPT_EN.md](paper/MANUSCRIPT_EN.md) · [paper/ieee/main.pdf](paper/ieee/main.pdf)（中文同步稿：[paper/MANUSCRIPT_ZH.md](paper/MANUSCRIPT_ZH.md)）
 - **独立补充材料（20 页，A–M 共 13 节、完整证明、端点清单与扩展对照表）**：[paper/SUPPLEMENT_EN.md](paper/SUPPLEMENT_EN.md) · [paper/supplement/main.pdf](paper/supplement/main.pdf)（中文同步稿：[paper/SUPPLEMENT_ZH.md](paper/SUPPLEMENT_ZH.md)）
 - **RGB100 坐标协议与迁移验证**：[docs/RGB_PROTOCOL.md](docs/RGB_PROTOCOL.md) · [docs/RGB_MIGRATION_VALIDATION.md](docs/RGB_MIGRATION_VALIDATION.md)
-- **LaTeX 构建与预印本打包说明**：[paper/LATEX_README.md](paper/LATEX_README.md) · **34 篇参考文献核验清单**：[REFERENCE_AUDIT.md](REFERENCE_AUDIT.md)
+- **LaTeX 构建与预印本打包说明**：[paper/LATEX_README.md](paper/LATEX_README.md) · **33 篇参考文献核验清单**：[REFERENCE_AUDIT.md](REFERENCE_AUDIT.md)
 
 ---
 
