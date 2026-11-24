@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use HuePrint, its probe batteries, or its empirical cloud response datasets, please cite this work."
 title: "Talk Is Cheap, Show Me Your Colors: Low-Budget Consistency Auditing for Aggregated LLM Services"
 type: article
-version: "3.0.0"
+version: "3.0.1"
 date-released: "2026-11-25"
 license: CC-BY-4.0
 authors:
@@ -29,7 +29,7 @@ abstract: >-
   brokered endpoint consistency without weights or token probabilities. HuePrint elicits compact color codes and
   compares responses via regularized RGB energy and hybrid scoring, turning nearby outputs into continuous geometric
   distance. Across 38,688 cloud responses (56 endpoints, 12 backends), HuePrint lowers 30-call/side equal error rates
-  (EERs) over word baselines from 6.25-8.04 to 3.49-5.00 percent on 20 locked endpoints (0.00 percent by 60-150
+  (EERs) over word baselines from 6.25-8.04 to 3.49-5.00 percent on 20 locked endpoints (0.00 percent at 150
   calls/side). On those endpoints, it averages 5.18 percent within-family EER, outperforming LLMmap (10.53-34.39
   percent) and cost-matched continuation kernels (11.09-19.47 percent); unlike LLMmap, it avoids safety-triggering
   probes and runs over 15,000 times faster locally. Hybrid scoring cuts cross-provider EER to 5.93 percent, while

@@ -1,6 +1,6 @@
 {
   "source": "../MANUSCRIPT_EN.md",
-  "sha256": "6fb01f3551806f2ff0700507ee1a6ca0b8cacb84c9d20b17589261752a8ffa0c",
+  "sha256": "0b44ac7106f4e0921c4e33392d041031258febefc5895aae20d227abc5c2a3f4",
   "tables": 9,
   "references": 30,
   "main_reference_numbers": [
@@ -56,7 +56,7 @@
     {
       "token": "HUEUSERLATEXBLOCK0000END",
       "name": "introduction",
-      "sha256": "94664b4b4dd7f930426c7993ef5d7c3637cb607b2670059b2dafd77982e43cca",
+      "sha256": "2e77996707a36362f7f913fea917105ff91dc7907420a00efe4742d9f7cda084",
       "tables": 0
     },
     {
