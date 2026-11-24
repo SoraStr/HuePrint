@@ -1,7 +1,7 @@
 {
   "source": "../SUPPLEMENT_EN.md",
-  "sha256": "888a4d2c22d5cf1f74ff6027b5e2ca7fcc1e6b51d6598b8a848afc68d4578b8c",
-  "main_source_sha256": "78e2000fcf0437ad7378b884bb0dfc25a19ea4031744cc7b6810f42ce2d273c2",
+  "sha256": "932a5215053daa0e24163fa05c51068f4e7ef8decba4251d3ba4097411bee02d",
+  "main_source_sha256": "6fb01f3551806f2ff0700507ee1a6ca0b8cacb84c9d20b17589261752a8ffa0c",
   "tables": 16,
   "references": 11,
   "reference_numbers": [

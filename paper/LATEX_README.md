@@ -4,7 +4,7 @@
 
 英文权威源稿为 `MANUSCRIPT_EN.md`（中文同步稿为 `MANUSCRIPT_ZH.md`），独立补充材料源稿为 `SUPPLEMENT_EN.md`（中文同步稿为 `SUPPLEMENT_ZH.md`）。主构建产物为：
 
-- `ieee/main.pdf`：`IEEEtran`（`\documentclass[10pt,journal,compsoc]{IEEEtran}`，原生行距与 `8pt` `\footnotesize` 表格），署名来自 `direct_replacements/author.tex` 与 `author_metadata.json`，共 **12 页**（含参考文献与作者简介，180 词 IEEE TSC 合规摘要，0 `Overfull \hbox`，0 `Underfull \vbox`）；
+- `ieee/main.pdf`：`IEEEtran`（`\documentclass[10pt,journal,compsoc]{IEEEtran}`，原生行距与 `8pt` `\footnotesize` 表格），署名来自 `direct_replacements/author.tex` 与 `author_metadata.json`，共 **12 页**（含参考文献与作者简介，148 词 IEEE TSC 合规摘要，0 `Overfull \hbox`，0 `Underfull \vbox`）；
 - `supplement/main.pdf`：A–M 共 13 节带目录的独立英文补充材料（XeTeX/fontspec 排印中/英/俄/阿四语原始探针），共 **20 页**（0 `Overfull \hbox`，0 `Underfull \vbox`）；
 - `../zenodo_release/HuePrint_Preprint.pdf`：主稿与补充材料无损合并的 **32 页完整预印本 PDF**，配套独立主稿/补充 PDF 与脱敏复现包 `../zenodo_release/HuePrint_Replication_Package.zip`。
 

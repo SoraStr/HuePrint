@@ -1,6 +1,6 @@
 {
   "source": "../MANUSCRIPT_EN.md",
-  "sha256": "78e2000fcf0437ad7378b884bb0dfc25a19ea4031744cc7b6810f42ce2d273c2",
+  "sha256": "6fb01f3551806f2ff0700507ee1a6ca0b8cacb84c9d20b17589261752a8ffa0c",
   "tables": 9,
   "references": 30,
   "main_reference_numbers": [
@@ -56,7 +56,7 @@
     {
       "token": "HUEUSERLATEXBLOCK0000END",
       "name": "introduction",
-      "sha256": "0c6374e801021d8e5cd07519f26d5c79365cdc712053e3b97f55bf54cbb64e72",
+      "sha256": "94664b4b4dd7f930426c7993ef5d7c3637cb607b2670059b2dafd77982e43cca",
       "tables": 0
     },
     {
@@ -86,31 +86,31 @@
     {
       "token": "HUEUSERLATEXBLOCK0005END",
       "name": "s2_and_family",
-      "sha256": "89a4faea2b689b0d9c3f3dc81e51bfd5203fd8a5a5f98d1c9cdf2c391675a4ad",
+      "sha256": "f7288ea9ff31720be220d5df948f2d6f5e6623dc21269b45f66ac7a2db84e54b",
       "tables": 1
     },
     {
       "token": "HUEUSERLATEXBLOCK0006END",
       "name": "perturbation_and_reuse",
-      "sha256": "77023626c44edc3c22e6be5b24cd6afda89f50b86abbb3adabcc50d4be488046",
+      "sha256": "72c6531096efd08207f960f73c67cea0f29b50798a2c9afe77294727df8e2f26",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0007END",
       "name": "routing",
-      "sha256": "1db32a49665fe6128a28ac12e7f210c707b8a2602a78a8c3328d91e975b14da7",
+      "sha256": "e23e7a1765f15f60f4b18e3f56a9063df27de4202c7fd4c91ded24ae8326f4ee",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0008END",
       "name": "overhead",
-      "sha256": "79e524dffc20f0ae1601148148f7faf4e97e41c60ce2eb70a39dc1cfdc531a22",
+      "sha256": "23461463b52268b1a829927d270fe01d20898e4db3d9645cb7ada53f27b9cade",
       "tables": 0
     },
     {
       "token": "HUEUSERLATEXBLOCK0009END",
       "name": "ending",
-      "sha256": "cfd5472d100e1ac67443e94b98730d26324753e71d3718df6223db5b16ae0f45",
+      "sha256": "a23f2931813b7c8117f335845285e04d0d95ea38c9f83076ea4807a0782406ed",
       "tables": 1
     },
     {

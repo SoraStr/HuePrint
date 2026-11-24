@@ -24,15 +24,13 @@ keywords:
   - behavioral consistency
   - energy statistics
 abstract: >-
-  Organizations routing production workloads through aggregated large language model (LLM) brokers rely on declared
-  model identifiers, yet the backend serving each request remains hidden. We present HuePrint, a black-box framework
-  that audits brokered endpoint consistency via structured color elicitation and geometric comparison without weights
-  or token probabilities. Across 38,688 cloud responses (56 endpoints, 12 backends), HuePrint cuts 30-call/side equal
-  error rates (EERs) over word baselines from 4.52-5.23 to 0.94-1.00 percent on development models and 6.25-8.04 to
-  3.49-5.00 percent across 20 locked endpoints (0.00 percent at 60-150 calls/side). On those 20 endpoints, it averages
-  5.18 percent within-family EER across ten balanced 30-call splits (0.00-7.89 percent), beating LLMmap (10.53-34.39
-  percent) and cost-matched continuation kernels (11.09-19.47 percent); relative to LLMmap, it also avoids
-  safety-triggering probes and runs over 15,000 times faster locally. Regularized RGB energy lowers shallow EER
-  (5.36 vs. 10.71 percent exact hex and 6.42 percent string MMD), while hybrid scoring cuts cross-provider EER from
-  16.67 to 5.93 percent. In replay, two-stage confirmation cuts false alerts from 14 to 1 across 100 same-label
-  windows and flags 186/190 within-family swaps under one cent.
+  Organizations routing workloads through aggregated large language model (LLM) brokers rely on declared model
+  identifiers while the serving backend remains hidden. We present HuePrint, a black-box framework that audits
+  brokered endpoint consistency without weights or token probabilities. HuePrint elicits compact color codes and
+  compares responses via regularized RGB energy and hybrid scoring, turning nearby outputs into continuous geometric
+  distance. Across 38,688 cloud responses (56 endpoints, 12 backends), HuePrint lowers 30-call/side equal error rates
+  (EERs) over word baselines from 6.25-8.04 to 3.49-5.00 percent on 20 locked endpoints (0.00 percent by 60-150
+  calls/side). On those endpoints, it averages 5.18 percent within-family EER, outperforming LLMmap (10.53-34.39
+  percent) and cost-matched continuation kernels (11.09-19.47 percent); unlike LLMmap, it avoids safety-triggering
+  probes and runs over 15,000 times faster locally. Hybrid scoring cuts cross-provider EER to 5.93 percent, while
+  two-stage confirmation drops false alerts from 14 to 1 across 100 same-label windows under one cent.

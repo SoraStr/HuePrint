@@ -119,12 +119,10 @@ class ManuscriptIntegrityTests(unittest.TestCase):
             "| 6 | Word JSD |",
             "| 30 | Color $D_{\\mathrm{hex}}$ |",
             "1.11% Word JSD",
-            "4.52–5.23 to 0.94–1.00 percent",
-            "3.49–5.00 percent across 20 locked endpoints",
-            "5.36 vs. 10.71 percent",
-            "relative to LLMmap, it also avoids safety-triggering probes and runs over 15,000 times faster locally",
+            "3.49–5.00 percent on 20 locked endpoints",
+            "unlike LLMmap, it avoids safety-triggering probes and runs over 15,000 times faster locally",
             "Sections 3.4–3.5",
-            r"3v3: 19.78\%",
+            r"At 3v3, Color MMD-U rises to 19.78\% EER",
             "Matched 15v15 parity benchmark against Bruckner with a 64-token cap",
             "Three of 12,000 S3 responses reached the length limit",
             "controlled numerical continuity stress test",
@@ -173,6 +171,10 @@ class ManuscriptIntegrityTests(unittest.TestCase):
         self.assertIn("受控数值连续性压力测试", zh_ms)
         self.assertIn("3 条触及长度上限", zh_ms)
         self.assertNotIn("subset_mmd_diagnostics.json", en_supp)
+        self.assertNotIn("perturbation_diagnostics.json", en_supp)
+        self.assertNotIn("operational_diagnostics.json", en_supp)
+        self.assertNotIn("perturbation_diagnostics.json", (ROOT / "paper" / "SUPPLEMENT_ZH.md").read_text(encoding="utf-8"))
+        self.assertNotIn("operational_diagnostics.json", (ROOT / "paper" / "SUPPLEMENT_ZH.md").read_text(encoding="utf-8"))
         self.assertIn("finite-cluster resampling", en_supp)
         self.assertNotIn("52.71%", en_supp)
         self.assertNotIn("97.32%", en_supp)
